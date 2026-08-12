@@ -18,6 +18,12 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-12, update 5 — self-hosting package)
+- DEPLOY.md: complete self-hosting guide (Docker install, env setup, launch, DNS/SSL, post-launch domain swap, backups, troubleshooting)
+- docker-compose.yml (mongo + backend + frontend/nginx), backend/Dockerfile, frontend/Dockerfile (multi-stage yarn build → nginx), frontend/nginx.conf (SPA + /api proxy)
+- Env templates: backend/.env.production.example + root .env.production.example (REACT_APP_BACKEND_URL baked at build)
+- NOTE: compose YAML validated syntactically; full docker build NOT tested (no docker in this environment)
+
 ## Implemented (2026-08-12, update 4 — admin console)
 - /admin: JWT-secured admin console (admin@devobyte.com, seeded from env, 12h tokens, session persists on reload)
 - Leads tab: combined demo + contact inbox, status management (new/contacted/closed), filters, CSV export
