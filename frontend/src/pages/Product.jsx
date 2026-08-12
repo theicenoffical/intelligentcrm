@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, LayoutGrid, GitBranch, Users2, Workflow, BarChart3, Plug } from "lucide-react";
 import { Reveal, SectionTag, SectionTitle, PageHero, CTASection, PrimaryButton, GhostButton, FAQ } from "../components/kit";
+import { MockupGallery } from "../components/mockups";
 import { SEO } from "../components/SEO";
 
 const MODULES = [
@@ -46,17 +47,17 @@ export default function Product() {
         </div>
       </PageHero>
 
-      <section className="border-b border-white/8" data-testid="product-modules">
+      <section className="border-b border-black/[0.07]" data-testid="product-modules">
         <div className="container-x py-24 md:py-32">
           <SectionTag num="§01">Core Platform</SectionTag>
           <Reveal><SectionTitle className="mb-16">Everything an enterprise CRM<br />is supposed to do.</SectionTitle></Reveal>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
             {MODULES.map((m, i) => (
               <Reveal key={m.name} delay={(i % 3) * 0.08}>
-                <div className="surface-card rounded-md p-8 h-full hover:border-white/20 transition-colors duration-300" data-testid={`module-${m.name.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and")}`}>
-                  <m.icon className="w-5 h-5 text-[#FF3333] mb-6" />
-                  <h3 className="font-display text-xl font-bold text-[#F2F2F2] tracking-[-0.01em]">{m.name}</h3>
-                  <p className="text-[#8F8F9D] text-sm mt-3 leading-relaxed">{m.desc}</p>
+                <div className="surface-card rounded-md p-8 h-full hover:border-black/20 transition-colors duration-300" data-testid={`module-${m.name.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and")}`}>
+                  <m.icon className="w-5 h-5 text-[#E04006] mb-6" />
+                  <h3 className="font-display text-xl font-bold text-[#1C1917] tracking-[-0.01em]">{m.name}</h3>
+                  <p className="text-[#57534E] text-sm mt-3 leading-relaxed">{m.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -64,19 +65,33 @@ export default function Product() {
         </div>
       </section>
 
-      <section className="border-b border-white/8 bg-[#0C0C0F]" data-testid="product-lifecycle">
+      <section className="border-b border-black/[0.07]" data-testid="product-gallery">
         <div className="container-x py-24 md:py-32">
-          <SectionTag num="§02">Sales Lifecycle</SectionTag>
+          <SectionTag num="§02">The Interface</SectionTag>
+          <Reveal><SectionTitle className="mb-6">See the platform.</SectionTitle></Reveal>
+          <Reveal delay={0.05}>
+            <p className="text-[#57534E] text-sm md:text-base max-w-xl leading-relaxed mb-16">
+              Purpose-built screens for pipeline management, executive visibility and account intelligence.
+              Shown here as illustrative product concepts — the real thing is configured to your process.
+            </p>
+          </Reveal>
+          <MockupGallery />
+        </div>
+      </section>
+
+      <section className="border-b border-black/[0.07] bg-[#F5F5F4]" data-testid="product-lifecycle">
+        <div className="container-x py-24 md:py-32">
+          <SectionTag num="§03">Sales Lifecycle</SectionTag>
           <Reveal><SectionTitle className="mb-16">AI at every stage<br />of the deal.</SectionTitle></Reveal>
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-px bg-white/8 border border-white/8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-px bg-black/[0.07] border border-black/[0.07]">
             {LIFECYCLE.map(([stage, desc], i) => (
-              <Reveal key={stage} delay={(i % 3) * 0.06} className="bg-[#0C0C0F]">
+              <Reveal key={stage} delay={(i % 3) * 0.06} className="bg-[#FFFFFF]">
                 <div className="p-8" data-testid={`lifecycle-${stage.toLowerCase()}`}>
                   <div className="flex items-baseline gap-4 mb-4">
-                    <span className="font-mono2 text-[11px] text-[#FF3333] tracking-widest">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="font-display text-lg font-bold text-[#F2F2F2]">{stage}</h3>
+                    <span className="font-mono2 text-[11px] text-[#E04006] tracking-widest">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="font-display text-lg font-bold text-[#1C1917]">{stage}</h3>
                   </div>
-                  <p className="text-[#8F8F9D] text-sm leading-relaxed">{desc}</p>
+                  <p className="text-[#57534E] text-sm leading-relaxed">{desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -84,12 +99,12 @@ export default function Product() {
         </div>
       </section>
 
-      <section className="border-b border-white/8" data-testid="product-faq-section">
+      <section className="border-b border-black/[0.07]" data-testid="product-faq-section">
         <div className="container-x py-24 md:py-32 grid lg:grid-cols-2 gap-16">
           <Reveal>
-            <SectionTag num="§03">Questions</SectionTag>
+            <SectionTag num="§04">Questions</SectionTag>
             <SectionTitle>Asked before<br />every evaluation.</SectionTitle>
-            <p className="text-[#8F8F9D] text-sm md:text-base mt-6 max-w-md leading-relaxed">
+            <p className="text-[#57534E] text-sm md:text-base mt-6 max-w-md leading-relaxed">
               Deeper questions about architecture or fit? Our team answers directly — no chatbots.
             </p>
             <div className="mt-8">
@@ -102,14 +117,14 @@ export default function Product() {
         </div>
       </section>
 
-      <section className="border-b border-white/8 bg-[#0C0C0F]">
+      <section className="border-b border-black/[0.07] bg-[#FFFFFF]">
         <div className="container-x py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <Reveal>
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-[#F2F2F2] tracking-[-0.02em]">See the AI capabilities in depth.</h3>
-            <p className="text-[#8F8F9D] text-sm mt-2">Twenty integrated AI features across qualification, research, productivity and insight.</p>
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-[#1C1917] tracking-[-0.02em]">See the AI capabilities in depth.</h3>
+            <p className="text-[#57534E] text-sm mt-2">Twenty integrated AI features across qualification, research, productivity and insight.</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <Link to="/features" data-testid="product-to-features" className="group inline-flex items-center gap-2 text-sm font-medium text-white border-b border-[#FF3333] pb-1">
+            <Link to="/features" data-testid="product-to-features" className="group inline-flex items-center gap-2 text-sm font-medium text-[#1C1917] border-b border-[#E04006] pb-1">
               Explore Features <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </Reveal>

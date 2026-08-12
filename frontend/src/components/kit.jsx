@@ -18,20 +18,20 @@ export const Reveal = ({ children, delay = 0, className = "", ...props }) => (
 
 export const SectionTag = ({ children, num }) => (
   <div className="flex items-center gap-3 mb-6" data-testid="section-tag">
-    {num && <span className="font-mono2 text-[11px] tracking-[0.25em] text-[#FF3333]">{num}</span>}
+    {num && <span className="font-mono2 text-[11px] tracking-[0.25em] text-[#E04006]">{num}</span>}
     <span className="overline-tag">{children}</span>
-    <span className="h-px flex-1 bg-white/10" />
+    <span className="h-px flex-1 bg-black/10" />
   </div>
 );
 
 export const SectionTitle = ({ children, className = "" }) => (
-  <h2 className={`font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] leading-[1.05] text-[#F2F2F2] ${className}`}>
+  <h2 className={`font-display font-bold text-3xl md:text-5xl tracking-[-0.03em] leading-[1.05] text-[#1C1917] ${className}`}>
     {children}
   </h2>
 );
 
 export const PrimaryButton = ({ to, children, testid, onClick }) => {
-  const cls = "group inline-flex items-center gap-2 bg-white text-black font-medium text-sm px-6 py-3.5 rounded-md transition-[transform,background-color] duration-200 hover:bg-[#e5e5e5] active:scale-[0.98]";
+  const cls = "group inline-flex items-center gap-2 bg-[#E04006] text-white font-medium text-sm px-6 py-3.5 rounded-md transition-[transform,background-color] duration-200 hover:bg-[#C83805] active:scale-[0.98]";
   const inner = (
     <>
       {children}
@@ -46,21 +46,21 @@ export const GhostButton = ({ to, children, testid }) => (
   <Link
     data-testid={testid}
     to={to}
-    className="inline-flex items-center gap-2 border border-white/15 text-[#F2F2F2] font-medium text-sm px-6 py-3.5 rounded-md transition-[background-color,border-color,transform] duration-200 hover:bg-white/5 hover:border-white/25 active:scale-[0.98]"
+    className="inline-flex items-center gap-2 border border-black/[0.15] text-[#1C1917] font-medium text-sm px-6 py-3.5 rounded-md transition-[background-color,border-color,transform] duration-200 hover:bg-black/[0.04] hover:border-black/25 active:scale-[0.98]"
   >
     {children}
   </Link>
 );
 
 export const Marquee = ({ items }) => (
-  <div className="relative overflow-hidden border-y border-white/8 py-6 select-none" data-testid="editorial-marquee">
+  <div className="relative overflow-hidden border-y border-black/[0.07] bg-[#F5F5F4] py-6 select-none" data-testid="editorial-marquee">
     <div className="flex whitespace-nowrap animate-marquee-slow w-max">
       {[0, 1].map((copy) => (
         <div key={copy} className="flex items-center" aria-hidden={copy === 1}>
           {items.map((item, i) => (
             <span key={i} className="flex items-center">
-              <span className="font-display text-2xl md:text-4xl font-medium text-[#F2F2F2]/80 px-8 tracking-[-0.02em]">{item}</span>
-              <span className="w-2 h-2 rotate-45 bg-[#FF3333]/70 shrink-0" />
+              <span className="font-display text-2xl md:text-4xl font-medium text-[#1C1917]/80 px-8 tracking-[-0.02em]">{item}</span>
+              <span className="w-2 h-2 rotate-45 bg-[#E04006]/70 shrink-0" />
             </span>
           ))}
         </div>
@@ -72,17 +72,17 @@ export const Marquee = ({ items }) => (
 export const FAQ = ({ items, testid = "faq" }) => (
   <Accordion type="single" collapsible className="w-full" data-testid={testid}>
     {items.map((item, i) => (
-      <AccordionItem key={i} value={`item-${i}`} className="border-b border-white/8">
+      <AccordionItem key={i} value={`item-${i}`} className="border-b border-black/[0.07]">
         <AccordionTrigger
           data-testid={`${testid}-trigger-${i}`}
-          className="text-left font-display text-base md:text-lg font-medium text-[#F2F2F2] hover:no-underline py-6 gap-4"
+          className="text-left font-display text-base md:text-lg font-medium text-[#1C1917] hover:no-underline py-6 gap-4"
         >
           <span className="flex items-baseline gap-4">
-            <span className="font-mono2 text-[11px] text-[#FF3333] tracking-widest shrink-0">{String(i + 1).padStart(2, "0")}</span>
+            <span className="font-mono2 text-[11px] text-[#E04006] tracking-widest shrink-0">{String(i + 1).padStart(2, "0")}</span>
             <span>{item.q}</span>
           </span>
         </AccordionTrigger>
-        <AccordionContent className="text-[#8F8F9D] text-sm md:text-base leading-relaxed pl-10 pb-6">
+        <AccordionContent className="text-[#57534E] text-sm md:text-base leading-relaxed pl-10 pb-6">
           {item.a}
         </AccordionContent>
       </AccordionItem>
@@ -91,16 +91,22 @@ export const FAQ = ({ items, testid = "faq" }) => (
 );
 
 export const CTASection = ({ title = "See Sales IQ in action.", sub = "Book a demo and we'll walk through your sales process, your deployment requirements, and how AI fits your team." }) => (
-  <section className="border-t border-white/8 relative overflow-hidden" data-testid="cta-section">
-    <div className="absolute inset-0 grid-lines opacity-60" />
+  <section className="border-t border-black/[0.07] bg-[#0F172A] relative overflow-hidden" data-testid="cta-section">
+    <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "72px 72px" }} />
     <div className="container-x py-24 md:py-32 relative">
       <Reveal>
-        <p className="overline-tag mb-6">Next Step</p>
-        <h2 className="font-display font-bold text-4xl md:text-6xl tracking-[-0.03em] leading-[1.02] max-w-3xl text-[#F2F2F2]">{title}</h2>
-        <p className="text-[#8F8F9D] text-base md:text-lg mt-6 max-w-xl leading-relaxed">{sub}</p>
+        <p className="font-mono2 text-[11px] uppercase tracking-[0.25em] text-[#A8A29E] mb-6">Next Step</p>
+        <h2 className="font-display font-bold text-4xl md:text-6xl tracking-[-0.03em] leading-[1.02] max-w-3xl text-white">{title}</h2>
+        <p className="text-[#A8A29E] text-base md:text-lg mt-6 max-w-xl leading-relaxed">{sub}</p>
         <div className="flex flex-wrap gap-4 mt-10">
           <PrimaryButton to="/book-demo" testid="cta-book-demo">Book a Demo</PrimaryButton>
-          <GhostButton to="/contact" testid="cta-talk-expert">Talk to an Expert</GhostButton>
+          <Link
+            to="/contact"
+            data-testid="cta-talk-expert"
+            className="inline-flex items-center gap-2 border border-white/20 text-white font-medium text-sm px-6 py-3.5 rounded-md transition-[background-color,border-color,transform] duration-200 hover:bg-white/10 hover:border-white/35 active:scale-[0.98]"
+          >
+            Talk to an Expert
+          </Link>
         </div>
       </Reveal>
     </div>
@@ -108,13 +114,13 @@ export const CTASection = ({ title = "See Sales IQ in action.", sub = "Book a de
 );
 
 export const PageHero = ({ overline, title, sub, children }) => (
-  <section className="relative border-b border-white/8 overflow-hidden" data-testid="page-hero">
+  <section className="relative border-b border-black/[0.07] overflow-hidden" data-testid="page-hero">
     <div className="absolute inset-0 grid-lines opacity-50" />
     <div className="container-x pt-36 pb-20 md:pt-44 md:pb-28 relative">
       <Reveal>
         {overline && <p className="overline-tag mb-6">{overline}</p>}
-        <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-[-0.035em] leading-[1.0] max-w-4xl text-[#F2F2F2]">{title}</h1>
-        {sub && <p className="text-[#8F8F9D] text-base md:text-lg mt-8 max-w-2xl leading-relaxed">{sub}</p>}
+        <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-[-0.035em] leading-[1.0] max-w-4xl text-[#1C1917]">{title}</h1>
+        {sub && <p className="text-[#57534E] text-base md:text-lg mt-8 max-w-2xl leading-relaxed">{sub}</p>}
         {children}
       </Reveal>
     </div>

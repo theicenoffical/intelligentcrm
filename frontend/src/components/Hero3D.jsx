@@ -29,7 +29,7 @@ function Network() {
         if (nodes[i].distanceTo(nodes[j]) < 2.1) {
           lines.push(nodes[i].x, nodes[i].y, nodes[i].z, nodes[j].x, nodes[j].y, nodes[j].z);
           const isSignal = Math.random() < 0.06;
-          const c = isSignal ? [1.0, 0.2, 0.2] : [0.35, 0.35, 0.42];
+          const c = isSignal ? [0.878, 0.251, 0.024] : [0.62, 0.66, 0.72];
           colors.push(...c, ...c);
         }
       }
@@ -61,7 +61,7 @@ function Network() {
       sizes.needsUpdate = true;
     }
     if (lineMat.current) {
-      lineMat.current.opacity = 0.16 + Math.sin(t * 0.5) * 0.04;
+      lineMat.current.opacity = 0.35 + Math.sin(t * 0.5) * 0.08;
     }
   });
 
@@ -71,14 +71,14 @@ function Network() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[positions.slice(), 3]} />
         </bufferGeometry>
-        <pointsMaterial size={0.055} color="#d8d8e2" transparent opacity={0.9} sizeAttenuation />
+        <pointsMaterial size={0.055} color="#0F172A" transparent opacity={0.85} sizeAttenuation />
       </points>
       <lineSegments>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[linePositions, 3]} />
           <bufferAttribute attach="attributes-color" args={[lineColors, 3]} />
         </bufferGeometry>
-        <lineBasicMaterial ref={lineMat} vertexColors transparent opacity={0.18} />
+        <lineBasicMaterial ref={lineMat} vertexColors transparent opacity={0.35} />
       </lineSegments>
     </group>
   );

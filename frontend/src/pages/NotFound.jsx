@@ -13,9 +13,9 @@ export default function NotFound() {
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <p className="overline-tag mb-6">Error · 404</p>
             <h1 className="font-display font-extrabold text-[18vw] sm:text-8xl lg:text-[10rem] leading-[0.9] tracking-[-0.04em]">
-              <span className="text-stroke">Page</span> <span className="text-[#F2F2F2]">not found.</span>
+              <span className="text-stroke">Page</span> <span className="text-[#1C1917]">not found.</span>
             </h1>
-            <p className="text-[#8F8F9D] text-base md:text-lg mt-8 max-w-md leading-relaxed">
+            <p className="text-[#57534E] text-base md:text-lg mt-8 max-w-md leading-relaxed">
               This record doesn't exist in our system. Let's get you back to known territory.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
@@ -24,7 +24,7 @@ export default function NotFound() {
             </div>
             <div className="mt-16 flex flex-wrap gap-x-8 gap-y-3">
               {[["Product", "/product"], ["Industries", "/industries"], ["Pricing", "/pricing"], ["Book a Demo", "/book-demo"]].map(([label, to]) => (
-                <Link key={to} to={to} data-testid={`404-link-${label.toLowerCase().replace(/\s+/g, "-")}`} className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#8F8F9D] hover:text-white transition-colors duration-150 border-b border-transparent hover:border-[#FF3333] pb-1">
+                <Link key={to} to={to} data-testid={`404-link-${label.toLowerCase().replace(/\s+/g, "-")}`} className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#57534E] hover:text-[#1C1917] transition-colors duration-150 border-b border-transparent hover:border-[#E04006] pb-1">
                   {label}
                 </Link>
               ))}

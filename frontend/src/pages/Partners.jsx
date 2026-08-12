@@ -21,14 +21,14 @@ export default function Partners() {
         <div className="grid lg:grid-cols-3 gap-6">
           {TRACKS.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.08}>
-              <div className="surface-card rounded-md p-10 h-full hover:border-white/20 transition-colors duration-300" data-testid={`partner-${t.name.toLowerCase().replace(/\s+/g, "-")}`}>
-                <t.icon className="w-5 h-5 text-[#FF3333] mb-8" />
-                <h2 className="font-display text-2xl font-bold text-[#F2F2F2] tracking-[-0.02em]">{t.name}</h2>
-                <p className="text-[#8F8F9D] text-sm mt-4 leading-relaxed">{t.desc}</p>
-                <ul className="mt-8 pt-6 border-t border-white/8 space-y-3">
+              <div className="surface-card rounded-md p-10 h-full hover:border-black/20 transition-colors duration-300" data-testid={`partner-${t.name.toLowerCase().replace(/\s+/g, "-")}`}>
+                <t.icon className="w-5 h-5 text-[#E04006] mb-8" />
+                <h2 className="font-display text-2xl font-bold text-[#1C1917] tracking-[-0.02em]">{t.name}</h2>
+                <p className="text-[#57534E] text-sm mt-4 leading-relaxed">{t.desc}</p>
+                <ul className="mt-8 pt-6 border-t border-black/[0.07] space-y-3">
                   {t.points.map((pt) => (
-                    <li key={pt} className="flex items-center gap-2.5 text-xs text-[#8F8F9D]">
-                      <span className="w-1 h-1 bg-[#FF3333]/70 rotate-45 shrink-0" />
+                    <li key={pt} className="flex items-center gap-2.5 text-xs text-[#57534E]">
+                      <span className="w-1 h-1 bg-[#E04006]/70 rotate-45 shrink-0" />
                       {pt}
                     </li>
                   ))}
@@ -38,14 +38,14 @@ export default function Partners() {
           ))}
         </div>
       </section>
-      <section className="border-t border-white/8 bg-[#0C0C0F]">
+      <section className="border-t border-black/[0.07] bg-[#FFFFFF]">
         <div className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-16">
           <Reveal>
             <SectionTag num="§02">Why Partner</SectionTag>
             <SectionTitle>Unlimited users changes<br />your deal math too.</SectionTitle>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-[#8F8F9D] text-sm md:text-base leading-[1.85] max-w-lg">
+            <p className="text-[#57534E] text-sm md:text-base leading-[1.85] max-w-lg">
               Partners win when clients expand — and per-seat licensing makes clients shrink their rollouts to control cost.
               With Sales IQ, every expansion of usage is good news for the client, which makes it good news for you.
               Implementation, integration and managed-services practices grow on a platform clients keep.

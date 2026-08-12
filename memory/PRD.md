@@ -18,6 +18,14 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-12, update 2 — light redesign + mockups + SEO)
+- FULL LIGHT-THEME REDESIGN per user feedback ("dark is not looking good"): warm paper editorial system (#FAFAF9 paper, #FFFFFF surfaces, #1C1917 ink, #E04006 vermilion accent, #0F172A indigo), Satoshi body + Cabinet Grotesk display + JetBrains Mono
+- Product Mockup Gallery on /product + preview on Home: 3 CSS-crafted CRM UI mockups (Pipeline Kanban with AI scores, Executive Dashboard with chart + AI forecast panel, Account 360 with AI brief) in spotlight frames with 3D tilt on hover, labeled "Illustrative product concept"
+- Manifesto chapters now have massive background numerals; pricing Business card inverted (indigo); CTA sections inverted indigo
+- SEO: sitemap.xml (60 URLs, generated from data files), robots.txt, OG/Twitter meta per page, og-image.png (1200x630 designed share card), favicon.svg, real page <title>
+- About page: office photography added
+- Verified: light theme across home/product/pricing/book-demo, mockups render, sitemap+robots+og-image served (200)
+
 ## Implemented (2026-08-12)
 - All 18 routes live and verified
 - Home: kinetic masked hero over 3D R3F network, pillars marquee, manifesto chapters, deployment models, AI preview, comparison table, industries grid, security strip, CTA
@@ -31,5 +39,5 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 
 ## Backlog / Next
 - P0: Add real RESEND_API_KEY + set NOTIFICATION_EMAIL to activate lead email notifications
-- P1: Real case studies once customers exist; sitemap.xml + robots.txt; OG images
+- P1: Real case studies once customers exist; swap sitemap/OG base URL to the production domain at launch
 - P2: Product screenshot/mockup gallery, interactive deployment-model 3D explorer, localized content

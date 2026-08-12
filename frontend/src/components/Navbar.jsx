@@ -13,11 +13,11 @@ const DROPDOWNS = {
 
 const Logo = () => (
   <Link to="/" data-testid="nav-logo" className="flex items-center gap-2.5 shrink-0">
-    <span className="w-7 h-7 border border-white/30 rounded-sm grid place-items-center">
-      <span className="w-2 h-2 bg-[#FF3333] rotate-45 animate-signal" />
+    <span className="w-7 h-7 border border-black/30 rounded-sm grid place-items-center">
+      <span className="w-2 h-2 bg-[#E04006] rotate-45 animate-signal" />
     </span>
-    <span className="font-display font-bold text-lg tracking-[-0.02em] text-[#F2F2F2]">
-      Intelligent<span className="text-[#8F8F9D] font-medium">CRM</span>
+    <span className="font-display font-bold text-lg tracking-[-0.02em] text-[#1C1917]">
+      Intelligent<span className="text-[#57534E] font-medium">CRM</span>
     </span>
   </Link>
 );
@@ -30,7 +30,7 @@ export const Navbar = () => {
   useEffect(() => { setOpen(false); setDrop(null); }, [pathname]);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-black/60 backdrop-blur-2xl border-b border-white/10" data-testid="navbar">
+    <header className="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur-2xl border-b border-black/10" data-testid="navbar">
       <div className="container-x flex items-center justify-between h-16">
         <Logo />
         <nav className="hidden lg:flex items-center gap-1" data-testid="nav-desktop">
@@ -43,7 +43,7 @@ export const Navbar = () => {
                   to={item.to}
                   data-testid={`nav-${item.label.toLowerCase()}`}
                   className={({ isActive }) =>
-                    `px-3.5 py-2 text-[13px] font-medium rounded-md transition-colors duration-150 ${isActive ? "text-white" : "text-[#8F8F9D] hover:text-white"}`
+                    `px-3.5 py-2 text-[13px] font-medium rounded-md transition-colors duration-150 ${isActive ? "text-[#1C1917]" : "text-[#57534E] hover:text-[#1C1917]"}`
                   }
                 >
                   {item.label}
@@ -54,7 +54,7 @@ export const Navbar = () => {
               <div key={item.label} className="relative" onMouseEnter={() => setDrop(item.label)} onMouseLeave={() => setDrop(null)}>
                 <button
                   data-testid={`nav-${item.label.toLowerCase()}`}
-                  className={`flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium rounded-md transition-colors duration-150 ${drop === item.label || pathname.startsWith(dd.to) ? "text-white" : "text-[#8F8F9D] hover:text-white"}`}
+                  className={`flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium rounded-md transition-colors duration-150 ${drop === item.label || pathname.startsWith(dd.to) ? "text-[#1C1917]" : "text-[#57534E] hover:text-[#1C1917]"}`}
                 >
                   {item.label}
                   <ChevronDown className="w-3 h-3 opacity-60" />
@@ -68,13 +68,13 @@ export const Navbar = () => {
                       transition={{ duration: 0.15 }}
                       className="absolute top-full left-0 pt-2"
                     >
-                      <div className="w-64 surface-card rounded-md p-2 backdrop-blur-2xl bg-[#0C0C0F]/95">
+                      <div className="w-64 surface-card rounded-md p-2 backdrop-blur-2xl bg-[#FFFFFF]/95">
                         {dd.links.map(([label, to]) => (
                           <Link
                             key={to + label}
                             to={to}
                             data-testid={`nav-dd-${label.toLowerCase().replace(/\s+/g, "-")}`}
-                            className="block px-3 py-2 text-[13px] text-[#8F8F9D] hover:text-white hover:bg-white/5 rounded transition-colors duration-150"
+                            className="block px-3 py-2 text-[13px] text-[#57534E] hover:text-[#1C1917] hover:bg-black/[0.04] rounded transition-colors duration-150"
                           >
                             {label}
                           </Link>
@@ -88,19 +88,19 @@ export const Navbar = () => {
           })}
         </nav>
         <div className="hidden lg:flex items-center gap-3">
-          <Link to="/contact" data-testid="nav-talk-expert" className="text-[13px] font-medium text-[#8F8F9D] hover:text-white transition-colors duration-150 px-3 py-2">
+          <Link to="/contact" data-testid="nav-talk-expert" className="text-[13px] font-medium text-[#57534E] hover:text-[#1C1917] transition-colors duration-150 px-3 py-2">
             Talk to an Expert
           </Link>
           <Link
             to="/book-demo"
             data-testid="nav-book-demo"
-            className="bg-white text-black text-[13px] font-semibold px-5 py-2.5 rounded-md transition-[transform,background-color] duration-200 hover:bg-[#e5e5e5] active:scale-[0.98]"
+            className="bg-[#E04006] text-white text-[13px] font-semibold px-5 py-2.5 rounded-md transition-[transform,background-color] duration-200 hover:bg-[#C83805] active:scale-[0.98]"
           >
             Book a Demo
           </Link>
         </div>
         <button
-          className="lg:hidden text-white p-2"
+          className="lg:hidden text-[#1C1917] p-2"
           onClick={() => setOpen(!open)}
           data-testid="nav-mobile-toggle"
           aria-label="Toggle menu"
@@ -114,16 +114,16 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-white/10 bg-[#050505]/95 backdrop-blur-2xl overflow-hidden"
+            className="lg:hidden border-t border-black/10 bg-[#FAFAF9]/95 backdrop-blur-2xl overflow-hidden"
             data-testid="nav-mobile-menu"
           >
             <div className="container-x py-6 flex flex-col gap-1">
               {NAV.map((item) => (
-                <Link key={item.label} to={item.to} data-testid={`nav-mobile-${item.label.toLowerCase()}`} className="py-2.5 text-sm text-[#8F8F9D] hover:text-white font-medium">
+                <Link key={item.label} to={item.to} data-testid={`nav-mobile-${item.label.toLowerCase()}`} className="py-2.5 text-sm text-[#57534E] hover:text-[#1C1917] font-medium">
                   {item.label}
                 </Link>
               ))}
-              <Link to="/book-demo" data-testid="nav-mobile-book-demo" className="mt-4 bg-white text-black text-sm font-semibold px-5 py-3 rounded-md text-center">
+              <Link to="/book-demo" data-testid="nav-mobile-book-demo" className="mt-4 bg-[#E04006] text-white text-sm font-semibold px-5 py-3 rounded-md text-center">
                 Book a Demo
               </Link>
             </div>
@@ -135,18 +135,18 @@ export const Navbar = () => {
 };
 
 export const Footer = () => (
-  <footer className="border-t border-white/8 bg-[#050505]" data-testid="footer">
+  <footer className="border-t border-black/[0.07] bg-[#FAFAF9]" data-testid="footer">
     <div className="container-x py-16 md:py-20">
       <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
         <div className="col-span-2">
           <Logo />
-          <p className="text-[#8F8F9D] text-sm mt-5 leading-relaxed max-w-xs">
+          <p className="text-[#57534E] text-sm mt-5 leading-relaxed max-w-xs">
             Enterprise CRM. Unlimited Users. AI Built In. Powered by {SITE.company}.
           </p>
-          <p className="font-mono2 text-[11px] text-[#8F8F9D]/70 mt-6 leading-relaxed tracking-wider">
+          <p className="font-mono2 text-[11px] text-[#57534E]/70 mt-6 leading-relaxed tracking-wider">
             {SITE.address}
             <br />
-            <a href={SITE.phoneHref} data-testid="footer-phone" className="hover:text-white transition-colors duration-150">{SITE.phone}</a>
+            <a href={SITE.phoneHref} data-testid="footer-phone" className="hover:text-[#1C1917] transition-colors duration-150">{SITE.phone}</a>
           </p>
         </div>
         {[
@@ -160,7 +160,7 @@ export const Footer = () => (
             <ul className="space-y-3">
               {links.map(([label, to]) => (
                 <li key={to + label}>
-                  <Link to={to} data-testid={`footer-${label.toLowerCase().replace(/\s+/g, "-")}`} className="text-sm text-[#8F8F9D] hover:text-white transition-colors duration-150">
+                  <Link to={to} data-testid={`footer-${label.toLowerCase().replace(/\s+/g, "-")}`} className="text-sm text-[#57534E] hover:text-[#1C1917] transition-colors duration-150">
                     {label}
                   </Link>
                 </li>
@@ -169,11 +169,11 @@ export const Footer = () => (
           </div>
         ))}
       </div>
-      <div className="mt-16 pt-8 border-t border-white/8 flex flex-col md:flex-row justify-between gap-4">
-        <p className="font-mono2 text-[11px] text-[#8F8F9D]/60 tracking-wider">
+      <div className="mt-16 pt-8 border-t border-black/[0.07] flex flex-col md:flex-row justify-between gap-4">
+        <p className="font-mono2 text-[11px] text-[#57534E]/60 tracking-wider">
           © {new Date().getFullYear()} {SITE.company}. All rights reserved.
         </p>
-        <p className="font-mono2 text-[11px] text-[#8F8F9D]/60 tracking-wider">
+        <p className="font-mono2 text-[11px] text-[#57534E]/60 tracking-wider">
           INTELLIGENT CRM · SALES IQ · ENTERPRISE OWNED
         </p>
       </div>

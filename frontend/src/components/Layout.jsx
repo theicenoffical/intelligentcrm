@@ -29,13 +29,13 @@ export const Layout = () => {
   }, [pathname]);
 
   return (
-    <div className="noise-overlay min-h-screen bg-[#050505]">
+    <div className="noise-overlay min-h-screen bg-[#FAFAF9]">
       <Navbar />
       <main>
         <Outlet />
       </main>
       <Footer />
-      <Toaster theme="dark" position="bottom-right" />
+      <Toaster theme="light" position="bottom-right" />
     </div>
   );
 };

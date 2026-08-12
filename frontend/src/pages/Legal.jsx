@@ -4,11 +4,11 @@ import { SITE } from "../data/site";
 
 const LegalSection = ({ num, title, children }) => (
   <Reveal>
-    <div className="border-t border-white/8 py-10 grid md:grid-cols-[auto_1fr] gap-6 md:gap-12">
-      <span className="font-mono2 text-xs text-[#FF3333] tracking-widest pt-1">{num}</span>
+    <div className="border-t border-black/[0.07] py-10 grid md:grid-cols-[auto_1fr] gap-6 md:gap-12">
+      <span className="font-mono2 text-xs text-[#E04006] tracking-widest pt-1">{num}</span>
       <div>
-        <h2 className="font-display text-xl md:text-2xl font-bold text-[#F2F2F2] tracking-[-0.02em]">{title}</h2>
-        <div className="text-[#8F8F9D] text-sm md:text-base mt-4 leading-[1.85] space-y-4 max-w-3xl">{children}</div>
+        <h2 className="font-display text-xl md:text-2xl font-bold text-[#1C1917] tracking-[-0.02em]">{title}</h2>
+        <div className="text-[#57534E] text-sm md:text-base mt-4 leading-[1.85] space-y-4 max-w-3xl">{children}</div>
       </div>
     </div>
   </Reveal>
@@ -30,7 +30,7 @@ export function Privacy() {
           <p>Website enquiries are stored in our secured systems and retained only as long as needed to handle your request and any resulting business relationship. Access is limited to team members who need it to respond to you.</p>
         </LegalSection>
         <LegalSection num="04" title="Your choices">
-          <p>You may request access, correction or deletion of your personal information at any time by emailing <a className="text-white underline underline-offset-4" href={`mailto:${SITE.email}`}>{SITE.email}</a> or calling {SITE.phone}. We will respond to verified requests promptly.</p>
+          <p>You may request access, correction or deletion of your personal information at any time by emailing <a className="text-[#1C1917] underline underline-offset-4" href={`mailto:${SITE.email}`}>{SITE.email}</a> or calling {SITE.phone}. We will respond to verified requests promptly.</p>
         </LegalSection>
         <LegalSection num="05" title="Customer CRM data">
           <p>This policy covers this website. Data stored by customers in their Sales IQ deployments is governed by the customer's own policies and deployment model — a core principle of the platform: customers own and control their CRM data.</p>
@@ -59,7 +59,7 @@ export function Terms() {
           <p>You agree not to misuse this website — including attempting to disrupt service, scrape at disruptive volumes, or submit unlawful content through our forms.</p>
         </LegalSection>
         <LegalSection num="05" title="Liability & changes">
-          <p>The website is provided as-is. To the maximum extent permitted by law, {SITE.company} is not liable for indirect damages arising from use of this site. We may update these terms; the current version is always posted here. Questions: <a className="text-white underline underline-offset-4" href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+          <p>The website is provided as-is. To the maximum extent permitted by law, {SITE.company} is not liable for indirect damages arising from use of this site. We may update these terms; the current version is always posted here. Questions: <a className="text-[#1C1917] underline underline-offset-4" href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
         </LegalSection>
       </section>
     </>

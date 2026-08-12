@@ -26,7 +26,7 @@ export default function Features() {
         sub="Twenty integrated capabilities that handle the preparation, the paperwork and the pattern recognition — so your team handles the relationships and the judgment."
       />
 
-      <section className="border-b border-white/8" data-testid="features-grid-section">
+      <section className="border-b border-black/[0.07]" data-testid="features-grid-section">
         <div className="container-x py-20 md:py-28">
           <div className="flex flex-wrap gap-2 mb-14" data-testid="features-filter">
             {AI_CATEGORIES.map((c) => (
@@ -35,7 +35,7 @@ export default function Features() {
                 data-testid={`filter-${c.toLowerCase()}`}
                 onClick={() => setCat(c)}
                 className={`font-mono2 text-[11px] tracking-[0.2em] uppercase px-4 py-2 rounded-full border transition-[color,border-color,background-color] duration-200 ${
-                  cat === c ? "border-white bg-white text-black" : "border-white/15 text-[#8F8F9D] hover:text-white hover:border-white/30"
+                  cat === c ? "border-[#E04006] bg-[#E04006] text-white" : "border-black/[0.15] text-[#57534E] hover:text-[#1C1917] hover:border-black/30"
                 }`}
               >
                 {c}
@@ -45,14 +45,14 @@ export default function Features() {
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
             {filtered.map((f, i) => (
               <Reveal key={f.slug} delay={(i % 3) * 0.06}>
-                <div className="surface-card rounded-md p-8 h-full flex flex-col hover:border-white/20 transition-colors duration-300" data-testid={`feature-card-${f.slug}`}>
+                <div className="surface-card rounded-md p-8 h-full flex flex-col hover:border-black/20 transition-colors duration-300" data-testid={`feature-card-${f.slug}`}>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#FF3333]">{f.category}</span>
-                    <span className="font-mono2 text-[10px] text-[#8F8F9D]/60">{String(AI_FEATURES.indexOf(f) + 1).padStart(2, "0")}</span>
+                    <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006]">{f.category}</span>
+                    <span className="font-mono2 text-[10px] text-[#57534E]/60">{String(AI_FEATURES.indexOf(f) + 1).padStart(2, "0")}</span>
                   </div>
-                  <h3 className="font-display text-xl font-bold text-[#F2F2F2] tracking-[-0.01em]">{f.name}</h3>
-                  <p className="text-[#8F8F9D] text-sm mt-3 leading-relaxed">{f.desc}</p>
-                  <p className="text-[#8F8F9D]/70 text-xs mt-4 pt-4 border-t border-white/8 leading-relaxed mt-auto">{f.detail}</p>
+                  <h3 className="font-display text-xl font-bold text-[#1C1917] tracking-[-0.01em]">{f.name}</h3>
+                  <p className="text-[#57534E] text-sm mt-3 leading-relaxed">{f.desc}</p>
+                  <p className="text-[#57534E]/70 text-xs mt-4 pt-4 border-t border-black/[0.07] leading-relaxed mt-auto">{f.detail}</p>
                 </div>
               </Reveal>
             ))}
@@ -60,12 +60,12 @@ export default function Features() {
         </div>
       </section>
 
-      <section className="border-b border-white/8 bg-[#0C0C0F]">
+      <section className="border-b border-black/[0.07] bg-[#FFFFFF]">
         <div className="container-x py-24 md:py-32 grid lg:grid-cols-2 gap-16">
           <Reveal>
             <SectionTag num="§02">Principles</SectionTag>
             <SectionTitle>Assistive by default.<br />Autonomous only by choice.</SectionTitle>
-            <p className="text-[#8F8F9D] text-sm md:text-base mt-6 max-w-md leading-relaxed">
+            <p className="text-[#57534E] text-sm md:text-base mt-6 max-w-md leading-relaxed">
               Sales IQ's AI supports sales teams rather than replacing them. Automation is always optional,
               always governed, and always transparent about what it did and why.
             </p>

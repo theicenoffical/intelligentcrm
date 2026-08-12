@@ -6,11 +6,11 @@ import { submitDemoRequest } from "../lib/api";
 export const TEAM_SIZES = ["1–25", "26–100", "101–500", "501–2,000", "2,000+"];
 export const DEPLOYMENTS = ["Managed Cloud", "Dedicated Hosted", "Private Cloud", "On-Premises", "Not sure yet"];
 
-const inputCls = "w-full bg-[#0C0C0F] border border-white/12 rounded-md px-4 py-3.5 text-sm text-[#F2F2F2] placeholder:text-[#8F8F9D]/50 outline-none focus:border-white/40 focus:ring-2 focus:ring-white/10 transition-[border-color] duration-150";
+const inputCls = "w-full bg-[#FFFFFF] border border-black/[0.12] rounded-md px-4 py-3.5 text-sm text-[#1C1917] placeholder:text-[#57534E]/50 outline-none focus:border-[#E04006] focus:ring-2 focus:ring-[#E04006]/20 transition-[border-color] duration-150";
 
 export const Field = ({ label, children, htmlFor }) => (
   <div>
-    <label htmlFor={htmlFor} className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#8F8F9D] mb-2.5">{label}</label>
+    <label htmlFor={htmlFor} className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2.5">{label}</label>
     {children}
   </div>
 );
@@ -37,9 +37,9 @@ export function DemoForm({ source = "book-demo", compact = false }) {
   if (status === "done") {
     return (
       <div className="surface-card rounded-md p-10 text-center" data-testid="demo-success">
-        <CheckCircle2 className="w-10 h-10 text-[#FF3333] mx-auto mb-6" />
-        <h3 className="font-display text-2xl font-bold text-[#F2F2F2]">Request received.</h3>
-        <p className="text-[#8F8F9D] text-sm mt-3 max-w-sm mx-auto leading-relaxed">
+        <CheckCircle2 className="w-10 h-10 text-[#E04006] mx-auto mb-6" />
+        <h3 className="font-display text-2xl font-bold text-[#1C1917]">Request received.</h3>
+        <p className="text-[#57534E] text-sm mt-3 max-w-sm mx-auto leading-relaxed">
           Thank you, {form.name.split(" ")[0]}. A member of our team will contact you within one business day to schedule your demo.
         </p>
       </div>
@@ -81,12 +81,12 @@ export function DemoForm({ source = "book-demo", compact = false }) {
         type="submit"
         data-testid="demo-submit"
         disabled={status === "loading"}
-        className="w-full inline-flex items-center justify-center gap-2 bg-white text-black font-semibold text-sm px-6 py-4 rounded-md transition-[transform,background-color,opacity] duration-200 hover:bg-[#e5e5e5] active:scale-[0.99] disabled:opacity-60"
+        className="w-full inline-flex items-center justify-center gap-2 bg-[#E04006] text-white font-semibold text-sm px-6 py-4 rounded-md transition-[transform,background-color,opacity] duration-200 hover:bg-[#C83805] active:scale-[0.99] disabled:opacity-60"
       >
         {status === "loading" && <Loader2 className="w-4 h-4 animate-spin" />}
         {status === "loading" ? "Submitting…" : "Request Demo"}
       </button>
-      <p className="font-mono2 text-[10px] tracking-[0.15em] text-[#8F8F9D]/50 text-center">
+      <p className="font-mono2 text-[10px] tracking-[0.15em] text-[#57534E]/50 text-center">
         No per-seat quotes. No nurture spam. A real conversation.
       </p>
     </form>

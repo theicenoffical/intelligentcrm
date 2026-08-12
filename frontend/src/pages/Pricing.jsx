@@ -45,30 +45,30 @@ export default function Pricing() {
         sub="Sales IQ is licensed as a platform — scoped to your deployment model and scale, never to your headcount. Add your whole company. The price doesn't move."
       />
 
-      <section className="border-b border-white/8" data-testid="pricing-plans">
+      <section className="border-b border-black/[0.07]" data-testid="pricing-plans">
         <div className="container-x py-20 md:py-28">
           <div className="grid lg:grid-cols-3 gap-6">
             {MODELS.map((m, i) => (
               <Reveal key={m.name} delay={i * 0.08}>
                 <div
                   className={`relative rounded-md p-8 md:p-10 h-full flex flex-col ${
-                    m.highlight ? "bg-[#141418] border border-white/20" : "surface-card"
+                    m.highlight ? "bg-[#0F172A] shadow-2xl" : "surface-card"
                   }`}
                   data-testid={`plan-${m.name.toLowerCase()}`}
                 >
                   {m.highlight && (
-                    <span className="absolute -top-3 left-8 font-mono2 text-[10px] tracking-[0.25em] uppercase bg-[#FF3333] text-white px-3 py-1 rounded-sm">
+                    <span className="absolute -top-3 left-8 font-mono2 text-[10px] tracking-[0.25em] uppercase bg-[#E04006] text-white px-3 py-1 rounded-sm">
                       Most Deployed
                     </span>
                   )}
-                  <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#8F8F9D]">{m.tag}</p>
-                  <h3 className="font-display text-3xl font-bold text-[#F2F2F2] mt-3 tracking-[-0.02em]">{m.name}</h3>
-                  <p className="text-[#8F8F9D] text-sm mt-4 leading-relaxed">{m.desc}</p>
-                  <p className="font-mono2 text-xs text-[#F2F2F2] mt-6 pb-6 border-b border-white/8">PLATFORM LICENSE · CUSTOM QUOTED</p>
+                  <p className={`font-mono2 text-[11px] tracking-[0.25em] uppercase ${m.highlight ? "text-[#A8A29E]" : "text-[#57534E]"}`}>{m.tag}</p>
+                  <h3 className={`font-display text-3xl font-bold mt-3 tracking-[-0.02em] ${m.highlight ? "text-white" : "text-[#1C1917]"}`}>{m.name}</h3>
+                  <p className={`text-sm mt-4 leading-relaxed ${m.highlight ? "text-[#A8A29E]" : "text-[#57534E]"}`}>{m.desc}</p>
+                  <p className={`font-mono2 text-xs mt-6 pb-6 border-b ${m.highlight ? "text-white border-white/15" : "text-[#1C1917] border-black/[0.07]"}`}>PLATFORM LICENSE · CUSTOM QUOTED</p>
                   <ul className="mt-6 space-y-3 flex-1">
                     {m.features.map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-sm text-[#8F8F9D]">
-                        <Check className="w-4 h-4 text-[#FF3333] mt-0.5 shrink-0" />
+                      <li key={f} className={`flex items-start gap-3 text-sm ${m.highlight ? "text-[#D6D3D1]" : "text-[#57534E]"}`}>
+                        <Check className="w-4 h-4 text-[#E04006] mt-0.5 shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -81,19 +81,19 @@ export default function Pricing() {
             ))}
           </div>
           <Reveal>
-            <p className="font-mono2 text-[11px] tracking-[0.2em] uppercase text-[#8F8F9D]/60 text-center mt-12" data-testid="pricing-note">
+            <p className="font-mono2 text-[11px] tracking-[0.2em] uppercase text-[#57534E]/60 text-center mt-12" data-testid="pricing-note">
               Every plan includes unlimited users · Your data remains yours · No per-seat renewals
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-b border-white/8 bg-[#0C0C0F]" data-testid="pricing-math">
+      <section className="border-b border-black/[0.07] bg-[#FFFFFF]" data-testid="pricing-math">
         <div className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-16 items-start">
           <Reveal>
             <SectionTag num="§02">The Math</SectionTag>
             <SectionTitle>Run the seat math<br />on your own org.</SectionTitle>
-            <p className="text-[#8F8F9D] text-sm md:text-base mt-6 max-w-md leading-relaxed">
+            <p className="text-[#57534E] text-sm md:text-base mt-6 max-w-md leading-relaxed">
               Take a typical enterprise CRM at a published list price, multiply by everyone who should have access —
               sales, service, ops, finance, leadership — then multiply by the years you'll run it.
               That number is the problem Sales IQ's model eliminates.
@@ -101,22 +101,22 @@ export default function Pricing() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="surface-card rounded-md p-10">
-              <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#8F8F9D] mb-8">Illustrative Example</p>
+              <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#57534E] mb-8">Illustrative Example</p>
               <div className="space-y-5 font-mono2 text-sm">
-                <div className="flex justify-between border-b border-white/8 pb-4">
-                  <span className="text-[#8F8F9D]">600 staff needing access</span>
-                  <span className="text-[#F2F2F2]">× per-seat fee</span>
+                <div className="flex justify-between border-b border-black/[0.07] pb-4">
+                  <span className="text-[#57534E]">600 staff needing access</span>
+                  <span className="text-[#1C1917]">× per-seat fee</span>
                 </div>
-                <div className="flex justify-between border-b border-white/8 pb-4">
-                  <span className="text-[#8F8F9D]">Traditional SaaS CRM</span>
-                  <span className="text-[#FF3333]">Cost grows with headcount</span>
+                <div className="flex justify-between border-b border-black/[0.07] pb-4">
+                  <span className="text-[#57534E]">Traditional SaaS CRM</span>
+                  <span className="text-[#E04006]">Cost grows with headcount</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8F8F9D]">Sales IQ platform license</span>
-                  <span className="text-[#F2F2F2]">Flat — 6 or 6,000 users</span>
+                  <span className="text-[#57534E]">Sales IQ platform license</span>
+                  <span className="text-[#1C1917]">Flat — 6 or 6,000 users</span>
                 </div>
               </div>
-              <p className="text-[#8F8F9D]/60 text-xs mt-8 leading-relaxed">
+              <p className="text-[#57534E]/60 text-xs mt-8 leading-relaxed">
                 Illustrative only — your quote depends on deployment and scope. The structure doesn't: headcount never changes it.
               </p>
             </div>
@@ -124,7 +124,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="border-b border-white/8" data-testid="pricing-faq-section">
+      <section className="border-b border-black/[0.07]" data-testid="pricing-faq-section">
         <div className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-16">
           <Reveal>
             <SectionTag num="§03">FAQ</SectionTag>

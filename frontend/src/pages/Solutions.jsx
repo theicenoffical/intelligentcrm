@@ -28,7 +28,7 @@ export default function Solutions() {
               data-testid={`persona-filter-${g.toLowerCase().replace(/\s+/g, "-")}`}
               onClick={() => setGroup(g)}
               className={`font-mono2 text-[11px] tracking-[0.2em] uppercase px-4 py-2 rounded-full border transition-[color,border-color,background-color] duration-200 ${
-                group === g ? "border-white bg-white text-black" : "border-white/15 text-[#8F8F9D] hover:text-white hover:border-white/30"
+                group === g ? "border-[#E04006] bg-[#E04006] text-white" : "border-black/[0.15] text-[#57534E] hover:text-[#1C1917] hover:border-black/30"
               }`}
             >
               {g}
@@ -41,14 +41,14 @@ export default function Solutions() {
               <Link
                 to={`/solutions/${p.slug}`}
                 data-testid={`persona-card-${p.slug}`}
-                className="group surface-card rounded-md p-8 block h-full hover:border-white/20 transition-colors duration-300"
+                className="group surface-card rounded-md p-8 block h-full hover:border-black/20 transition-colors duration-300"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#FF3333]">{p.group}</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#8F8F9D] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                  <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006]">{p.group}</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#57534E] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#1C1917]" />
                 </div>
-                <h2 className="font-display text-2xl font-bold text-[#F2F2F2] tracking-[-0.02em]">{p.name}</h2>
-                <p className="text-[#8F8F9D] text-sm mt-3 leading-relaxed">{p.headline}</p>
+                <h2 className="font-display text-2xl font-bold text-[#1C1917] tracking-[-0.02em]">{p.name}</h2>
+                <p className="text-[#57534E] text-sm mt-3 leading-relaxed">{p.headline}</p>
               </Link>
             </Reveal>
           ))}
