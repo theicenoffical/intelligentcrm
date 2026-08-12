@@ -1,0 +1,106 @@
+{
+  "theme": "dark",
+  "project_name": "Sales IQ - Intelligent CRM",
+  "vibe": "Dark premium 'intelligence dossier' aesthetic, enterprise operations, trust, security, scale.",
+  "typography": {
+    "headings": {
+      "font": "Cabinet Grotesk",
+      "import_instruction": "Import via Fontshare CDN (https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,400,900&display=swap)",
+      "usage": "Use for bold kinetic headings with tight tracking (-0.02em to -0.04em)."
+    },
+    "body": {
+      "font": "Inter",
+      "usage": "Clean, highly legible body text."
+    },
+    "mono_accents": {
+      "font": "JetBrains Mono",
+      "import_instruction": "Import via Google Fonts",
+      "usage": "Use for overlines, labels, technical data, and manifesto chapter numbers (tracking wide: 0.1em)."
+    }
+  },
+  "colors": {
+    "background": "#050505",
+    "surface": "#0C0C0F",
+    "surface_elevated": "#141418",
+    "border": "rgba(255, 255, 255, 0.08)",
+    "text_primary": "#F2F2F2",
+    "text_secondary": "#8F8F9D",
+    "accent_primary": "#FFFFFF",
+    "accent_signal": "#FF3333",
+    "instructions": "No standard full-screen gradients. Use solid near-blacks with 1px subtle borders. Only use accent_signal for tactical 'live' data indicators or warning/error states."
+  },
+  "visual_enhancers": {
+    "textures": "Apply a subtle noise overlay (SVG filter) on dark surfaces to create a premium, tactile 'dossier' feel.",
+    "borders": "1px solid rgba(255,255,255,0.08) everywhere to expose the grid skeleton (Grid Borders pattern). 'Tracing Beam' (Aceternity style) glow on key pricing/feature cards.",
+    "glassmorphism": "Used only for floating sticky nav and context menus (backdrop-blur-2xl, bg-black/60, border-b border-white/10)."
+  },
+  "grids_layouts": {
+    "marketing_grid": "Bento Grid Mode A (Tetris). Wide gaps (gap-8 to gap-12), extreme asymmetry. Never fill 100% perfectly; leave negative space.",
+    "data_grid": "High density, strict alignment, monospace numbers for feature matrices.",
+    "spacing": "Generous padding. Use py-24 to py-32 for main sections. Allow elements to breathe."
+  },
+  "motion": {
+    "scroll": "Lenis smooth scrolling is MANDATORY for a premium weighty momentum.",
+    "hero": "Framer Motion line-by-line masked kinetic reveal for the main H1.",
+    "marquee": "Extremely slow editorial marquee for the 7 positioning pillars, using JetBrains Mono or a stark Serif.",
+    "reveal": "Subtle y-axis (+20px) and opacity reveal on scroll for all sections."
+  },
+  "components": {
+    "buttons": "Sharp rectangular or slightly rounded (rounded-md). High contrast (e.g., bg-white text-black for primary CTA). Micro-interactions on hover (scale 0.98).",
+    "cards": "Flat background (#0C0C0F), 1px subtle border, no shadow unless elevated. Add an inner 1px border of white/5 for crispness.",
+    "accordions": "Shadcn accordion, heavily customized. Strip default borders. Use JetBrains Mono for numbering each item."
+  },
+  "three_d_libraries": {
+    "primary": "@react-three/fiber, @react-three/drei, three",
+    "usage": "Implement a 3D data-network visual in the Hero background. A subtle, floating particle node network or abstract globe indicating 'Enterprise CRM Network'. Must be dark, tactical, with glowing white/gray nodes and subtle red signal flashes. Wrap in <Suspense>."
+  },
+  "image_urls": {
+    "hero_fallback": {
+      "url": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhdGElMjBuZXR3b3JrJTIwZGFya3xlbnwwfHx8fDE3ODY1NjAzMTN8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Dark blue abstract data network lines, use as fallback if 3D fails or for feature backgrounds."
+    },
+    "enterprise_security": {
+      "url": "https://images.unsplash.com/photo-1591439657848-9f4b9ce436b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwyfHxlbnRlcnByaXNlJTIwc2VjdXJpdHklMjBkYXJrfGVufDB8fHx8MTc4NjU2MDMxM3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Dark computer monitor coding/security, useful for the 'Enterprise Security' section."
+    },
+    "corporate_office": {
+      "url": "https://images.unsplash.com/photo-1772541800741-0ff177b2c282?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwyfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjBkYXJrfGVufDB8fHx8MTc4NjU2MDMxM3ww&ixlib=rb-4.1.0&q=85",
+      "description": "City skyline at dusk enterprise dark, perfect for 'Industries' or 'About' page headers."
+    },
+    "conference_room": {
+      "url": "https://images.unsplash.com/photo-1771270759486-1f7703945072?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjBkYXJrfGVufDB8fHx8MTc4NjU2MDMxM3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Modern corporate conference room, use for 'Solutions' or 'Contact' pages."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Install and configure Lenis (@studio-freight/lenis) for smooth scrolling.",
+    "Implement the hero section with Framer Motion for line-by-line text reveal, and React Three Fiber for the 3D data network background.",
+    "Use JetBrains Mono for structural UI elements (manifesto chapters, overlines, metadata, step numbers).",
+    "Build the 'Manifesto Chapters' section using a numbered scroll-spy, sticky card stacking effect, or horizontal scroll section.",
+    "Create a slow 'Editorial Marquee' displaying the 7 positioning pillars (Enterprise CRM First, AI Enabled, Unlimited Users, etc.).",
+    "Ensure all interactive elements have data-testid attributes.",
+    "NEVER use generic placeholder images; use the provided image_urls.",
+    "Avoid the default 'Vercel-look'. Customize Shadcn components aggressively with the deep black/slate colors."
+  ],
+  "universal_guidelines_for_main_agent": [
+    "You tend to converge toward generic, 'on distribution' outputs. Make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts. Use asymmetrical 'Tetris' grid layouts with wide gaps.",
+    "Create depth through layered design elements with z-index hierarchy and glassmorphism (backdrop-blur-xl).",
+    "You MUST NOT apply universal transition like 'transition: all'. Explicitly transition specific properties.",
+    "You MUST NOT center align the app container (.App { text-align: center; }).",
+    "Always use modern button styles, high contrast.",
+    "NEVER use AI assistant Emoji characters (🤖🧠💭). Use Phosphor Icons or Lucide.",
+    "Use 2-3x more spacing than feels comfortable (py-24, py-32).",
+    "Use 'sonner' for toasts.",
+    "Prioritize using pre-existing Shadcn components, but customize them heavily."
+  ],
+  "accessibility": {
+    "contrast": "Maintain 4.5:1 for normal text and 3:1 for large text. Use text shadow over images.",
+    "focus": "High contrast focus states, higher contrast than default state. E.g., focus:ring-2 focus:ring-white.",
+    "motion": "Respect prefers-reduced-motion CSS media query."
+  },
+  "testing": {
+    "data_testid": "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing."
+  }
+}
