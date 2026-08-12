@@ -54,3 +54,9 @@ export const NAV = [
   { label: "Resources", to: "/resources" },
   { label: "Company", to: "/about" },
 ];
+
+export const OFFICE_PHOTOS = [
+  { url: "https://images.unsplash.com/photo-1706689656095-168768dc20a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwyfHxicmlnaHQlMjBtb2Rlcm4lMjBvZmZpY2V8ZW58MHx8fHwxNzg2NTYyMjk4fDA&ixlib=rb-4.1.0&q=85&w=1200", alt: "Bright modern workspace", caption: "The Workspace" },
+  { url: "https://images.unsplash.com/photo-1622675363311-3e1904dc1885?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxidXNpbmVzcyUyMHRlYW0lMjBjb2xsYWJvcmF0aW9ufGVufDB8fHx8MTc4NjU2MjI5OHww&ixlib=rb-4.1.0&q=85&w=1200", alt: "Team collaborating over product plans", caption: "The Team" },
+  { url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHRlYW0lMjBjb2xsYWJvcmF0aW9ufGVufDB8fHx8MTc4NjU2MjI5OHww&ixlib=rb-4.1.0&q=85&w=1200", alt: "Team building product together around a laptop", caption: "The Craft" },
+];

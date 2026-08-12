@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles, TrendingUp, TrendingDown, AlertTriangle, Phone, Mail, Calendar, ArrowRight } from "lucide-react";
+import { Sparkles, TrendingUp, TrendingDown, AlertTriangle, Phone, Mail, Calendar, ArrowRight, Zap, GitBranch, UserCheck, Bell, Search, Home, BarChart3, Settings, CheckCircle2 } from "lucide-react";
 
 const Frame = ({ url, children, testid }) => (
   <motion.div
@@ -243,12 +243,198 @@ export const AccountMockup = () => (
   </div>
 );
 
+const FlowNode = ({ icon: Icon, label, sub, tone = "bg-white", iconTone = "text-[#E04006]", badge }) => (
+  <div className={`${tone} border border-black/[0.08] rounded-lg p-3 shadow-sm w-full`}>
+    <div className="flex items-center gap-2.5">
+      <span className="w-7 h-7 rounded-md bg-stone-100 grid place-items-center shrink-0">
+        <Icon className={`w-3.5 h-3.5 ${iconTone}`} />
+      </span>
+      <div className="min-w-0">
+        <p className="text-[10px] font-semibold text-stone-900 leading-tight truncate">{label}</p>
+        <p className="font-mono2 text-[8px] text-stone-400 mt-0.5 truncate">{sub}</p>
+      </div>
+    </div>
+    {badge && <span className="inline-block mt-2 font-mono2 text-[8px] px-1.5 py-0.5 rounded bg-[#E04006]/10 text-[#E04006] border border-[#E04006]/20">{badge}</span>}
+  </div>
+);
+
+const Connector = ({ label }) => (
+  <div className="flex flex-col items-center py-0.5">
+    <div className="w-px h-4 bg-stone-300" />
+    {label && <span className="font-mono2 text-[8px] text-stone-400 bg-[#FAFAF9] px-1.5 py-0.5 rounded border border-black/[0.06] my-0.5">{label}</span>}
+    <div className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[5px] border-l-transparent border-r-transparent border-t-stone-300" />
+  </div>
+);
+
+export const WorkflowMockup = () => (
+  <div className="p-5 bg-[#FAFAF9]">
+    <div className="flex items-center justify-between mb-4 px-1">
+      <div className="flex items-center gap-2">
+        <p className="text-xs font-bold text-stone-900 font-display">Workflow — Lead Routing</p>
+        <span className="font-mono2 text-[9px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">ACTIVE</span>
+      </div>
+      <span className="font-mono2 text-[9px] text-stone-400">RUNS THIS WEEK: 214</span>
+    </div>
+    <div className="grid grid-cols-[1.4fr_1fr] gap-3">
+      <div className="bg-stone-100/70 rounded-xl p-4 relative" style={{ backgroundImage: "radial-gradient(rgba(15,23,42,0.08) 1px, transparent 1px)", backgroundSize: "16px 16px" }}>
+        <div className="grid grid-cols-2 gap-x-8">
+          <div>
+            <FlowNode icon={Zap} label="Trigger: Lead Created" sub="Source: Website · Demo Form" badge="INSTANT" />
+            <Connector />
+            <FlowNode icon={Sparkles} label="AI: Score Lead" sub="Fit + intent signals" />
+            <Connector label="score ≥ 70" />
+            <FlowNode icon={UserCheck} label="Assign: Senior AE" sub="Round-robin · North region" />
+          </div>
+          <div className="pt-[104px]">
+            <div className="border-l-2 border-dashed border-stone-300 pl-4">
+              <span className="font-mono2 text-[8px] text-stone-400 block mb-2">score &lt; 70</span>
+              <FlowNode icon={GitBranch} label="Route: Nurture Pool" sub="SDR review queue" />
+              <Connector />
+              <FlowNode icon={Bell} label="Notify: #sales-alerts" sub="Slack · Email digest" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white border border-black/[0.06] rounded-lg p-4">
+        <p className="text-[10px] font-semibold text-stone-700 mb-3">Run Log</p>
+        <div className="space-y-2.5">
+          {[
+            ["Meridian Logistics", "Score 81 → Assigned: R. Kapoor", true],
+            ["NuvoCare Health", "Score 64 → Nurture pool", true],
+            ["Arka Energy", "Score 77 → Assigned: A. Verma", true],
+            ["Orbit Telecom", "Score 58 → Nurture pool", true],
+          ].map(([name, action, ok]) => (
+            <div key={name} className="flex items-start gap-2">
+              <CheckCircle2 className="w-3 h-3 text-emerald-600 mt-0.5 shrink-0" />
+              <div className="min-w-0">
+                <p className="text-[10px] font-medium text-stone-800 leading-tight">{name}</p>
+                <p className="font-mono2 text-[8px] text-stone-400 mt-0.5">{action}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+export const ReportingMockup = () => (
+  <div className="p-5 bg-[#FAFAF9]">
+    <div className="flex items-center justify-between mb-4 px-1">
+      <p className="text-xs font-bold text-stone-900 font-display">Natural Language Reporting</p>
+      <span className="font-mono2 text-[9px] text-stone-400">SAVED: 12 REPORTS</span>
+    </div>
+    <div className="bg-white border border-black/[0.06] rounded-lg p-4 mb-3">
+      <div className="flex items-center gap-2.5 border border-black/[0.08] rounded-lg px-3.5 py-2.5 bg-stone-50">
+        <Sparkles className="w-3.5 h-3.5 text-[#E04006] shrink-0" />
+        <p className="text-[11px] text-stone-700 flex-1">Show me enterprise deals stuck in proposal stage in the North region</p>
+        <span className="font-mono2 text-[8px] px-2 py-1 rounded bg-[#0F172A] text-white shrink-0">ASK AI</span>
+      </div>
+      <div className="flex items-center gap-2 mt-3">
+        {["Deals", "Accounts", "Activities", "Forecasts"].map((t, i) => (
+          <span key={t} className={`font-mono2 text-[9px] px-2.5 py-1 rounded-full border ${i === 0 ? "bg-[#E04006] text-white border-[#E04006]" : "text-stone-500 border-black/[0.08]"}`}>{t}</span>
+        ))}
+      </div>
+    </div>
+    <div className="grid grid-cols-[1.5fr_1fr] gap-3">
+      <div className="bg-white border border-black/[0.06] rounded-lg p-4">
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-[10px] font-semibold text-stone-700">7 deals found · ₹3.4 Cr at stake</p>
+          <span className="font-mono2 text-[8px] text-stone-400">GENERATED IN 1.2s</span>
+        </div>
+        <div className="space-y-0">
+          <div className="grid grid-cols-[1.4fr_1fr_0.8fr] gap-2 pb-2 border-b border-black/[0.06]">
+            {["DEAL", "STAGE AGE", "VALUE"].map((h) => <span key={h} className="font-mono2 text-[8px] tracking-wider text-stone-400">{h}</span>)}
+          </div>
+          {[
+            ["Skyline Construction", "8 days", "₹1.2 Cr", true],
+            ["Veda Distribution", "6 days", "₹74 L", true],
+            ["NorthPeak SaaS", "3 days", "₹1.15 Cr", false],
+            ["Halcyon Realty", "9 days", "₹56 L", true],
+          ].map(([deal, age, val, stale]) => (
+            <div key={deal} className="grid grid-cols-[1.4fr_1fr_0.8fr] gap-2 py-2 border-b border-black/[0.04] items-center">
+              <span className="text-[10px] font-medium text-stone-800 truncate">{deal}</span>
+              <span className={`font-mono2 text-[9px] ${stale ? "text-[#E04006]" : "text-stone-500"}`}>{age}{stale ? " ⚠" : ""}</span>
+              <span className="font-mono2 text-[9px] text-stone-700">{val}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="bg-white border border-black/[0.06] rounded-lg p-4">
+        <p className="text-[10px] font-semibold text-stone-700 mb-3">Stage Age Distribution</p>
+        <div className="space-y-2.5">
+          {[["0–3 days", 30, "#0F172A"], ["4–7 days", 45, "#57534E"], ["8+ days", 75, "#E04006"]].map(([l, w, c]) => (
+            <div key={l}>
+              <div className="flex justify-between mb-1">
+                <span className="font-mono2 text-[8px] text-stone-500">{l}</span>
+                <span className="font-mono2 text-[8px] text-stone-400">{w === 75 ? 3 : w === 45 ? 2 : 2} deals</span>
+              </div>
+              <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
+                <div className="h-full rounded-full" style={{ width: `${w}%`, background: c }} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 pt-3 border-t border-black/[0.06] flex items-center gap-1.5 text-[9px] text-[#E04006] font-medium">
+          Save as dashboard widget <ArrowRight className="w-2.5 h-2.5" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+export const MobileMockup = () => (
+  <div className="flex justify-center py-6 bg-[#FAFAF9]">
+    <div className="w-[240px] rounded-[2.2rem] border-[6px] border-[#0F172A] bg-white shadow-2xl overflow-hidden">
+      <div className="relative">
+        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-4 bg-[#0F172A] rounded-full" />
+        <div className="pt-8 px-4 pb-4 bg-[#0F172A] text-white">
+          <p className="font-mono2 text-[8px] tracking-widest text-stone-400">GOOD MORNING</p>
+          <p className="font-display text-sm font-bold mt-0.5">Asha Verma</p>
+          <div className="mt-3 bg-white/10 border border-white/15 rounded-lg p-2.5 flex items-start gap-2">
+            <Sparkles className="w-3 h-3 text-[#E04006] mt-0.5 shrink-0" />
+            <p className="text-[8.5px] leading-snug text-stone-300">3 deals need attention today. Apex Forging responds best before 11 AM.</p>
+          </div>
+        </div>
+        <div className="px-3.5 py-3 bg-white">
+          <p className="font-mono2 text-[8px] tracking-widest text-stone-400 mb-2">TODAY</p>
+          <div className="space-y-2">
+            {[
+              ["09:30", "Call — Apex Forging", "AI 86", true],
+              ["11:00", "Demo — Meridian Logistics", "AI 64", false],
+              ["14:30", "Proposal review — Skyline", "AI 88", true],
+            ].map(([time, what, score, hot]) => (
+              <div key={what} className="flex items-center gap-2.5 bg-stone-50 border border-black/[0.05] rounded-lg p-2.5">
+                <span className="font-mono2 text-[8px] text-stone-400 w-7 shrink-0">{time}</span>
+                <p className="text-[9px] font-medium text-stone-800 flex-1 leading-tight">{what}</p>
+                <span className={`font-mono2 text-[8px] px-1.5 py-0.5 rounded border ${hot ? "bg-emerald-50 text-emerald-700 border-emerald-200" : "bg-amber-50 text-amber-700 border-amber-200"}`}>{score}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 bg-[#E04006] rounded-lg p-2.5 flex items-center justify-between">
+            <p className="text-[9px] font-semibold text-white">Draft follow-up for Apex</p>
+            <ArrowRight className="w-3 h-3 text-white" />
+          </div>
+        </div>
+        <div className="flex items-center justify-around border-t border-black/[0.06] py-2.5 bg-white">
+          {[Home, Search, BarChart3, Settings].map((Icon, i) => (
+            <Icon key={i} className={`w-3.5 h-3.5 ${i === 0 ? "text-[#E04006]" : "text-stone-300"}`} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 export const MockupGallery = () => (
   <div className="space-y-16 md:space-y-24" data-testid="mockup-gallery">
     {[
-      { tag: "01 · Pipeline", title: "Every deal, scored and staged.", caption: "Kanban pipelines with live AI health scores, stage totals and aging — configured to your exact sales process.", el: <PipelineMockup />, testid: "mockup-pipeline" },
-      { tag: "02 · Executive", title: "The number, with evidence attached.", caption: "Board-ready dashboards and AI forecast insights that flag risk weeks before the quarter ends.", el: <DashboardMockup />, testid: "mockup-dashboard" },
-      { tag: "03 · Account 360", title: "Full context, one record.", caption: "Relationship history, activity timelines and an AI account brief with next-best actions on every account.", el: <AccountMockup />, testid: "mockup-account" },
+      { tag: "01 · Pipeline", title: "Every deal, scored and staged.", caption: "Kanban pipelines with live AI health scores, stage totals and aging — configured to your exact sales process.", el: <PipelineMockup />, testid: "mockup-pipeline", url: "/pipeline" },
+      { tag: "02 · Executive", title: "The number, with evidence attached.", caption: "Board-ready dashboards and AI forecast insights that flag risk weeks before the quarter ends.", el: <DashboardMockup />, testid: "mockup-dashboard", url: "/dashboards/executive" },
+      { tag: "03 · Account 360", title: "Full context, one record.", caption: "Relationship history, activity timelines and an AI account brief with next-best actions on every account.", el: <AccountMockup />, testid: "mockup-account", url: "/accounts/apex" },
+      { tag: "04 · Automation", title: "Your process, running itself.", caption: "Visual workflow builder — triggers, AI scoring, routing and notifications — with a complete audit log of every run.", el: <WorkflowMockup />, testid: "mockup-workflow", url: "/workflows/lead-routing" },
+      { tag: "05 · Reporting", title: "Ask. Get the report.", caption: "Natural language reporting turns a question into a filtered, visualized answer in seconds — no report builder required.", el: <ReportingMockup />, testid: "mockup-reporting", url: "/reports/ask" },
+      { tag: "06 · Mobile", title: "The CRM in your pocket.", caption: "A field-ready mobile experience — today's agenda, AI scores and one-tap follow-ups for reps on the road.", el: <MobileMockup />, testid: "mockup-mobile", url: "/mobile" },
     ].map((m, i) => (
       <div key={m.tag} className={`grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-14 items-center`}>
         <div className={i % 2 === 1 ? "lg:order-2" : ""}>
@@ -258,7 +444,7 @@ export const MockupGallery = () => (
           <p className="font-mono2 text-[10px] tracking-[0.2em] uppercase text-stone-400 mt-6">Illustrative product concept</p>
         </div>
         <Spotlight className={i % 2 === 1 ? "lg:order-1" : ""}>
-          <Frame url={["/pipeline", "/dashboards/executive", "/accounts/apex"][i]} testid={m.testid}>
+          <Frame url={m.url} testid={m.testid}>
             {m.el}
           </Frame>
         </Spotlight>

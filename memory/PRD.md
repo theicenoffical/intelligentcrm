@@ -18,6 +18,10 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-12, update 3 — gallery expansion + About photography)
+- Product mockup gallery expanded to 6 crafted views: Pipeline Kanban, Executive Dashboard, Account 360, Workflow Automation (visual flow builder + run log), Natural Language Reporting (ask bar + results table + distribution bars), Mobile CRM (phone frame with agenda + AI scores)
+- About page: "Inside Devobyte" editorial photo section (3 images with captions + hover zoom). NOTE: photos are curated stock — replace URLs in OFFICE_PHOTOS in src/data/site.js with real Devobyte office/team photos when available
+
 ## Implemented (2026-08-12, update 2 — light redesign + mockups + SEO)
 - FULL LIGHT-THEME REDESIGN per user feedback ("dark is not looking good"): warm paper editorial system (#FAFAF9 paper, #FFFFFF surfaces, #1C1917 ink, #E04006 vermilion accent, #0F172A indigo), Satoshi body + Cabinet Grotesk display + JetBrains Mono
 - Product Mockup Gallery on /product + preview on Home: 3 CSS-crafted CRM UI mockups (Pipeline Kanban with AI scores, Executive Dashboard with chart + AI forecast panel, Account 360 with AI brief) in spotlight frames with 3D tilt on hover, labeled "Illustrative product concept"

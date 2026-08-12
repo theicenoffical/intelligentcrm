@@ -1,6 +1,6 @@
 import { PageHero, Reveal, SectionTag, SectionTitle, CTASection } from "../components/kit";
 import { SEO } from "../components/SEO";
-import { SITE } from "../data/site";
+import { SITE, OFFICE_PHOTOS } from "../data/site";
 
 const VALUES = [
   { num: "01", title: "Ownership over rental", desc: "Enterprise software should be an asset customers control — their data, their deployment, their timeline. We build for ownership, not dependency." },
@@ -75,8 +75,8 @@ export default function About() {
             <Reveal delay={0.1}>
               <div className="mt-10 rounded-2xl overflow-hidden border border-black/[0.06] shadow-[0_20px_60px_-15px_rgba(15,23,42,0.15)]" data-testid="about-office-image">
                 <img
-                  src="https://images.unsplash.com/photo-1706689656095-168768dc20a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwyfHxicmlnaHQlMjBtb2Rlcm4lMjBvZmZpY2V8ZW58MHx8fHwxNzg2NTYyMjk4fDA&ixlib=rb-4.1.0&q=85&w=1200"
-                  alt="Devobyte office — bright modern workspace"
+                  src={OFFICE_PHOTOS[0].url}
+                  alt={OFFICE_PHOTOS[0].alt}
                   className="w-full h-64 object-cover"
                   loading="lazy"
                 />
@@ -93,6 +93,40 @@ export default function About() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+      <section className="border-b border-black/[0.07] bg-[#F5F5F4]" data-testid="about-gallery">
+        <div className="container-x py-20 md:py-28">
+          <SectionTag num="§04">Inside Devobyte</SectionTag>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+            <Reveal>
+              <SectionTitle>The people behind<br />the platform.</SectionTitle>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-[#57534E] text-sm md:text-base max-w-sm leading-relaxed">
+                Engineers, solution architects and customer teams working out of our Noida headquarters.
+              </p>
+            </Reveal>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {OFFICE_PHOTOS.map((p, i) => (
+              <Reveal key={p.url} delay={i * 0.08}>
+                <div className="group relative rounded-2xl overflow-hidden border border-black/[0.06] shadow-[0_20px_60px_-15px_rgba(15,23,42,0.12)]" data-testid={`gallery-photo-${i}`}>
+                  <img
+                    src={p.url}
+                    alt={p.alt}
+                    loading="lazy"
+                    className={`w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] ${i === 1 ? "h-80 md:h-[26rem]" : "h-80"}`}
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#E04006] rotate-45" />
+                    <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-white">{p.caption}</span>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
       <CTASection />
