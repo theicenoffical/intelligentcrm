@@ -26,8 +26,11 @@ const MODELS = [
 
 const FAQ_ITEMS = [
   { q: "Is there really no per-user pricing?", a: "Correct. Sales IQ is licensed on a platform basis, not per seat. Adding users — whether 10 or 10,000 — does not change your license cost." },
+  { q: "We already use Zoho. Why switch?", a: "Zoho is powerful, but most teams end up using 20% of it and fighting the other 80%. Sales IQ gives you exactly the depth your process needs — configured for you — with adoption designed in from day one, and no per-seat cost as you grow." },
+  { q: "Can't we just hire a Salesforce consultant?", a: "You can — enterprise consultants typically quote large multi-month engagements before a single user logs in. Sales IQ implementations typically run 8–12 weeks, with your team live on a system shaped around your process." },
   { q: "Why don't you publish prices?", a: "Because platform pricing depends on deployment model, environment scope and implementation needs. A 30-minute conversation produces a real number — without the per-seat multiplier." },
-  { q: "What does implementation cost?", a: "Implementation is scoped to your process complexity, data migration and integrations. We provide a fixed scope before you commit to anything." },
+  { q: "What does implementation cost and how long does it take?", a: "Implementation is scoped to your process complexity, data migration and integrations — with a fixed scope agreed before you commit. Typical timelines run 8–12 weeks from kickoff to team-wide adoption." },
+  { q: "What if our team doesn't adopt it?", a: "Adoption is our design target, not an afterthought. We configure around how your team actually sells and track adoption from day one — if adoption lags, that's our problem to fix, not yours." },
   { q: "Can we start in the cloud and move on-prem later?", a: "Yes. The product is identical across deployment models, so you can migrate between managed cloud, dedicated hosted, private cloud and on-premises as your requirements evolve." },
   { q: "Is AI an add-on tier?", a: "No. Core AI is included from the Team plan, and all 20 AI capabilities are included from Business upward. Intelligence is not a paywall." },
 ];
@@ -101,23 +104,23 @@ export default function Pricing() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="surface-card rounded-md p-10">
-              <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#57534E] mb-8">Illustrative Example</p>
+              <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#57534E] mb-8">Illustrative 3-Year Comparison</p>
               <div className="space-y-5 font-mono2 text-sm">
                 <div className="flex justify-between border-b border-black/[0.07] pb-4">
-                  <span className="text-[#57534E]">600 staff needing access</span>
-                  <span className="text-[#1C1917]">× per-seat fee</span>
+                  <span className="text-[#57534E]">Per-seat SaaS CRM · 30 users</span>
+                  <span className="text-[#E04006]">≈ ₹1.08 Cr over 3 yrs</span>
                 </div>
                 <div className="flex justify-between border-b border-black/[0.07] pb-4">
-                  <span className="text-[#57534E]">Traditional SaaS CRM</span>
-                  <span className="text-[#E04006]">Cost grows with headcount</span>
+                  <span className="text-[#57534E]">Sales IQ platform license + hosting</span>
+                  <span className="text-[#1C1917]">Flat — headcount never reprices it</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#57534E]">Sales IQ platform license</span>
-                  <span className="text-[#1C1917]">Flat — 6 or 6,000 users</span>
+                  <span className="text-[#57534E]">Break-even point</span>
+                  <span className="text-[#1C1917]">Typically Year 2</span>
                 </div>
               </div>
-              <p className="text-[#57534E]/60 text-xs mt-8 leading-relaxed">
-                Illustrative only — your quote depends on deployment and scope. The structure doesn't: headcount never changes it.
+              <p className="text-[#57534E]/70 text-xs mt-8 leading-relaxed">
+                Illustrative math based on published per-seat list pricing at 30 users — your quote depends on deployment and scope. The structure doesn't change: costs stay flat as headcount grows, and break-even typically arrives within 2–3 years.
               </p>
             </div>
           </Reveal>

@@ -267,6 +267,33 @@ const Comparison = () => (
   </section>
 );
 
+const StatsBand = () => (
+  <section className="border-b border-black/[0.07]" data-testid="stats-band">
+    <div className="container-x py-20 md:py-24">
+      <div className="grid md:grid-cols-3 gap-px bg-black/[0.07] border border-black/[0.07]">
+        {[
+          ["47%", "of CRM implementations fail because the tool doesn't match how the team actually sells.", "Industry research on CRM rollouts"],
+          ["30%", "typical CRM adoption on generic platforms — most of the team never logs in.", "The problem unlimited access solves"],
+          ["8–12 wks", "typical Sales IQ implementation — configured around your process, not the other way around.", "From kickoff to team-wide adoption"],
+        ].map(([num, text, src], i) => (
+          <Reveal key={num} delay={i * 0.08} className="bg-[#FAFAF9]">
+            <div className="p-10 md:p-12" data-testid={`stat-${i}`}>
+              <p className="font-display font-extrabold text-5xl md:text-6xl tracking-[-0.03em] text-[#0F172A]">{num}</p>
+              <p className="text-[#57534E] text-sm md:text-base mt-4 leading-relaxed max-w-xs">{text}</p>
+              <p className="font-mono2 text-[10px] tracking-[0.2em] uppercase text-stone-400 mt-6">{src}</p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+      <Reveal>
+        <p className="font-mono2 text-[10px] tracking-[0.2em] uppercase text-stone-400 mt-6 text-center">
+          Statistics reflect published industry research on CRM adoption, cited in Devobyte's sales research
+        </p>
+      </Reveal>
+    </div>
+  </section>
+);
+
 const IndustriesPreview = () => (
   <section className="border-b border-black/[0.07]" data-testid="industries-preview">
     <div className="container-x py-24 md:py-32">
@@ -345,6 +372,7 @@ export default function Home() {
       <ProductPreview />
       <AIPreview />
       <Comparison />
+      <StatsBand />
       <IndustriesPreview />
       <SecurityStrip />
       <CTASection />

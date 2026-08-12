@@ -18,6 +18,13 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-12, update 6 — sales playbook content infusion)
+- Read user's 3 R&D documents (LinkedIn Navigator tactics, Executive Summary, CRM Sales Playbook) and infused their research into the site
+- Home: new "By the numbers" band — 47% CRM failure rate, 30% typical adoption, 8–12 week implementation (framed as industry research from Devobyte's sales research)
+- Pricing: concrete 3-year TCO math card (per-seat SaaS ≈ ₹1.08 Cr @ 30 users vs flat platform, break-even Year 2, labeled illustrative); FAQ now handles playbook objections ("We already use Zoho", "hire a Salesforce consultant", adoption commitment, 8–12 week implementation)
+- Product: FAQ upgraded with adoption-failure framing and 8–12 week implementation timeline
+- Verified visually: stats band + pricing FAQ render correctly
+
 ## Implemented (2026-08-12, update 5 — self-hosting package)
 - DEPLOY.md: complete self-hosting guide (Docker install, env setup, launch, DNS/SSL, post-launch domain swap, backups, troubleshooting)
 - docker-compose.yml (mongo + backend + frontend/nginx), backend/Dockerfile, frontend/Dockerfile (multi-stage yarn build → nginx), frontend/nginx.conf (SPA + /api proxy)

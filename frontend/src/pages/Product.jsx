@@ -25,8 +25,9 @@ const LIFECYCLE = [
 const FAQ_ITEMS = [
   { q: "Is Sales IQ a full CRM or an AI assistant?", a: "A full CRM. Accounts, contacts, leads, opportunities, pipelines, quotes, activities, reporting, automation and administration — with AI integrated throughout, not bolted on." },
   { q: "Can Sales IQ replace Salesforce, Dynamics or HubSpot Enterprise?", a: "Yes. Sales IQ covers the same enterprise CRM territory — sales process management, customization, integration and reporting — with unlimited users and deployment control that per-seat SaaS platforms don't offer." },
+  { q: "We tried a generic CRM and adoption failed. What's different here?", a: "Adoption failure is usually a design failure: the tool didn't match how the team sells. Sales IQ implementations start from your process — pipelines, objects and workflows are configured around it, and adoption is tracked from day one." },
   { q: "How customizable is it really?", a: "Pipelines, stages, business objects, fields, approval workflows, dashboards, reports, roles, permissions and integrations are all configurable — including industry-specific data models." },
-  { q: "What does implementation look like?", a: "A structured implementation: process mapping, configuration, data migration, integration and team enablement — scoped around your deployment model and timeline. Talk to us for a plan specific to your organization." },
+  { q: "What does implementation look like?", a: "A structured implementation — process mapping, configuration, data migration, integration and team enablement — typically running 8–12 weeks from kickoff to team-wide rollout, scoped around your deployment model." },
 ];
 
 export default function Product() {
