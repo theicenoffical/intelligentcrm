@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Lenis from "lenis";
+import axios from "axios";
 import { Navbar, Footer } from "./Navbar";
 import { Toaster } from "./ui/sonner";
+import { API } from "../lib/api";
 
 export const Layout = () => {
   const { pathname } = useLocation();
@@ -26,6 +28,7 @@ export const Layout = () => {
   useEffect(() => {
     if (lenisRef.current) lenisRef.current.scrollTo(0, { immediate: true });
     window.scrollTo(0, 0);
+    axios.post(`${API}/track`, { path: pathname }).catch(() => {});
   }, [pathname]);
 
   return (

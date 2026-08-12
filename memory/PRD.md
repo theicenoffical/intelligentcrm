@@ -18,6 +18,13 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-12, update 4 — admin console)
+- /admin: JWT-secured admin console (admin@devobyte.com, seeded from env, 12h tokens, session persists on reload)
+- Leads tab: combined demo + contact inbox, status management (new/contacted/closed), filters, CSV export
+- Analytics tab: self-hosted pageview tracking (POST /api/track beacon on route change, admin excluded), totals, 14-day chart (recharts), top pages
+- SEO tab: edit meta title/description overrides for all 60+ pages, saved to DB, applied site-wide via public /api/seo
+- Verified: login, leads list, status update, analytics aggregation, SEO save+override, 401 on unauthenticated access, reload persistence
+
 ## Implemented (2026-08-12, update 3 — gallery expansion + About photography)
 - Product mockup gallery expanded to 6 crafted views: Pipeline Kanban, Executive Dashboard, Account 360, Workflow Automation (visual flow builder + run log), Natural Language Reporting (ask bar + results table + distribution bars), Mobile CRM (phone frame with agenda + AI scores)
 - About page: "Inside Devobyte" editorial photo section (3 images with captions + hover zoom). NOTE: photos are curated stock — replace URLs in OFFICE_PHOTOS in src/data/site.js with real Devobyte office/team photos when available

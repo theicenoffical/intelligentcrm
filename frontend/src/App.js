@@ -18,11 +18,13 @@ import Developers from "@/pages/Developers";
 import Security from "@/pages/Security";
 import { Privacy, Terms } from "@/pages/Legal";
 import NotFound from "@/pages/NotFound";
+import Admin from "@/pages/Admin";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/admin" element={<Admin />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />
