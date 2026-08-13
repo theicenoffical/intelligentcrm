@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { Loader2, LogOut, Download, Users, BarChart3, Globe, RefreshCw } from "lucide-react";
+import { Loader2, LogOut, Download, Users, BarChart3, Globe, RefreshCw, Newspaper, Plus, Pencil, Trash2, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { API } from "../lib/api";
 import { INDUSTRIES } from "../data/industries";
 import { PERSONAS } from "../data/personas";
-import { BLOG_POSTS } from "../data/blog";
+import { useBlogPosts } from "../hooks/useBlogPosts";
 
 const TOKEN_KEY = "siq_admin_token";
 const getToken = () => localStorage.getItem(TOKEN_KEY);
@@ -251,12 +251,13 @@ function SeoPanel() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [dirty, setDirty] = useState({});
+  const { posts: blogPosts } = useBlogPosts();
 
   const paths = [
     ...STATIC_PATHS,
     ...INDUSTRIES.map((i) => `/industries/${i.slug}`),
     ...PERSONAS.map((p) => `/solutions/${p.slug}`),
-    ...BLOG_POSTS.map((b) => `/resources/blog/${b.slug}`),
+    ...blogPosts.map((b) => `/resources/blog/${b.slug}`),
   ];
 
   useEffect(() => {
@@ -323,6 +324,152 @@ function SeoPanel() {
   );
 }
 
+const BLOG_CATEGORIES = ["Strategy", "Data Ownership", "AI", "Enterprise IT", "RevOps", "Implementation", "Comparisons"];
+
+function BlogManager() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [editing, setEditing] = useState(null); // null | "new" | post object
+  const [form, setForm] = useState({ title: "", slug: "", category: "Strategy", date: "", readTime: "5 min", excerpt: "", body: "" });
+  const [saving, setSaving] = useState(false);
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    try {
+      const { data } = await axios.get(`${API}/blog-posts`);
+      setPosts(data);
+    } catch {
+      toast.error("Could not load posts");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { load(); }, [load]);
+
+  const openNew = () => {
+    setForm({ title: "", slug: "", category: "Strategy", date: new Date().toISOString().slice(0, 10), readTime: "5 min", excerpt: "", body: "" });
+    setEditing("new");
+  };
+
+  const openEdit = (p) => {
+    setForm({ title: p.title, slug: p.slug, category: p.category, date: p.date, readTime: p.readTime, excerpt: p.excerpt, body: (p.body || []).join("\n\n") });
+    setEditing(p);
+  };
+
+  const save = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    const payload = {
+      ...form,
+      body: form.body.split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean),
+    };
+    try {
+      if (editing === "new") {
+        await axios.post(`${API}/admin/blog-posts`, payload, { headers: authHeaders() });
+        toast.success("Post published");
+      } else {
+        await axios.put(`${API}/admin/blog-posts/${editing.slug}`, payload, { headers: authHeaders() });
+        toast.success("Post updated");
+      }
+      setEditing(null);
+      load();
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Save failed");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const remove = async (p) => {
+    if (!window.confirm(`Delete "${p.title}"? This cannot be undone.`)) return;
+    try {
+      await axios.delete(`${API}/admin/blog-posts/${p.slug}`, { headers: authHeaders() });
+      toast.success("Post deleted");
+      load();
+    } catch {
+      toast.error("Delete failed");
+    }
+  };
+
+  if (editing) {
+    return (
+      <div data-testid="blog-editor" className="max-w-3xl">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="font-display text-2xl font-bold text-[#1C1917]">{editing === "new" ? "New Post" : `Edit: ${editing.title}`}</h2>
+          <button onClick={() => setEditing(null)} data-testid="blog-cancel" className="inline-flex items-center gap-1.5 text-xs font-medium text-[#57534E] hover:text-[#1C1917] transition-colors duration-150">
+            <X className="w-3.5 h-3.5" /> Cancel
+          </button>
+        </div>
+        <form onSubmit={save} className="space-y-5">
+          <div>
+            <label htmlFor="bp-title" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Title *</label>
+            <input id="bp-title" data-testid="blog-title" required value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className={inputCls} placeholder="Why CRM Implementations Fail" />
+          </div>
+          <div className="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label htmlFor="bp-slug" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">URL Slug</label>
+              <input id="bp-slug" data-testid="blog-slug" value={form.slug} onChange={(e) => setForm({ ...form, slug: e.target.value })} className={inputCls} placeholder="auto-from-title" />
+            </div>
+            <div>
+              <label htmlFor="bp-category" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Category</label>
+              <select id="bp-category" data-testid="blog-category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className={inputCls}>
+                {BLOG_CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="bp-date" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Date</label>
+              <input id="bp-date" data-testid="blog-date" type="date" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} className={inputCls} />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="bp-excerpt" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Excerpt (shown on cards + used as SEO description)</label>
+            <textarea id="bp-excerpt" data-testid="blog-excerpt" rows={2} value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} className={inputCls} placeholder="One or two sentences summarizing the post…" />
+          </div>
+          <div>
+            <label htmlFor="bp-body" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Body — separate paragraphs with a blank line *</label>
+            <textarea id="bp-body" data-testid="blog-body" rows={14} required value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} className={`${inputCls} font-mono2 text-xs leading-relaxed`} placeholder="First paragraph…&#10;&#10;Second paragraph…" />
+          </div>
+          <button type="submit" data-testid="blog-save" disabled={saving} className="inline-flex items-center gap-2 bg-[#E04006] text-white font-semibold text-sm px-6 py-3 rounded-md hover:bg-[#C83805] transition-[background-color,opacity] duration-150 disabled:opacity-60">
+            {saving && <Loader2 className="w-4 h-4 animate-spin" />}
+            {editing === "new" ? "Publish Post" : "Save Changes"}
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+  return (
+    <div data-testid="admin-blog">
+      <div className="flex items-center justify-between gap-4 mb-6">
+        <p className="text-sm text-[#57534E]">Posts publish instantly to <span className="font-mono2 text-xs">/resources/blog</span>.</p>
+        <button onClick={openNew} data-testid="blog-new" className="inline-flex items-center gap-2 bg-[#E04006] text-white text-xs font-semibold px-5 py-2.5 rounded-md hover:bg-[#C83805] transition-colors duration-150">
+          <Plus className="w-3.5 h-3.5" /> New Post
+        </button>
+      </div>
+      {loading ? (
+        <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>
+      ) : (
+        <div className="bg-white border border-black/[0.06] rounded-xl overflow-hidden">
+          {posts.map((p) => (
+            <div key={p.slug} className="flex items-center justify-between gap-4 px-6 py-4 border-b border-black/[0.04] last:border-0 hover:bg-stone-50/60 transition-colors duration-100" data-testid={`blog-row-${p.slug}`}>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-[#1C1917] truncate">{p.title}</p>
+                <p className="font-mono2 text-[10px] text-[#57534E] mt-1">{p.category} · {p.date} · /resources/blog/{p.slug}</p>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <a href={`/resources/blog/${p.slug}`} target="_blank" rel="noreferrer" data-testid={`blog-view-${p.slug}`} className="font-mono2 text-[10px] uppercase tracking-wider text-[#57534E] hover:text-[#1C1917] px-2 py-1.5 transition-colors duration-150">View</a>
+                <button onClick={() => openEdit(p)} data-testid={`blog-edit-${p.slug}`} className="inline-flex items-center gap-1.5 text-xs font-medium border border-black/[0.12] text-[#57534E] px-3 py-1.5 rounded-md hover:bg-black/[0.03] transition-colors duration-150"><Pencil className="w-3 h-3" /> Edit</button>
+                <button onClick={() => remove(p)} data-testid={`blog-delete-${p.slug}`} className="inline-flex items-center gap-1.5 text-xs font-medium border border-black/[0.12] text-[#57534E] px-3 py-1.5 rounded-md hover:text-[#E04006] hover:border-[#E04006]/30 transition-colors duration-150"><Trash2 className="w-3 h-3" /></button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Admin() {
   const [user, setUser] = useState(null);
   const [checking, setChecking] = useState(!!getToken());
@@ -346,7 +493,7 @@ export default function Admin() {
     return <Login onLogin={setUser} />;
   }
 
-  const tabs = [["leads", "Leads", Users], ["analytics", "Analytics", BarChart3], ["seo", "SEO", Globe]];
+  const tabs = [["leads", "Leads", Users], ["analytics", "Analytics", BarChart3], ["seo", "SEO", Globe], ["blog", "Blog", Newspaper]];
 
   return (
     <div className="min-h-screen bg-[#FAFAF9]" data-testid="admin-dashboard">
@@ -386,6 +533,7 @@ export default function Admin() {
         {tab === "leads" && <Leads />}
         {tab === "analytics" && <Analytics />}
         {tab === "seo" && <SeoPanel />}
+        {tab === "blog" && <BlogManager />}
       </main>
     </div>
   );

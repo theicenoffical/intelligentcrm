@@ -18,6 +18,14 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-13, update 8 — blog management + SEO content)
+- Blog is now database-driven: public GET /api/blog-posts, admin CRUD (POST/PUT/DELETE /api/admin/blog-posts, JWT-protected)
+- Admin panel: new Blog tab — list, create (auto-slug, category, date, excerpt, paragraphs), edit, delete, view-live
+- 6 NEW SEO-optimized posts seeded (12 total): why-crm-implementations-fail, true-cost-of-low-crm-adoption, build-vs-buy-crm-framework (from user's playbook), salesforce-alternative-unlimited-users, hubspot-vs-enterprise-crm, crm-tco-three-year-analysis
+- Seeder: backend/seed_blog_posts.py (idempotent upsert, migrates static posts into DB)
+- Sitemap regenerated: 66 URLs. SEO panel now lists DB blog posts
+- Verified E2E: admin login → Blog tab → created post → live publicly → deleted; blog index + post pages render
+
 ## Implemented (2026-08-13, update 7 — rebrand + copy elevation)
 - REBRAND: website name "Intelligent CRM" → "Design My CRM" everywhere (logo, nav, footer, admin, page titles, OG tags, mockup browser chrome app.designmycrm.com, legal pages, DEPLOY.md, backend email footer). Product name "Sales IQ" unchanged.
 - og-image.png regenerated with new brand

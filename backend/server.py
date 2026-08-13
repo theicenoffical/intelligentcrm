@@ -13,6 +13,7 @@ from datetime import datetime, timezone, timedelta
 import resend
 import bcrypt
 import jwt
+import re
 from fastapi import Request, Depends
 
 ROOT_DIR = Path(__file__).parent
@@ -293,6 +294,62 @@ class SeoEntry(BaseModel):
 
 class SeoBulkUpdate(BaseModel):
     entries: List[SeoEntry]
+
+
+@api_router.get("/blog-posts")
+async def public_blog_posts():
+    return await db.blog_posts.find({}, {"_id": 0}).sort("date", -1).to_list(200)
+
+
+@api_router.get("/blog-posts/{slug}")
+async def public_blog_post(slug: str):
+    doc = await db.blog_posts.find_one({"slug": slug}, {"_id": 0})
+    if not doc:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return doc
+
+
+class BlogPostIn(BaseModel):
+    title: str
+    slug: str = ""
+    category: str = "Strategy"
+    date: str = ""
+    readTime: str = "5 min"
+    excerpt: str = ""
+    body: List[str] = []
+
+
+@api_router.post("/admin/blog-posts")
+async def admin_create_post(input: BlogPostIn, admin=Depends(require_admin)):
+    slug = re.sub(r"[^a-z0-9]+", "-", (input.slug or input.title).lower()).strip("-")
+    if await db.blog_posts.find_one({"slug": slug}):
+        raise HTTPException(status_code=400, detail="A post with this slug already exists")
+    doc = input.model_dump()
+    doc["slug"] = slug
+    doc["date"] = input.date or datetime.now(timezone.utc).date().isoformat()
+    doc["created_at"] = datetime.now(timezone.utc).isoformat()
+    await db.blog_posts.insert_one(doc)
+    doc.pop("_id", None)
+    return doc
+
+
+@api_router.put("/admin/blog-posts/{slug}")
+async def admin_update_post(slug: str, input: BlogPostIn, admin=Depends(require_admin)):
+    doc = input.model_dump()
+    if input.slug and input.slug != slug:
+        doc["slug"] = re.sub(r"[^a-z0-9]+", "-", input.slug.lower()).strip("-")
+    result = await db.blog_posts.update_one({"slug": slug}, {"$set": doc})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return {"ok": True}
+
+
+@api_router.delete("/admin/blog-posts/{slug}")
+async def admin_delete_post(slug: str, admin=Depends(require_admin)):
+    result = await db.blog_posts.delete_one({"slug": slug})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return {"ok": True}
 
 
 @api_router.get("/seo")

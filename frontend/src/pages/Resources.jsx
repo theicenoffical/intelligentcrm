@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, FileText, FlaskConical, Newspaper, BookOpen } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, FileText, FlaskConical, Newspaper, BookOpen, Loader2 } from "lucide-react";
 import { PageHero, Reveal, SectionTag, SectionTitle, CTASection, GhostButton } from "../components/kit";
 import { SEO } from "../components/SEO";
-import { BLOG_POSTS, BLOG_CATEGORIES, getPost } from "../data/blog";
+import { useBlogPosts } from "../hooks/useBlogPosts";
 import NotFound from "./NotFound";
 
 export default function Resources() {
+  const { posts } = useBlogPosts();
   const cards = [
     { icon: Newspaper, title: "Blog", desc: "Essays on CRM economics, data ownership, AI in sales and implementation craft.", to: "/resources/blog", testid: "res-blog" },
     { icon: FlaskConical, title: "Case Studies", desc: "Customer stories — coming as our first deployments complete their first year.", to: "/resources/case-studies", testid: "res-cases" },
@@ -41,7 +42,7 @@ export default function Resources() {
         <div className="container-x py-20 md:py-28">
           <SectionTag num="§02">Latest Writing</SectionTag>
           <div className="space-y-px bg-black/[0.07] border border-black/[0.07]">
-            {BLOG_POSTS.slice(0, 3).map((p) => (
+            {posts.slice(0, 3).map((p) => (
               <Link key={p.slug} to={`/resources/blog/${p.slug}`} data-testid={`res-post-${p.slug}`} className="group bg-[#FFFFFF] flex flex-col md:flex-row md:items-center justify-between gap-4 p-8 hover:bg-[#F5F5F4] transition-colors duration-200">
                 <div>
                   <p className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006] mb-2">{p.category} · {p.readTime}</p>
@@ -60,7 +61,9 @@ export default function Resources() {
 
 export function Blog() {
   const [cat, setCat] = useState("All");
-  const filtered = cat === "All" ? BLOG_POSTS : BLOG_POSTS.filter((p) => p.category === cat);
+  const { posts, loading } = useBlogPosts();
+  const categories = ["All", ...new Set(posts.map((p) => p.category))];
+  const filtered = cat === "All" ? posts : posts.filter((p) => p.category === cat);
   return (
     <>
       <SEO title="Blog" description="Essays on CRM economics, data ownership, practical AI in sales and enterprise implementation from the Sales IQ team." />
@@ -71,7 +74,7 @@ export function Blog() {
       />
       <section className="container-x py-20 md:py-28" data-testid="blog-list">
         <div className="flex flex-wrap gap-2 mb-14" data-testid="blog-filter">
-          {BLOG_CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <button
               key={c}
               data-testid={`blog-filter-${c.toLowerCase().replace(/\s+/g, "-")}`}
@@ -85,7 +88,9 @@ export function Blog() {
           ))}
         </div>
         <div className="grid md:grid-cols-2 gap-6">
-          {filtered.map((p, i) => (
+          {loading ? (
+            <div className="col-span-2 py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>
+          ) : filtered.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.06}>
               <Link to={`/resources/blog/${p.slug}`} data-testid={`blog-card-${p.slug}`} className="group surface-card rounded-md p-10 block h-full hover:border-black/20 transition-colors duration-300">
                 <div className="flex items-center gap-4 mb-6">
@@ -109,7 +114,11 @@ export function Blog() {
 
 export function BlogPost() {
   const { slug } = useParams();
-  const post = getPost(slug);
+  const { posts, loading } = useBlogPosts();
+  if (loading) {
+    return <div className="min-h-screen grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>;
+  }
+  const post = posts.find((p) => p.slug === slug);
   if (!post) return <NotFound />;
   return (
     <>
