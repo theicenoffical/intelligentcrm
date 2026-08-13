@@ -52,8 +52,9 @@ const Hero = () => (
         className="text-[#57534E] text-base md:text-lg max-w-xl mt-8 leading-relaxed"
         data-testid="hero-subhead"
       >
-        The enterprise CRM you own and control. Deploy anywhere, scale to unlimited users,
-        and put practical AI to work across your entire sales lifecycle — without per-seat licensing or vendor lock-in.
+        Sales IQ is enterprise CRM built for companies that intend to keep it.
+        Unlimited users, AI at every stage of the deal, and deployment that answers
+        to your governance — not our business model.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -99,8 +100,9 @@ const Manifesto = () => (
           <Reveal>
             <SectionTitle>Not another AI CRM.<br />An enterprise CRM<br />you actually own.</SectionTitle>
             <p className="text-[#57534E] text-base md:text-lg mt-8 max-w-md leading-relaxed">
-              Traditional SaaS CRMs charge per user, hold your data in vendor infrastructure, and sell AI back to you as a premium tier.
-              Sales IQ was built on seven convictions about how enterprise software should work.
+              Somewhere along the way, enterprise CRM became a rental. Per-seat fees that tax every hire.
+              Data in someone else's cloud. AI sold back to you as a premium tier.
+              Sales IQ is built on seven convictions about what ownership should mean.
             </p>
             <div className="mt-10">
               <PrimaryButton to="/product" testid="manifesto-explore">Explore the Platform</PrimaryButton>
@@ -142,7 +144,7 @@ const Deployment = () => (
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-[#57534E] text-sm md:text-base max-w-sm leading-relaxed">
-            The same product across four deployment models. Your security and compliance requirements make the choice — not our business model.
+            Four ways to run it. One product. The choice belongs to your security policy — not our pricing page.
           </p>
         </Reveal>
       </div>
@@ -304,7 +306,7 @@ const IndustriesPreview = () => (
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-[#57534E] text-sm md:text-base max-w-sm leading-relaxed">
-            Twenty industries. Tailored pipelines, objects and AI use cases for each — configured around how your sector actually sells.
+            Twenty industries, each with its own motion. Sales IQ arrives shaped for yours — pipelines, objects and AI use cases matched to how your sector actually sells.
           </p>
         </Reveal>
       </div>

@@ -40,7 +40,7 @@ export default function Product() {
       <PageHero
         overline="Product · Sales IQ"
         title={<>A complete CRM.<br /><span className="text-stroke">Not a chatbot.</span></>}
-        sub="Sales IQ is the system of record for your entire commercial engine — accounts, pipelines, quotes, workflows and reporting — with AI woven through every module, and deployment options that put you in control."
+        sub="Accounts, pipelines, quotes, approvals, reporting — the entire commercial engine in one record of truth, with AI carrying the admin weight and deployment options that respect your governance."
       >
         <div className="flex flex-wrap gap-4 mt-10">
           <PrimaryButton to="/book-demo" testid="product-book-demo">Book a Demo</PrimaryButton>

@@ -8,8 +8,14 @@ This guide takes the project from zero to live on any Linux server (Ubuntu 22.04
 
 - Frontend (React, static build served by Nginx)
 - Backend (FastAPI on port 8001, internal)
-- MongoDB (with a persistent volume)
+- MongoDB (with a persistent volume) — stores leads, analytics pageviews, SEO overrides and the admin account
 - Everything wired with one command: `docker compose up -d --build`
+
+## What's inside the app
+
+- **Public website**: 60+ pages — Home, Product, Features, Pricing, 20 industry pages, 17 persona pages, Blog, About, Contact, Book Demo, Security, legal pages
+- **Lead capture**: Book Demo + Contact forms save every enquiry to the database (and email you, once a Resend key is set)
+- **Admin console** at `/admin`: sign in with `ADMIN_EMAIL` / `ADMIN_PASSWORD` → Leads inbox (status + CSV export), website Analytics (self-hosted pageview tracking), SEO panel (edit meta titles/descriptions for every page)
 
 ## Files included for deployment
 
@@ -103,12 +109,13 @@ If you used the provided docker-compose setup, Certbot will manage SSL on the ho
 
 ## Step 6 — After going live (one-time cleanup)
 
-1. **Update SEO base URLs**: the sitemap, robots.txt and social share card currently use the preview domain. Ask the Emergent agent to "swap the launch domain" (it updates `sitemap.xml`, `robots.txt`, `SEO.jsx` and regenerates `og-image.png`), or edit these files yourself before building:
+1. **Sign into your admin console** at `https://yourdomain.com/admin` with the `ADMIN_EMAIL` / `ADMIN_PASSWORD` you set — you'll see leads, website analytics and the SEO panel there.
+2. **Update SEO base URLs**: the sitemap, robots.txt and social share card currently use the preview domain. Ask the Emergent agent to "swap the launch domain" (it updates `sitemap.xml`, `robots.txt`, `SEO.jsx` and regenerates `og-image.png`), or edit these files yourself before building:
    - `frontend/public/sitemap.xml`
    - `frontend/public/robots.txt`
    - `frontend/src/components/SEO.jsx` (the `SITE_URL` constant)
-2. **Change the admin password** if you haven't already (`backend/.env` → restart backend).
-3. **Submit your sitemap** in Google Search Console: `https://yourdomain.com/sitemap.xml`.
+3. **Change the admin password** if you haven't already (`backend/.env` → `docker compose restart backend`).
+4. **Submit your sitemap** in Google Search Console: `https://yourdomain.com/sitemap.xml`.
 
 ## Data & backups
 

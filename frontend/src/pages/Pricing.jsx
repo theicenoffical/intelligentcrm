@@ -45,7 +45,7 @@ export default function Pricing() {
       <PageHero
         overline="Pricing · The Model"
         title={<>No per-user licensing.<br /><span className="text-stroke">No growth tax.</span></>}
-        sub="Sales IQ is licensed as a platform — scoped to your deployment model and scale, never to your headcount. Add your whole company. The price doesn't move."
+        sub="Licensed as a platform, scoped to your deployment — never to your headcount. Hire your hundredth rep or your thousandth. The invoice doesn't notice."
       />
 
       <section className="border-b border-black/[0.07]" data-testid="pricing-plans">

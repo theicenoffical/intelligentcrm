@@ -23,7 +23,7 @@ export default function Features() {
       <PageHero
         overline="Features · AI Capabilities"
         title={<>AI across the entire<br /><span className="text-stroke">sales lifecycle.</span></>}
-        sub="Twenty integrated capabilities that handle the preparation, the paperwork and the pattern recognition — so your team handles the relationships and the judgment."
+        sub="Twenty capabilities that handle the research, the paperwork and the pattern recognition — so your people can handle the relationships and the judgment."
       />
 
       <section className="border-b border-black/[0.07]" data-testid="features-grid-section">

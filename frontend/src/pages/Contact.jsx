@@ -33,7 +33,7 @@ export default function Contact() {
       <PageHero
         overline="Contact · Talk to an Expert"
         title={<>A real conversation,<br /><span className="text-stroke">not a nurture sequence.</span></>}
-        sub="Questions about fit, deployment, security or pricing — reach the team directly. We respond within one business day."
+        sub="Questions about fit, deployment, security or pricing — you'll reach people who build and implement the platform, not a ticket queue. We respond within one business day."
       />
       <section className="container-x py-20 md:py-28 grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start" data-testid="contact-page">
         <Reveal>

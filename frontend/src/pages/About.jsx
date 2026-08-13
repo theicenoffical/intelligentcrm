@@ -28,17 +28,20 @@ export default function About() {
           <Reveal delay={0.1}>
             <div className="space-y-6 text-[#57534E] text-sm md:text-base leading-[1.85]">
               <p>
-                Enterprise CRM became a rental market. Per-user fees that punish growth. Data held in vendor clouds.
-                AI sold back to customers as premium tiers. Exit costs designed to make leaving irrational.
+                Enterprise software drifted into a rental market. Per-user fees that punish growth.
+                Customer data held in vendor clouds. Intelligence sold back as a premium tier.
+                Exit costs engineered to make leaving feel irrational.
               </p>
               <p>
-                Sales IQ was built on a different premise: a CRM is core business infrastructure, and infrastructure
-                should be owned. That means deployment options customers control, licensing that doesn't tax headcount,
-                data ownership as architecture rather than policy, and AI included as a platform capability — not a toll booth.
+                We started from a different premise: a CRM is core business infrastructure, and
+                infrastructure should be owned. That conviction becomes concrete choices — deployment
+                you control, licensing that ignores headcount, data ownership written into the
+                architecture, and AI included as a platform capability rather than a toll booth.
               </p>
               <p>
-                We work with organizations across manufacturing, distribution, financial services, government contracting
-                and beyond — anywhere relationships are long, processes are specific, and governance actually matters.
+                We work with organizations across manufacturing, distribution, financial services,
+                government contracting and beyond — anywhere relationships run long, processes run
+                specific, and governance actually matters.
               </p>
             </div>
           </Reveal>

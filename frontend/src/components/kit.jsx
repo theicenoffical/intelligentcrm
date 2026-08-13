@@ -90,7 +90,7 @@ export const FAQ = ({ items, testid = "faq" }) => (
   </Accordion>
 );
 
-export const CTASection = ({ title = "See Sales IQ in action.", sub = "Book a demo and we'll walk through your sales process, your deployment requirements, and how AI fits your team." }) => (
+export const CTASection = ({ title = "See Sales IQ in action.", sub = "Thirty minutes, your process on screen — pipelines, deployment and AI mapped to how your team actually sells." }) => (
   <section className="border-t border-black/[0.07] bg-[#0F172A] relative overflow-hidden" data-testid="cta-section">
     <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "72px 72px" }} />
     <div className="container-x py-24 md:py-32 relative">

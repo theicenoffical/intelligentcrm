@@ -24,7 +24,7 @@ export default function BookDemo() {
             </h1>
             <p className="text-[#57534E] text-base md:text-lg mt-8 max-w-md leading-relaxed">
               Tell us how your team sells and what your governance requires.
-              We'll prepare a working session around your world — pipelines, deployment and AI included.
+              We'll prepare a working session around your world — your pipeline stages, your deployment constraints, your AI questions.
             </p>
             <div className="mt-12">
               <SectionTag num="§01">What to Expect</SectionTag>
