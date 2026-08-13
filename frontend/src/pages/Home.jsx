@@ -41,7 +41,7 @@ const Hero = () => (
       >
         <span className="w-1.5 h-1.5 bg-[#E04006] animate-signal rounded-full" />
         <span className="font-mono2 text-[11px] tracking-[0.3em] uppercase text-[#57534E]" data-testid="hero-overline">
-          Sales IQ · Intelligent CRM · {SITE.company}
+          Sales IQ · Design My CRM · {SITE.company}
         </span>
       </motion.div>
       <KineticHeadline />
@@ -199,7 +199,7 @@ const ProductPreview = () => (
                 <span className="w-2.5 h-2.5 rounded-full bg-[#E04006]/70" />
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
-                <span className="ml-3 font-mono2 text-[10px] tracking-wider text-stone-400 bg-white border border-black/[0.05] rounded px-2.5 py-1">app.intelligentcrm.io/dashboards</span>
+                <span className="ml-3 font-mono2 text-[10px] tracking-wider text-stone-400 bg-white border border-black/[0.05] rounded px-2.5 py-1">app.designmycrm.com/dashboards</span>
               </div>
               <DashboardMockup />
             </div>
@@ -361,7 +361,7 @@ export default function Home() {
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        name: "Sales IQ — Intelligent CRM",
+        name: "Sales IQ — Design My CRM",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web, On-Premises, Private Cloud",
         provider: { "@type": "Organization", name: SITE.company, address: SITE.address, telephone: "+919582118311" },

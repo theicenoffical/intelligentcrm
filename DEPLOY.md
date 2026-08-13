@@ -1,4 +1,4 @@
-# Deploying Intelligent CRM (Sales IQ) on Your Own Server
+# Deploying Design My CRM (Sales IQ) on Your Own Server
 
 This guide takes the project from zero to live on any Linux server (Ubuntu 22.04/24.04 recommended) using Docker. Total time: ~20–30 minutes.
 

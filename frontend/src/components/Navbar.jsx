@@ -17,7 +17,7 @@ const Logo = () => (
       <span className="w-2 h-2 bg-[#E04006] rotate-45 animate-signal" />
     </span>
     <span className="font-display font-bold text-lg tracking-[-0.02em] text-[#1C1917]">
-      Intelligent<span className="text-[#57534E] font-medium">CRM</span>
+      Design My <span className="text-[#57534E] font-medium">CRM</span>
     </span>
   </Link>
 );

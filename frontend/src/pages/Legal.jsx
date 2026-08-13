@@ -17,7 +17,7 @@ const LegalSection = ({ num, title, children }) => (
 export function Privacy() {
   return (
     <>
-      <SEO title="Privacy Policy" description={`Privacy policy for Intelligent CRM (Sales IQ), operated by ${SITE.company}. How we collect, use and protect information on this website.`} />
+      <SEO title="Privacy Policy" description={`Privacy policy for Design My CRM (Sales IQ), operated by ${SITE.company}. How we collect, use and protect information on this website.`} />
       <PageHero overline="Legal · Privacy" title="Privacy Policy" sub={`Effective July 2026 · ${SITE.company} · ${SITE.address}`} />
       <section className="container-x py-16 md:py-24" data-testid="privacy-content">
         <LegalSection num="01" title="What we collect">
@@ -43,7 +43,7 @@ export function Privacy() {
 export function Terms() {
   return (
     <>
-      <SEO title="Terms of Service" description={`Terms of service for the Intelligent CRM (Sales IQ) website, operated by ${SITE.company}.`} />
+      <SEO title="Terms of Service" description={`Terms of service for the Design My CRM (Sales IQ) website, operated by ${SITE.company}.`} />
       <PageHero overline="Legal · Terms" title="Terms of Service" sub={`Effective July 2026 · ${SITE.company} · ${SITE.address}`} />
       <section className="container-x py-16 md:py-24" data-testid="terms-content">
         <LegalSection num="01" title="Scope">

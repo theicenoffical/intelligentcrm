@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "Intelligent CRM",
+  name: "Design My CRM",
   product: "Sales IQ",
   company: "Devobyte OPC Private Limited",
   address: "A-522, Tower T3, NX One, Noida Extension",

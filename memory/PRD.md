@@ -18,6 +18,11 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-13, update 7 — rebrand + copy elevation)
+- REBRAND: website name "Intelligent CRM" → "Design My CRM" everywhere (logo, nav, footer, admin, page titles, OG tags, mockup browser chrome app.designmycrm.com, legal pages, DEPLOY.md, backend email footer). Product name "Sales IQ" unchanged.
+- og-image.png regenerated with new brand
+- Copy elevation pass: rewrote pillar descriptions, deployment model copy, comparison table rows, hero subheads (Home/Product/Pricing/Features), About story, CTA copy — sharper editorial voice
+
 ## Implemented (2026-08-12, update 6 — sales playbook content infusion)
 - Read user's 3 R&D documents (LinkedIn Navigator tactics, Executive Summary, CRM Sales Playbook) and infused their research into the site
 - Home: new "By the numbers" band — 47% CRM failure rate, 30% typical adoption, 8–12 week implementation (framed as industry research from Devobyte's sales research)

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const BASE = "Intelligent CRM — Sales IQ";
+const BASE = "Design My CRM — Sales IQ";
 const SITE_URL = "https://enterprise-ownership.preview.emergentagent.com";
 
 let seoOverridesPromise = null;
@@ -40,7 +40,7 @@ export const SEO = ({ title, description }) => {
       setMeta("property", "og:type", "website");
       setMeta("property", "og:url", `${SITE_URL}${pathname}`);
       setMeta("property", "og:image", `${SITE_URL}/og-image.png`);
-      setMeta("property", "og:site_name", "Intelligent CRM — Sales IQ");
+      setMeta("property", "og:site_name", "Design My CRM — Sales IQ");
       setMeta("name", "twitter:card", "summary_large_image");
       setMeta("name", "twitter:title", fullTitle);
       setMeta("name", "twitter:description", desc);

@@ -12,11 +12,11 @@ const VALUES = [
 export default function About() {
   return (
     <>
-      <SEO title="About" description={`Sales IQ — Intelligent CRM — is built by ${SITE.company} in Noida, India. Enterprise CRM you own: unlimited users, AI built in, deploy anywhere.`} />
+      <SEO title="About" description={`Sales IQ — Design My CRM — is built by ${SITE.company} in Noida, India. Enterprise CRM you own: unlimited users, AI built in, deploy anywhere.`} />
       <PageHero
         overline="About · The Company"
         title={<>Built by people who think<br /><span className="text-stroke">CRM should be owned.</span></>}
-        sub={`Sales IQ — Intelligent CRM — is designed and engineered by ${SITE.company}, headquartered in Noida, India. We build enterprise software for organizations that intend to run on it for decades.`}
+        sub={`Sales IQ — Design My CRM — is designed and engineered by ${SITE.company}, headquartered in Noida, India. We build enterprise software for organizations that intend to run on it for decades.`}
       />
 
       <section className="border-b border-black/[0.07]" data-testid="about-story">

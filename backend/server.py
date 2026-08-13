@@ -84,7 +84,7 @@ def email_html(title: str, rows: dict) -> str:
         f'<div style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;">'
         f'<h2 style="color:#050505;border-bottom:2px solid #FF3333;padding-bottom:8px;">{title}</h2>'
         f'<table style="border-collapse:collapse;width:100%;font-size:14px;">{body}</table>'
-        f'<p style="color:#777;font-size:12px;margin-top:16px;">Submitted via the Intelligent CRM website (Sales IQ by Devobyte OPC Private Limited).</p>'
+        f'<p style="color:#777;font-size:12px;margin-top:16px;">Submitted via the Design My CRM website (Sales IQ by Devobyte OPC Private Limited).</p>'
         f'</div>'
     )
 

@@ -17,7 +17,7 @@ const Frame = ({ url, children, testid }) => (
       <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
       <span className="ml-3 font-mono2 text-[10px] tracking-wider text-stone-400 bg-white border border-black/[0.05] rounded px-2.5 py-1">
-        app.intelligentcrm.io{url}
+        app.designmycrm.com{url}
       </span>
     </div>
     {children}

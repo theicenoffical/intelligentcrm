@@ -42,7 +42,7 @@ function Login({ onLogin }) {
           <span className="w-8 h-8 border-2 border-[#0F172A] rounded-md grid place-items-center">
             <span className="w-2.5 h-2.5 bg-[#E04006] rotate-45" />
           </span>
-          <span className="font-display font-bold text-xl text-[#1C1917]">Intelligent<span className="text-[#57534E] font-medium">CRM</span>
+          <span className="font-display font-bold text-xl text-[#1C1917]">Design My <span className="text-[#57534E] font-medium">CRM</span>
             <span className="font-mono2 text-[10px] text-[#57534E] tracking-[0.25em] uppercase block">Admin</span>
           </span>
         </div>
@@ -328,7 +328,7 @@ export default function Admin() {
   const [checking, setChecking] = useState(!!getToken());
   const [tab, setTab] = useState("leads");
 
-  useEffect(() => { document.title = "Admin | Intelligent CRM"; }, []);
+  useEffect(() => { document.title = "Admin | Design My CRM"; }, []);
 
   useEffect(() => {
     if (!getToken()) return;
@@ -354,7 +354,7 @@ export default function Admin() {
         <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <span className="w-7 h-7 border-2 border-[#0F172A] rounded-md grid place-items-center"><span className="w-2 h-2 bg-[#E04006] rotate-45" /></span>
-            <span className="font-display font-bold text-lg text-[#1C1917]">Intelligent<span className="text-[#57534E] font-medium">CRM</span></span>
+            <span className="font-display font-bold text-lg text-[#1C1917]">Design My <span className="text-[#57534E] font-medium">CRM</span></span>
             <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] ml-2 hidden sm:inline">Admin Console</span>
           </div>
           <div className="flex items-center gap-4">
