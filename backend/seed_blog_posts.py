@@ -118,10 +118,26 @@ NEW_POSTS = [
 for p in NEW_POSTS:
     posts.append(p)
 
+IMAGES = {
+    "why-crm-implementations-fail": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=85&w=1600&auto=format&fit=crop",
+    "true-cost-of-low-crm-adoption": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=85&w=1600&auto=format&fit=crop",
+    "end-of-per-seat-crm": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=85&w=1600&auto=format&fit=crop",
+    "build-vs-buy-crm-framework": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=85&w=1600&auto=format&fit=crop",
+    "own-your-crm-data": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=85&w=1600&auto=format&fit=crop",
+    "salesforce-alternative-unlimited-users": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=85&w=1600&auto=format&fit=crop",
+    "ai-in-crm-without-hype": "https://images.unsplash.com/photo-1555255707-c07966088b7b?q=85&w=1600&auto=format&fit=crop",
+    "hubspot-vs-enterprise-crm": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=85&w=1600&auto=format&fit=crop",
+    "crm-deployment-models-explained": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=85&w=1600&auto=format&fit=crop",
+    "crm-tco-three-year-analysis": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=85&w=1600&auto=format&fit=crop",
+    "forecast-accuracy-is-a-data-problem": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=85&w=1600&auto=format&fit=crop",
+    "crm-implementation-that-sticks": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=85&w=1600&auto=format&fit=crop",
+}
+
 n = 0
 for p in posts:
     if not p.get("slug") or not p.get("title"):
         continue
+    p["image"] = IMAGES.get(p["slug"], "")
     db.blog_posts.update_one({"slug": p["slug"]}, {"$set": p}, upsert=True)
     n += 1
 

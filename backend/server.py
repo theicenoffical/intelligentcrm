@@ -316,6 +316,7 @@ class BlogPostIn(BaseModel):
     date: str = ""
     readTime: str = "5 min"
     excerpt: str = ""
+    image: str = ""
     body: List[str] = []
 
 

@@ -92,16 +92,23 @@ export function Blog() {
             <div className="col-span-2 py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>
           ) : filtered.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.06}>
-              <Link to={`/resources/blog/${p.slug}`} data-testid={`blog-card-${p.slug}`} className="group surface-card rounded-md p-10 block h-full hover:border-black/20 transition-colors duration-300">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006]">{p.category}</span>
-                  <span className="font-mono2 text-[10px] text-[#57534E]/60">{p.date} · {p.readTime}</span>
+              <Link to={`/resources/blog/${p.slug}`} data-testid={`blog-card-${p.slug}`} className="group surface-card rounded-md overflow-hidden block h-full hover:border-black/20 transition-colors duration-300">
+                {p.image && (
+                  <div className="overflow-hidden">
+                    <img src={p.image} alt={p.title} loading="lazy" className="w-full aspect-[16/9] object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                  </div>
+                )}
+                <div className="p-8 md:p-10">
+                  <div className="flex items-center gap-4 mb-5">
+                    <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006]">{p.category}</span>
+                    <span className="font-mono2 text-[10px] text-[#57534E]/60">{p.date} · {p.readTime}</span>
+                  </div>
+                  <h2 className="font-display text-2xl font-bold text-[#1C1917] tracking-[-0.02em] leading-snug">{p.title}</h2>
+                  <p className="text-[#57534E] text-sm mt-4 leading-relaxed">{p.excerpt}</p>
+                  <span className="inline-flex items-center gap-2 text-sm text-[#1C1917] mt-7 font-medium">
+                    Read <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
                 </div>
-                <h2 className="font-display text-2xl font-bold text-[#1C1917] tracking-[-0.02em] leading-snug">{p.title}</h2>
-                <p className="text-[#57534E] text-sm mt-4 leading-relaxed">{p.excerpt}</p>
-                <span className="inline-flex items-center gap-2 text-sm text-[#1C1917] mt-8 font-medium">
-                  Read <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
               </Link>
             </Reveal>
           ))}
@@ -122,7 +129,7 @@ export function BlogPost() {
   if (!post) return <NotFound />;
   return (
     <>
-      <SEO title={post.title} description={post.excerpt} />
+      <SEO title={post.title} description={post.excerpt} image={post.image} />
       <article className="container-x pt-36 pb-20 md:pt-44" data-testid="blog-post">
         <div className="max-w-3xl mx-auto">
           <Link to="/resources/blog" data-testid="back-to-blog" className="inline-flex items-center gap-2 font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#57534E] hover:text-[#1C1917] transition-colors duration-150">
@@ -136,6 +143,13 @@ export function BlogPost() {
             <h1 className="font-display font-extrabold text-3xl md:text-5xl tracking-[-0.03em] leading-[1.05] text-[#1C1917]">{post.title}</h1>
             <p className="text-[#57534E] text-base md:text-lg mt-6 leading-relaxed">{post.excerpt}</p>
           </Reveal>
+          {post.image && (
+            <Reveal delay={0.1}>
+              <div className="mt-10 rounded-2xl overflow-hidden border border-black/[0.06] shadow-[0_20px_60px_-15px_rgba(15,23,42,0.15)]" data-testid="blog-hero-image">
+                <img src={post.image} alt={post.title} className="w-full aspect-[21/10] object-cover" />
+              </div>
+            </Reveal>
+          )}
           <div className="mt-12 pt-12 border-t border-black/[0.07] space-y-8">
             {post.body.map((para, i) => (
               <Reveal key={i} delay={Math.min(i * 0.05, 0.2)}>

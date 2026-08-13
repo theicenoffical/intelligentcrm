@@ -348,12 +348,12 @@ function BlogManager() {
   useEffect(() => { load(); }, [load]);
 
   const openNew = () => {
-    setForm({ title: "", slug: "", category: "Strategy", date: new Date().toISOString().slice(0, 10), readTime: "5 min", excerpt: "", body: "" });
+    setForm({ title: "", slug: "", category: "Strategy", date: new Date().toISOString().slice(0, 10), readTime: "5 min", excerpt: "", image: "", body: "" });
     setEditing("new");
   };
 
   const openEdit = (p) => {
-    setForm({ title: p.title, slug: p.slug, category: p.category, date: p.date, readTime: p.readTime, excerpt: p.excerpt, body: (p.body || []).join("\n\n") });
+    setForm({ title: p.title, slug: p.slug, category: p.category, date: p.date, readTime: p.readTime, excerpt: p.excerpt, image: p.image || "", body: (p.body || []).join("\n\n") });
     setEditing(p);
   };
 
@@ -425,6 +425,13 @@ function BlogManager() {
           <div>
             <label htmlFor="bp-excerpt" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Excerpt (shown on cards + used as SEO description)</label>
             <textarea id="bp-excerpt" data-testid="blog-excerpt" rows={2} value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} className={inputCls} placeholder="One or two sentences summarizing the post…" />
+          </div>
+          <div>
+            <label htmlFor="bp-image" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Cover Image URL</label>
+            <input id="bp-image" data-testid="blog-image" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} className={inputCls} placeholder="https://images.unsplash.com/…" />
+            {form.image && (
+              <img src={form.image} alt="Cover preview" className="mt-3 w-full max-w-sm aspect-[16/9] object-cover rounded-md border border-black/[0.08]" data-testid="blog-image-preview" />
+            )}
           </div>
           <div>
             <label htmlFor="bp-body" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Body — separate paragraphs with a blank line *</label>

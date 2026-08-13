@@ -18,6 +18,12 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-13, update 9 — blog cover images)
+- Cover image support end-to-end: `image` field in blog model, admin editor has Cover Image URL with live preview
+- Blog cards show 16:9 covers with hover zoom; article pages show a 21:10 hero image; each post's cover becomes its og:image/twitter:image for rich social sharing
+- All 12 seeded posts have curated topical Unsplash covers (seed_blog_posts.py IMAGES map)
+- Verified: 12 card images, article hero, admin preview
+
 ## Implemented (2026-08-13, update 8 — blog management + SEO content)
 - Blog is now database-driven: public GET /api/blog-posts, admin CRUD (POST/PUT/DELETE /api/admin/blog-posts, JWT-protected)
 - Admin panel: new Blog tab — list, create (auto-slug, category, date, excerpt, paragraphs), edit, delete, view-live

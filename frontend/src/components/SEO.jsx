@@ -24,7 +24,7 @@ const setMeta = (attr, key, content) => {
   el.setAttribute("content", content);
 };
 
-export const SEO = ({ title, description }) => {
+export const SEO = ({ title, description, image }) => {
   const { pathname } = useLocation();
   useEffect(() => {
     getSeoOverrides().then((overrides) => {
@@ -32,6 +32,7 @@ export const SEO = ({ title, description }) => {
       const effTitle = o && o.title ? o.title : title;
       const effDesc = o && o.description ? o.description : description;
       const fullTitle = effTitle ? `${effTitle} | ${BASE}` : `${BASE} by Devobyte`;
+      const shareImage = image || `${SITE_URL}/og-image.png`;
       document.title = fullTitle;
       const desc = effDesc || "Enterprise CRM. Unlimited Users. AI Built In. Sales IQ is the CRM you own and control.";
       setMeta("name", "description", desc);
@@ -39,12 +40,12 @@ export const SEO = ({ title, description }) => {
       setMeta("property", "og:description", desc);
       setMeta("property", "og:type", "website");
       setMeta("property", "og:url", `${SITE_URL}${pathname}`);
-      setMeta("property", "og:image", `${SITE_URL}/og-image.png`);
+      setMeta("property", "og:image", shareImage);
       setMeta("property", "og:site_name", "Design My CRM — Sales IQ");
       setMeta("name", "twitter:card", "summary_large_image");
       setMeta("name", "twitter:title", fullTitle);
       setMeta("name", "twitter:description", desc);
-      setMeta("name", "twitter:image", `${SITE_URL}/og-image.png`);
+      setMeta("name", "twitter:image", shareImage);
 
       let canonical = document.querySelector('link[rel="canonical"]');
       if (!canonical) {
@@ -54,7 +55,7 @@ export const SEO = ({ title, description }) => {
       }
       canonical.setAttribute("href", `${SITE_URL}${pathname}`);
     });
-  }, [title, description, pathname]);
+  }, [title, description, image, pathname]);
   return null;
 };
 
