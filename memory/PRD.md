@@ -18,6 +18,9 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-13, update 11 — transparent logo)
+- Created logo-transparent.png (alpha-matted from the shared logo, incl. transparent D cutout) — now used in navbar, footer, admin login/console, OG share card (regenerated). Cream-bg logo.png kept as a tile variant. Favicon keeps its rounded-tile look intentionally.
+
 ## Implemented (2026-08-13, update 10 — logo rebrand + image uploads)
 - Real logo integrated: trimmed logo.png in navbar, footer, admin login/console, OG share card; favicon.png cropped from the D mark; accent color shifted to logo orange #FF4D00 (hover #E64500) site-wide; og-image regenerated
 - Blog cover image UPLOADS: Emergent object storage integration (per playbook) — POST /api/admin/upload (admin-only, images ≤5MB), public GET /api/files/{path}, soft-delete DB pattern; blog editor has Upload button with live preview alongside URL paste

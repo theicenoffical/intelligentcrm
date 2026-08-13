@@ -39,7 +39,7 @@ function Login({ onLogin }) {
     <div className="min-h-screen bg-[#FAFAF9] grid place-items-center px-6" data-testid="admin-login">
       <div className="w-full max-w-sm">
         <div className="flex items-center gap-3 mb-10 justify-center">
-          <img src="/logo.png" alt="Design My CRM" className="h-10 w-auto rounded-lg" />
+          <img src="/logo-transparent.png" alt="Design My CRM" className="h-10 w-auto" />
           <span className="font-mono2 text-[10px] text-[#57534E] tracking-[0.25em] uppercase self-end pb-1">Admin</span>
         </div>
         <form onSubmit={submit} className="bg-white border border-black/[0.06] rounded-xl shadow-[0_20px_60px_-15px_rgba(15,23,42,0.12)] p-8 space-y-5" data-testid="admin-login-form">
@@ -529,7 +529,7 @@ export default function Admin() {
       <header className="bg-white/80 backdrop-blur-xl border-b border-black/[0.06] sticky top-0 z-40">
         <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <img src="/logo.png" alt="Design My CRM" className="h-8 w-auto rounded-md" />
+            <img src="/logo-transparent.png" alt="Design My CRM" className="h-8 w-auto" />
             <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] ml-2 hidden sm:inline">Admin Console</span>
           </div>
           <div className="flex items-center gap-4">

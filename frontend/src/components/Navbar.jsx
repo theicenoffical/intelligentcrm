@@ -13,7 +13,7 @@ const DROPDOWNS = {
 
 const Logo = () => (
   <Link to="/" data-testid="nav-logo" className="flex items-center shrink-0">
-    <img src="/logo.png" alt="Design My CRM" className="h-9 w-auto rounded-lg" />
+    <img src="/logo-transparent.png" alt="Design My CRM" className="h-9 w-auto" />
   </Link>
 );
 
