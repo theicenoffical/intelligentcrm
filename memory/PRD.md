@@ -18,6 +18,11 @@ Build a premium enterprise website for Sales IQ ("Intelligent CRM", powered by D
 - No fabricated logos/testimonials/stats/certifications
 - data-testid on all interactive elements; SEO titles/descriptions; FAQ schema on industry pages
 
+## Implemented (2026-08-13, update 10 — logo rebrand + image uploads)
+- Real logo integrated: trimmed logo.png in navbar, footer, admin login/console, OG share card; favicon.png cropped from the D mark; accent color shifted to logo orange #FF4D00 (hover #E64500) site-wide; og-image regenerated
+- Blog cover image UPLOADS: Emergent object storage integration (per playbook) — POST /api/admin/upload (admin-only, images ≤5MB), public GET /api/files/{path}, soft-delete DB pattern; blog editor has Upload button with live preview alongside URL paste
+- Verified: upload E2E via API (200, file serves publicly with cache headers), logo visible in nav/footer, OG card with new logo
+
 ## Implemented (2026-08-13, update 9 — blog cover images)
 - Cover image support end-to-end: `image` field in blog model, admin editor has Cover Image URL with live preview
 - Blog cards show 16:9 covers with hover zoom; article pages show a 21:10 hero image; each post's cover becomes its og:image/twitter:image for rich social sharing

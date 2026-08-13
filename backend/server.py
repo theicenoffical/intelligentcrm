@@ -14,7 +14,9 @@ import resend
 import bcrypt
 import jwt
 import re
-from fastapi import Request, Depends
+import requests
+from fastapi import Request, Depends, UploadFile, File
+from fastapi.responses import Response
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -353,6 +355,85 @@ async def admin_delete_post(slug: str, admin=Depends(require_admin)):
     return {"ok": True}
 
 
+STORAGE_BASE = (os.environ.get("INTEGRATION_PROXY_URL") or "").strip() or "https://integrations.emergentagent.com"
+STORAGE_URL = STORAGE_BASE.rstrip("/") + "/objstore/api/v1/storage"
+APP_NAME = "design-my-crm"
+storage_key = None
+
+
+def init_storage(force: bool = False):
+    global storage_key
+    if storage_key and not force:
+        return storage_key
+    resp = requests.post(f"{STORAGE_URL}/init", json={"emergent_key": os.environ.get("EMERGENT_LLM_KEY")}, timeout=30)
+    resp.raise_for_status()
+    storage_key = resp.json()["storage_key"]
+    return storage_key
+
+
+def put_object(path: str, data: bytes, content_type: str) -> dict:
+    key = init_storage()
+    resp = requests.put(
+        f"{STORAGE_URL}/objects/{path}",
+        headers={"X-Storage-Key": key, "Content-Type": content_type},
+        data=data, timeout=120,
+    )
+    if resp.status_code == 404:
+        init_storage(force=True)
+        resp = requests.put(
+            f"{STORAGE_URL}/objects/{path}",
+            headers={"X-Storage-Key": storage_key, "Content-Type": content_type},
+            data=data, timeout=120,
+        )
+    resp.raise_for_status()
+    return resp.json()
+
+
+def get_object(path: str):
+    key = init_storage()
+    resp = requests.get(f"{STORAGE_URL}/objects/{path}", headers={"X-Storage-Key": key}, timeout=60)
+    if resp.status_code == 404:
+        init_storage(force=True)
+        resp = requests.get(f"{STORAGE_URL}/objects/{path}", headers={"X-Storage-Key": storage_key}, timeout=60)
+    resp.raise_for_status()
+    return resp.content, resp.headers.get("Content-Type", "application/octet-stream")
+
+
+ALLOWED_IMAGE_TYPES = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png", "gif": "image/gif", "webp": "image/webp", "svg": "image/svg+xml"}
+
+
+@api_router.post("/admin/upload")
+async def admin_upload(file: UploadFile = File(...), admin=Depends(require_admin)):
+    ext = file.filename.split(".")[-1].lower() if "." in file.filename else ""
+    if ext not in ALLOWED_IMAGE_TYPES:
+        raise HTTPException(status_code=400, detail="Only image files (jpg, png, gif, webp, svg) are allowed")
+    data = await file.read()
+    if len(data) > 5 * 1024 * 1024:
+        raise HTTPException(status_code=400, detail="Image must be under 5 MB")
+    content_type = ALLOWED_IMAGE_TYPES[ext]
+    path = f"{APP_NAME}/uploads/blog/{uuid.uuid4()}.{ext}"
+    result = put_object(path, data, content_type)
+    await db.files.insert_one({
+        "id": str(uuid.uuid4()),
+        "storage_path": result["path"],
+        "original_filename": file.filename,
+        "content_type": content_type,
+        "size": result["size"],
+        "is_deleted": False,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    })
+    return {"path": result["path"], "url": f"/api/files/{result['path']}"}
+
+
+@api_router.get("/files/{path:path}")
+async def serve_file(path: str):
+    record = await db.files.find_one({"storage_path": path, "is_deleted": False})
+    if not record:
+        raise HTTPException(status_code=404, detail="File not found")
+    data, content_type = get_object(path)
+    return Response(content=data, media_type=record.get("content_type", content_type), headers={"Cache-Control": "public, max-age=31536000, immutable"})
+
+
 @api_router.get("/seo")
 async def public_seo():
     docs = await db.seo_meta.find({}, {"_id": 0}).to_list(500)
@@ -385,6 +466,15 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+@app.on_event("startup")
+async def init_storage_on_startup():
+    try:
+        init_storage()
+        logger.info("Object storage initialized")
+    except Exception as e:
+        logger.error(f"Storage init failed: {e}")
 
 
 @app.on_event("shutdown")

@@ -60,7 +60,7 @@ export default function Pricing() {
                   data-testid={`plan-${m.name.toLowerCase()}`}
                 >
                   {m.highlight && (
-                    <span className="absolute -top-3 left-8 font-mono2 text-[10px] tracking-[0.25em] uppercase bg-[#E04006] text-white px-3 py-1 rounded-sm">
+                    <span className="absolute -top-3 left-8 font-mono2 text-[10px] tracking-[0.25em] uppercase bg-[#FF4D00] text-white px-3 py-1 rounded-sm">
                       Most Deployed
                     </span>
                   )}
@@ -71,7 +71,7 @@ export default function Pricing() {
                   <ul className="mt-6 space-y-3 flex-1">
                     {m.features.map((f) => (
                       <li key={f} className={`flex items-start gap-3 text-sm ${m.highlight ? "text-[#D6D3D1]" : "text-[#57534E]"}`}>
-                        <Check className="w-4 h-4 text-[#E04006] mt-0.5 shrink-0" />
+                        <Check className="w-4 h-4 text-[#FF4D00] mt-0.5 shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -108,7 +108,7 @@ export default function Pricing() {
               <div className="space-y-5 font-mono2 text-sm">
                 <div className="flex justify-between border-b border-black/[0.07] pb-4">
                   <span className="text-[#57534E]">Per-seat SaaS CRM · 30 users</span>
-                  <span className="text-[#E04006]">≈ ₹1.08 Cr over 3 yrs</span>
+                  <span className="text-[#FF4D00]">≈ ₹1.08 Cr over 3 yrs</span>
                 </div>
                 <div className="flex justify-between border-b border-black/[0.07] pb-4">
                   <span className="text-[#57534E]">Sales IQ platform license + hosting</span>

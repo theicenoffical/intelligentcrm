@@ -48,7 +48,7 @@ export default function IndustryDetail() {
           <Reveal>
             <SectionTag num="§01">The Reality</SectionTag>
             <SectionTitle className="mb-10">The problems you<br />already know.</SectionTitle>
-            <List items={ind.problems} icon={X} iconCls="text-[#E04006]" />
+            <List items={ind.problems} icon={X} iconCls="text-[#FF4D00]" />
           </Reveal>
           <Reveal delay={0.1}>
             <SectionTag num="§02">The Constraints</SectionTag>
@@ -66,7 +66,7 @@ export default function IndustryDetail() {
             {ind.whyTraditional.map((item, i) => (
               <Reveal key={item} delay={i * 0.08}>
                 <div className="surface-card rounded-md p-8 h-full" data-testid={`traditional-gap-${i}`}>
-                  <span className="font-mono2 text-[11px] text-[#E04006] tracking-widest">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-mono2 text-[11px] text-[#FF4D00] tracking-widest">{String(i + 1).padStart(2, "0")}</span>
                   <p className="text-[#1C1917] text-sm md:text-base mt-4 leading-relaxed">{item}</p>
                 </div>
               </Reveal>
@@ -85,7 +85,7 @@ export default function IndustryDetail() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <List items={ind.howHelps} icon={Check} iconCls="text-[#E04006]" />
+            <List items={ind.howHelps} icon={Check} iconCls="text-[#FF4D00]" />
           </Reveal>
         </div>
       </section>
@@ -98,7 +98,7 @@ export default function IndustryDetail() {
             {ind.aiUseCases.map((item, i) => (
               <Reveal key={item} delay={(i % 3) * 0.06} className="bg-[#FFFFFF]">
                 <div className="p-7 h-full" data-testid={`ai-usecase-${i}`}>
-                  <span className="font-mono2 text-[10px] text-[#E04006] tracking-widest">USE CASE {String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-mono2 text-[10px] text-[#FF4D00] tracking-widest">USE CASE {String(i + 1).padStart(2, "0")}</span>
                   <p className="text-[#1C1917] text-sm mt-3 leading-relaxed">{item}</p>
                 </div>
               </Reveal>
@@ -115,7 +115,7 @@ export default function IndustryDetail() {
             {ind.benefits.map((b, i) => (
               <Reveal key={b} delay={i * 0.06}>
                 <div className="flex items-start gap-4 border border-black/[0.07] rounded-md p-7 hover:border-black/20 transition-colors duration-300" data-testid={`benefit-${i}`}>
-                  <Check className="w-4 h-4 text-[#E04006] mt-1 shrink-0" />
+                  <Check className="w-4 h-4 text-[#FF4D00] mt-1 shrink-0" />
                   <p className="text-[#1C1917] text-sm md:text-base leading-relaxed">{b}</p>
                 </div>
               </Reveal>

@@ -35,7 +35,7 @@ export default function Features() {
                 data-testid={`filter-${c.toLowerCase()}`}
                 onClick={() => setCat(c)}
                 className={`font-mono2 text-[11px] tracking-[0.2em] uppercase px-4 py-2 rounded-full border transition-[color,border-color,background-color] duration-200 ${
-                  cat === c ? "border-[#E04006] bg-[#E04006] text-white" : "border-black/[0.15] text-[#57534E] hover:text-[#1C1917] hover:border-black/30"
+                  cat === c ? "border-[#FF4D00] bg-[#FF4D00] text-white" : "border-black/[0.15] text-[#57534E] hover:text-[#1C1917] hover:border-black/30"
                 }`}
               >
                 {c}
@@ -47,7 +47,7 @@ export default function Features() {
               <Reveal key={f.slug} delay={(i % 3) * 0.06}>
                 <div className="surface-card rounded-md p-8 h-full flex flex-col hover:border-black/20 transition-colors duration-300" data-testid={`feature-card-${f.slug}`}>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006]">{f.category}</span>
+                    <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#FF4D00]">{f.category}</span>
                     <span className="font-mono2 text-[10px] text-[#57534E]/60">{String(AI_FEATURES.indexOf(f) + 1).padStart(2, "0")}</span>
                   </div>
                   <h3 className="font-display text-xl font-bold text-[#1C1917] tracking-[-0.01em]">{f.name}</h3>

@@ -31,7 +31,7 @@ export default function PersonaDetail() {
             <ul className="space-y-4">
               {persona.pains.map((p) => (
                 <li key={p} className="flex items-start gap-3">
-                  <X className="w-4 h-4 mt-0.5 text-[#E04006] shrink-0" />
+                  <X className="w-4 h-4 mt-0.5 text-[#FF4D00] shrink-0" />
                   <span className="text-[#57534E] text-sm md:text-base leading-relaxed">{p}</span>
                 </li>
               ))}
@@ -43,7 +43,7 @@ export default function PersonaDetail() {
             <ul className="space-y-4">
               {persona.outcomes.map((o) => (
                 <li key={o} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 mt-0.5 text-[#E04006] shrink-0" />
+                  <Check className="w-4 h-4 mt-0.5 text-[#FF4D00] shrink-0" />
                   <span className="text-[#1C1917] text-sm md:text-base leading-relaxed">{o}</span>
                 </li>
               ))}
@@ -56,7 +56,7 @@ export default function PersonaDetail() {
         <div className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-16 items-start">
           <Reveal>
             <div className="surface-card rounded-md p-10 relative">
-              <Quote className="w-6 h-6 text-[#E04006] mb-6" />
+              <Quote className="w-6 h-6 text-[#FF4D00] mb-6" />
               <p className="font-display text-xl md:text-2xl font-medium text-[#1C1917] leading-snug tracking-[-0.01em]" data-testid="persona-quote">
                 {persona.quote}
               </p>
@@ -69,7 +69,7 @@ export default function PersonaDetail() {
             <div className="space-y-px bg-black/[0.07] border border-black/[0.07]">
               {persona.kpis.map((k, i) => (
                 <div key={k} className="bg-[#FFFFFF] p-6 flex items-center gap-4" data-testid={`persona-kpi-${i}`}>
-                  <Target className="w-4 h-4 text-[#E04006] shrink-0" />
+                  <Target className="w-4 h-4 text-[#FF4D00] shrink-0" />
                   <span className="text-[#1C1917] text-sm md:text-base">{k}</span>
                 </div>
               ))}

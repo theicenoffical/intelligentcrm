@@ -27,7 +27,7 @@ export default function Resources() {
           {cards.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.06}>
               <Link to={c.to} data-testid={c.testid} className="group surface-card rounded-md p-10 block h-full hover:border-black/20 transition-colors duration-300">
-                <c.icon className="w-5 h-5 text-[#E04006] mb-6" />
+                <c.icon className="w-5 h-5 text-[#FF4D00] mb-6" />
                 <h2 className="font-display text-2xl font-bold text-[#1C1917] tracking-[-0.02em]">{c.title}</h2>
                 <p className="text-[#57534E] text-sm mt-3 leading-relaxed">{c.desc}</p>
                 <span className="inline-flex items-center gap-2 text-sm text-[#1C1917] mt-6 font-medium">
@@ -45,7 +45,7 @@ export default function Resources() {
             {posts.slice(0, 3).map((p) => (
               <Link key={p.slug} to={`/resources/blog/${p.slug}`} data-testid={`res-post-${p.slug}`} className="group bg-[#FFFFFF] flex flex-col md:flex-row md:items-center justify-between gap-4 p-8 hover:bg-[#F5F5F4] transition-colors duration-200">
                 <div>
-                  <p className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006] mb-2">{p.category} · {p.readTime}</p>
+                  <p className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#FF4D00] mb-2">{p.category} · {p.readTime}</p>
                   <h3 className="font-display text-xl font-bold text-[#1C1917] tracking-[-0.01em]">{p.title}</h3>
                 </div>
                 <ArrowUpRight className="w-5 h-5 text-[#57534E] group-hover:text-[#1C1917] transition-colors duration-200 shrink-0" />
@@ -80,7 +80,7 @@ export function Blog() {
               data-testid={`blog-filter-${c.toLowerCase().replace(/\s+/g, "-")}`}
               onClick={() => setCat(c)}
               className={`font-mono2 text-[11px] tracking-[0.2em] uppercase px-4 py-2 rounded-full border transition-[color,border-color,background-color] duration-200 ${
-                cat === c ? "border-[#E04006] bg-[#E04006] text-white" : "border-black/[0.15] text-[#57534E] hover:text-[#1C1917] hover:border-black/30"
+                cat === c ? "border-[#FF4D00] bg-[#FF4D00] text-white" : "border-black/[0.15] text-[#57534E] hover:text-[#1C1917] hover:border-black/30"
               }`}
             >
               {c}
@@ -89,7 +89,7 @@ export function Blog() {
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {loading ? (
-            <div className="col-span-2 py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>
+            <div className="col-span-2 py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#FF4D00]" /></div>
           ) : filtered.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.06}>
               <Link to={`/resources/blog/${p.slug}`} data-testid={`blog-card-${p.slug}`} className="group surface-card rounded-md overflow-hidden block h-full hover:border-black/20 transition-colors duration-300">
@@ -100,7 +100,7 @@ export function Blog() {
                 )}
                 <div className="p-8 md:p-10">
                   <div className="flex items-center gap-4 mb-5">
-                    <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006]">{p.category}</span>
+                    <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#FF4D00]">{p.category}</span>
                     <span className="font-mono2 text-[10px] text-[#57534E]/60">{p.date} · {p.readTime}</span>
                   </div>
                   <h2 className="font-display text-2xl font-bold text-[#1C1917] tracking-[-0.02em] leading-snug">{p.title}</h2>
@@ -123,7 +123,7 @@ export function BlogPost() {
   const { slug } = useParams();
   const { posts, loading } = useBlogPosts();
   if (loading) {
-    return <div className="min-h-screen grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>;
+    return <div className="min-h-screen grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#FF4D00]" /></div>;
   }
   const post = posts.find((p) => p.slug === slug);
   if (!post) return <NotFound />;
@@ -137,7 +137,7 @@ export function BlogPost() {
           </Link>
           <Reveal>
             <div className="flex items-center gap-4 mt-10 mb-8">
-              <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006]">{post.category}</span>
+              <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#FF4D00]">{post.category}</span>
               <span className="font-mono2 text-[10px] text-[#57534E]/60">{post.date} · {post.readTime} read</span>
             </div>
             <h1 className="font-display font-extrabold text-3xl md:text-5xl tracking-[-0.03em] leading-[1.05] text-[#1C1917]">{post.title}</h1>
@@ -182,7 +182,7 @@ export function CaseStudies() {
         sub="We don't publish invented logos or borrowed testimonials. Customer stories will appear here as our first deployments complete their first year. Until then, these illustrative scenarios show how organizations use Sales IQ."
       />
       <section className="container-x py-20 md:py-28" data-testid="case-studies-list">
-        <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#E04006] mb-10" data-testid="illustrative-label">
+        <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#FF4D00] mb-10" data-testid="illustrative-label">
           Illustrative scenarios — not customer claims
         </p>
         <div className="grid md:grid-cols-3 gap-6">

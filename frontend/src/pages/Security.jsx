@@ -27,7 +27,7 @@ export default function Security() {
             {SECURITY_CAPABILITIES.map((c, i) => (
               <Reveal key={c.title} delay={(i % 4) * 0.06}>
                 <div className="surface-card rounded-md p-7 h-full hover:border-black/20 transition-colors duration-300" data-testid={`security-cap-${c.title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
-                  <ShieldCheck className="w-4 h-4 text-[#E04006] mb-5" />
+                  <ShieldCheck className="w-4 h-4 text-[#FF4D00] mb-5" />
                   <h3 className="font-display text-base font-bold text-[#1C1917]">{c.title}</h3>
                   <p className="text-[#57534E] text-xs mt-3 leading-relaxed">{c.desc}</p>
                 </div>
@@ -45,7 +45,7 @@ export default function Security() {
             {DEPLOYMENT_MODELS.map((m, i) => (
               <Reveal key={m.name} delay={(i % 4) * 0.06} className="bg-[#FFFFFF]">
                 <div className="p-8 h-full" data-testid={`security-deploy-${m.name.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <span className="font-mono2 text-[11px] text-[#E04006] tracking-widest">MODEL {m.num}</span>
+                  <span className="font-mono2 text-[11px] text-[#FF4D00] tracking-widest">MODEL {m.num}</span>
                   <h3 className="font-display text-lg font-bold text-[#1C1917] mt-3">{m.name}</h3>
                   <p className="text-[#57534E] text-sm mt-3 leading-relaxed">{m.desc}</p>
                 </div>

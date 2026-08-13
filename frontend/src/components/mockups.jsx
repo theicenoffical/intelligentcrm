@@ -13,7 +13,7 @@ const Frame = ({ url, children, testid }) => (
     data-testid={testid}
   >
     <div className="flex items-center gap-2 px-4 py-3 border-b border-black/[0.05] bg-stone-50">
-      <span className="w-2.5 h-2.5 rounded-full bg-[#E04006]/70" />
+      <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D00]/70" />
       <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
       <span className="ml-3 font-mono2 text-[10px] tracking-wider text-stone-400 bg-white border border-black/[0.05] rounded px-2.5 py-1">
@@ -59,10 +59,10 @@ const DealCard = ({ company, value, rep, score, days, tone }) => (
 export const PipelineMockup = () => {
   const cols = [
     { name: "Qualification", count: 4, total: "₹1.9 Cr", deals: [
-      { company: "Bharat Forge Components", value: "₹58 L", rep: "AV", score: 72, days: 6, tone: "bg-[#E04006]" },
+      { company: "Bharat Forge Components", value: "₹58 L", rep: "AV", score: 72, days: 6, tone: "bg-[#FF4D00]" },
       { company: "Meridian Logistics", value: "₹34 L", rep: "RK", score: 64, days: 3, tone: "bg-[#0F172A]" },
       { company: "NuvoCare Health", value: "₹46 L", rep: "SM", score: 81, days: 2, tone: "bg-emerald-700" },
-      { company: "Arka Energy", value: "₹52 L", rep: "AV", score: 58, days: 9, tone: "bg-[#E04006]" },
+      { company: "Arka Energy", value: "₹52 L", rep: "AV", score: 58, days: 9, tone: "bg-[#FF4D00]" },
     ]},
     { name: "Discovery", count: 3, total: "₹2.4 Cr", deals: [
       { company: "Trident Insurance", value: "₹96 L", rep: "JP", score: 77, days: 12, tone: "bg-indigo-800" },
@@ -70,13 +70,13 @@ export const PipelineMockup = () => {
       { company: "Halcyon Realty", value: "₹56 L", rep: "RK", score: 84, days: 4, tone: "bg-[#0F172A]" },
     ]},
     { name: "Proposal", count: 3, total: "₹3.1 Cr", deals: [
-      { company: "Skyline Construction", value: "₹1.2 Cr", rep: "AV", score: 88, days: 8, tone: "bg-[#E04006]" },
+      { company: "Skyline Construction", value: "₹1.2 Cr", rep: "AV", score: 88, days: 8, tone: "bg-[#FF4D00]" },
       { company: "Veda Distribution", value: "₹74 L", rep: "JP", score: 79, days: 6, tone: "bg-indigo-800" },
       { company: "NorthPeak SaaS", value: "₹1.15 Cr", rep: "SM", score: 91, days: 3, tone: "bg-emerald-700" },
     ]},
     { name: "Negotiation", count: 2, total: "₹2.8 Cr", deals: [
       { company: "GovGrid Systems", value: "₹1.6 Cr", rep: "RK", score: 93, days: 14, tone: "bg-[#0F172A]" },
-      { company: "Apex Manufacturing", value: "₹1.2 Cr", rep: "AV", score: 86, days: 11, tone: "bg-[#E04006]" },
+      { company: "Apex Manufacturing", value: "₹1.2 Cr", rep: "AV", score: 86, days: 11, tone: "bg-[#FF4D00]" },
     ]},
   ];
   return (
@@ -86,9 +86,9 @@ export const PipelineMockup = () => {
           <p className="text-xs font-bold text-stone-900 font-display">Enterprise Pipeline</p>
           <span className="font-mono2 text-[9px] text-stone-400">Q3 FY27</span>
         </div>
-        <div className="flex items-center gap-1.5 bg-[#E04006]/10 border border-[#E04006]/20 rounded-full px-2.5 py-1">
-          <Sparkles className="w-3 h-3 text-[#E04006]" />
-          <span className="text-[9px] font-medium text-[#E04006]">Pipeline Health: Strong</span>
+        <div className="flex items-center gap-1.5 bg-[#FF4D00]/10 border border-[#FF4D00]/20 rounded-full px-2.5 py-1">
+          <Sparkles className="w-3 h-3 text-[#FF4D00]" />
+          <span className="text-[9px] font-medium text-[#FF4D00]">Pipeline Health: Strong</span>
         </div>
       </div>
       <div className="grid grid-cols-4 gap-3">
@@ -115,7 +115,7 @@ const Chart = () => {
   return (
     <div className="flex items-end gap-1.5 h-24">
       {bars.map((b, i) => (
-        <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${(b / max) * 100}%`, background: i === bars.length - 1 ? "#E04006" : i >= bars.length - 3 ? "#0F172A" : "#D6D3D1" }} />
+        <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${(b / max) * 100}%`, background: i === bars.length - 1 ? "#FF4D00" : i >= bars.length - 3 ? "#0F172A" : "#D6D3D1" }} />
       ))}
     </div>
   );
@@ -161,13 +161,13 @@ export const DashboardMockup = () => {
         </div>
         <div className="bg-[#0F172A] rounded-lg p-4 text-white">
           <div className="flex items-center gap-1.5 mb-3">
-            <Sparkles className="w-3 h-3 text-[#E04006]" />
+            <Sparkles className="w-3 h-3 text-[#FF4D00]" />
             <p className="text-[10px] font-semibold">AI Forecast Insight</p>
           </div>
           <p className="text-[10px] leading-relaxed text-stone-300">
             Q3 tracking 6% above target. Two negotiation-stage deals show strong engagement; one proposal-stage deal (Veda Distribution) has had no activity in 6 days.
           </p>
-          <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[9px] text-[#E04006] font-medium">
+          <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[9px] text-[#FF4D00] font-medium">
             View recommended actions <ArrowRight className="w-2.5 h-2.5" />
           </div>
         </div>
@@ -205,7 +205,7 @@ export const AccountMockup = () => (
           <div className="space-y-3">
             {[
               [Phone, "Call with Procurement Head — pricing review", "2h ago", "bg-indigo-800"],
-              [Mail, "Proposal v2 sent — ₹1.2 Cr expansion", "Yesterday", "bg-[#E04006]"],
+              [Mail, "Proposal v2 sent — ₹1.2 Cr expansion", "Yesterday", "bg-[#FF4D00]"],
               [Calendar, "On-site demo scheduled — plant visit", "Jul 14", "bg-emerald-700"],
             ].map(([Icon, text, when, tone]) => (
               <div key={text} className="flex items-center gap-2.5">
@@ -219,7 +219,7 @@ export const AccountMockup = () => (
       </div>
       <div className="bg-[#0F172A] rounded-lg p-4 text-white flex flex-col">
         <div className="flex items-center gap-1.5 mb-3">
-          <Sparkles className="w-3 h-3 text-[#E04006]" />
+          <Sparkles className="w-3 h-3 text-[#FF4D00]" />
           <p className="text-[10px] font-semibold">Sales IQ AI — Account Brief</p>
         </div>
         <p className="text-[10px] leading-relaxed text-stone-300">
@@ -228,13 +228,13 @@ export const AccountMockup = () => (
         <div className="mt-3 space-y-2">
           {["Share TCO comparison before Friday review", "Loop in IT lead — security questionnaire pending", "Reference: similar 2024 manufacturing rollout"].map((a) => (
             <div key={a} className="flex items-start gap-2 bg-white/5 border border-white/10 rounded-md p-2">
-              <AlertTriangle className="w-2.5 h-2.5 text-[#E04006] mt-0.5 shrink-0" />
+              <AlertTriangle className="w-2.5 h-2.5 text-[#FF4D00] mt-0.5 shrink-0" />
               <p className="text-[9px] text-stone-300 leading-tight">{a}</p>
             </div>
           ))}
         </div>
         <div className="mt-auto pt-3">
-          <div className="flex items-center gap-1.5 text-[9px] text-[#E04006] font-medium">
+          <div className="flex items-center gap-1.5 text-[9px] text-[#FF4D00] font-medium">
             Draft follow-up email <ArrowRight className="w-2.5 h-2.5" />
           </div>
         </div>
@@ -243,7 +243,7 @@ export const AccountMockup = () => (
   </div>
 );
 
-const FlowNode = ({ icon: Icon, label, sub, tone = "bg-white", iconTone = "text-[#E04006]", badge }) => (
+const FlowNode = ({ icon: Icon, label, sub, tone = "bg-white", iconTone = "text-[#FF4D00]", badge }) => (
   <div className={`${tone} border border-black/[0.08] rounded-lg p-3 shadow-sm w-full`}>
     <div className="flex items-center gap-2.5">
       <span className="w-7 h-7 rounded-md bg-stone-100 grid place-items-center shrink-0">
@@ -254,7 +254,7 @@ const FlowNode = ({ icon: Icon, label, sub, tone = "bg-white", iconTone = "text-
         <p className="font-mono2 text-[8px] text-stone-400 mt-0.5 truncate">{sub}</p>
       </div>
     </div>
-    {badge && <span className="inline-block mt-2 font-mono2 text-[8px] px-1.5 py-0.5 rounded bg-[#E04006]/10 text-[#E04006] border border-[#E04006]/20">{badge}</span>}
+    {badge && <span className="inline-block mt-2 font-mono2 text-[8px] px-1.5 py-0.5 rounded bg-[#FF4D00]/10 text-[#FF4D00] border border-[#FF4D00]/20">{badge}</span>}
   </div>
 );
 
@@ -326,13 +326,13 @@ export const ReportingMockup = () => (
     </div>
     <div className="bg-white border border-black/[0.06] rounded-lg p-4 mb-3">
       <div className="flex items-center gap-2.5 border border-black/[0.08] rounded-lg px-3.5 py-2.5 bg-stone-50">
-        <Sparkles className="w-3.5 h-3.5 text-[#E04006] shrink-0" />
+        <Sparkles className="w-3.5 h-3.5 text-[#FF4D00] shrink-0" />
         <p className="text-[11px] text-stone-700 flex-1">Show me enterprise deals stuck in proposal stage in the North region</p>
         <span className="font-mono2 text-[8px] px-2 py-1 rounded bg-[#0F172A] text-white shrink-0">ASK AI</span>
       </div>
       <div className="flex items-center gap-2 mt-3">
         {["Deals", "Accounts", "Activities", "Forecasts"].map((t, i) => (
-          <span key={t} className={`font-mono2 text-[9px] px-2.5 py-1 rounded-full border ${i === 0 ? "bg-[#E04006] text-white border-[#E04006]" : "text-stone-500 border-black/[0.08]"}`}>{t}</span>
+          <span key={t} className={`font-mono2 text-[9px] px-2.5 py-1 rounded-full border ${i === 0 ? "bg-[#FF4D00] text-white border-[#FF4D00]" : "text-stone-500 border-black/[0.08]"}`}>{t}</span>
         ))}
       </div>
     </div>
@@ -354,7 +354,7 @@ export const ReportingMockup = () => (
           ].map(([deal, age, val, stale]) => (
             <div key={deal} className="grid grid-cols-[1.4fr_1fr_0.8fr] gap-2 py-2 border-b border-black/[0.04] items-center">
               <span className="text-[10px] font-medium text-stone-800 truncate">{deal}</span>
-              <span className={`font-mono2 text-[9px] ${stale ? "text-[#E04006]" : "text-stone-500"}`}>{age}{stale ? " ⚠" : ""}</span>
+              <span className={`font-mono2 text-[9px] ${stale ? "text-[#FF4D00]" : "text-stone-500"}`}>{age}{stale ? " ⚠" : ""}</span>
               <span className="font-mono2 text-[9px] text-stone-700">{val}</span>
             </div>
           ))}
@@ -363,7 +363,7 @@ export const ReportingMockup = () => (
       <div className="bg-white border border-black/[0.06] rounded-lg p-4">
         <p className="text-[10px] font-semibold text-stone-700 mb-3">Stage Age Distribution</p>
         <div className="space-y-2.5">
-          {[["0–3 days", 30, "#0F172A"], ["4–7 days", 45, "#57534E"], ["8+ days", 75, "#E04006"]].map(([l, w, c]) => (
+          {[["0–3 days", 30, "#0F172A"], ["4–7 days", 45, "#57534E"], ["8+ days", 75, "#FF4D00"]].map(([l, w, c]) => (
             <div key={l}>
               <div className="flex justify-between mb-1">
                 <span className="font-mono2 text-[8px] text-stone-500">{l}</span>
@@ -375,7 +375,7 @@ export const ReportingMockup = () => (
             </div>
           ))}
         </div>
-        <div className="mt-4 pt-3 border-t border-black/[0.06] flex items-center gap-1.5 text-[9px] text-[#E04006] font-medium">
+        <div className="mt-4 pt-3 border-t border-black/[0.06] flex items-center gap-1.5 text-[9px] text-[#FF4D00] font-medium">
           Save as dashboard widget <ArrowRight className="w-2.5 h-2.5" />
         </div>
       </div>
@@ -392,7 +392,7 @@ export const MobileMockup = () => (
           <p className="font-mono2 text-[8px] tracking-widest text-stone-400">GOOD MORNING</p>
           <p className="font-display text-sm font-bold mt-0.5">Asha Verma</p>
           <div className="mt-3 bg-white/10 border border-white/15 rounded-lg p-2.5 flex items-start gap-2">
-            <Sparkles className="w-3 h-3 text-[#E04006] mt-0.5 shrink-0" />
+            <Sparkles className="w-3 h-3 text-[#FF4D00] mt-0.5 shrink-0" />
             <p className="text-[8.5px] leading-snug text-stone-300">3 deals need attention today. Apex Forging responds best before 11 AM.</p>
           </div>
         </div>
@@ -411,14 +411,14 @@ export const MobileMockup = () => (
               </div>
             ))}
           </div>
-          <div className="mt-3 bg-[#E04006] rounded-lg p-2.5 flex items-center justify-between">
+          <div className="mt-3 bg-[#FF4D00] rounded-lg p-2.5 flex items-center justify-between">
             <p className="text-[9px] font-semibold text-white">Draft follow-up for Apex</p>
             <ArrowRight className="w-3 h-3 text-white" />
           </div>
         </div>
         <div className="flex items-center justify-around border-t border-black/[0.06] py-2.5 bg-white">
           {[Home, Search, BarChart3, Settings].map((Icon, i) => (
-            <Icon key={i} className={`w-3.5 h-3.5 ${i === 0 ? "text-[#E04006]" : "text-stone-300"}`} />
+            <Icon key={i} className={`w-3.5 h-3.5 ${i === 0 ? "text-[#FF4D00]" : "text-stone-300"}`} />
           ))}
         </div>
       </div>
@@ -438,7 +438,7 @@ export const MockupGallery = () => (
     ].map((m, i) => (
       <div key={m.tag} className={`grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-14 items-center`}>
         <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-          <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#E04006] mb-4">{m.tag}</p>
+          <p className="font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#FF4D00] mb-4">{m.tag}</p>
           <h3 className="font-display text-2xl md:text-4xl font-bold tracking-[-0.02em] text-[#1C1917]">{m.title}</h3>
           <p className="text-[#57534E] text-sm md:text-base mt-4 leading-relaxed max-w-sm">{m.caption}</p>
           <p className="font-mono2 text-[10px] tracking-[0.2em] uppercase text-stone-400 mt-6">Illustrative product concept</p>

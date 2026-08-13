@@ -56,7 +56,7 @@ export default function Product() {
             {MODULES.map((m, i) => (
               <Reveal key={m.name} delay={(i % 3) * 0.08}>
                 <div className="surface-card rounded-md p-8 h-full hover:border-black/20 transition-colors duration-300" data-testid={`module-${m.name.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and")}`}>
-                  <m.icon className="w-5 h-5 text-[#E04006] mb-6" />
+                  <m.icon className="w-5 h-5 text-[#FF4D00] mb-6" />
                   <h3 className="font-display text-xl font-bold text-[#1C1917] tracking-[-0.01em]">{m.name}</h3>
                   <p className="text-[#57534E] text-sm mt-3 leading-relaxed">{m.desc}</p>
                 </div>
@@ -89,7 +89,7 @@ export default function Product() {
               <Reveal key={stage} delay={(i % 3) * 0.06} className="bg-[#FFFFFF]">
                 <div className="p-8" data-testid={`lifecycle-${stage.toLowerCase()}`}>
                   <div className="flex items-baseline gap-4 mb-4">
-                    <span className="font-mono2 text-[11px] text-[#E04006] tracking-widest">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-mono2 text-[11px] text-[#FF4D00] tracking-widest">{String(i + 1).padStart(2, "0")}</span>
                     <h3 className="font-display text-lg font-bold text-[#1C1917]">{stage}</h3>
                   </div>
                   <p className="text-[#57534E] text-sm leading-relaxed">{desc}</p>
@@ -125,7 +125,7 @@ export default function Product() {
             <p className="text-[#57534E] text-sm mt-2">Twenty integrated AI features across qualification, research, productivity and insight.</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <Link to="/features" data-testid="product-to-features" className="group inline-flex items-center gap-2 text-sm font-medium text-[#1C1917] border-b border-[#E04006] pb-1">
+            <Link to="/features" data-testid="product-to-features" className="group inline-flex items-center gap-2 text-sm font-medium text-[#1C1917] border-b border-[#FF4D00] pb-1">
               Explore Features <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </Reveal>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { Loader2, LogOut, Download, Users, BarChart3, Globe, RefreshCw, Newspaper, Plus, Pencil, Trash2, X } from "lucide-react";
+import { Loader2, LogOut, Download, Users, BarChart3, Globe, RefreshCw, Newspaper, Plus, Pencil, Trash2, X, Upload } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { API } from "../lib/api";
 import { INDUSTRIES } from "../data/industries";
@@ -12,7 +12,7 @@ const TOKEN_KEY = "siq_admin_token";
 const getToken = () => localStorage.getItem(TOKEN_KEY);
 const authHeaders = () => ({ Authorization: `Bearer ${getToken()}` });
 
-const inputCls = "w-full bg-white border border-black/[0.12] rounded-md px-4 py-3 text-sm text-[#1C1917] placeholder:text-stone-400 outline-none focus:border-[#E04006] focus:ring-2 focus:ring-[#E04006]/20 transition-[border-color] duration-150";
+const inputCls = "w-full bg-white border border-black/[0.12] rounded-md px-4 py-3 text-sm text-[#1C1917] placeholder:text-stone-400 outline-none focus:border-[#FF4D00] focus:ring-2 focus:ring-[#FF4D00]/20 transition-[border-color] duration-150";
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -38,13 +38,9 @@ function Login({ onLogin }) {
   return (
     <div className="min-h-screen bg-[#FAFAF9] grid place-items-center px-6" data-testid="admin-login">
       <div className="w-full max-w-sm">
-        <div className="flex items-center gap-2.5 mb-10 justify-center">
-          <span className="w-8 h-8 border-2 border-[#0F172A] rounded-md grid place-items-center">
-            <span className="w-2.5 h-2.5 bg-[#E04006] rotate-45" />
-          </span>
-          <span className="font-display font-bold text-xl text-[#1C1917]">Design My <span className="text-[#57534E] font-medium">CRM</span>
-            <span className="font-mono2 text-[10px] text-[#57534E] tracking-[0.25em] uppercase block">Admin</span>
-          </span>
+        <div className="flex items-center gap-3 mb-10 justify-center">
+          <img src="/logo.png" alt="Design My CRM" className="h-10 w-auto rounded-lg" />
+          <span className="font-mono2 text-[10px] text-[#57534E] tracking-[0.25em] uppercase self-end pb-1">Admin</span>
         </div>
         <form onSubmit={submit} className="bg-white border border-black/[0.06] rounded-xl shadow-[0_20px_60px_-15px_rgba(15,23,42,0.12)] p-8 space-y-5" data-testid="admin-login-form">
           <div>
@@ -55,7 +51,7 @@ function Login({ onLogin }) {
             <label htmlFor="admin-password" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Password</label>
             <input id="admin-password" data-testid="admin-password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className={inputCls} placeholder="••••••••" />
           </div>
-          <button type="submit" data-testid="admin-login-submit" disabled={loading} className="w-full inline-flex items-center justify-center gap-2 bg-[#E04006] text-white font-semibold text-sm px-6 py-3.5 rounded-md transition-[background-color,transform,opacity] duration-200 hover:bg-[#C83805] active:scale-[0.99] disabled:opacity-60">
+          <button type="submit" data-testid="admin-login-submit" disabled={loading} className="w-full inline-flex items-center justify-center gap-2 bg-[#FF4D00] text-white font-semibold text-sm px-6 py-3.5 rounded-md transition-[background-color,transform,opacity] duration-200 hover:bg-[#E64500] active:scale-[0.99] disabled:opacity-60">
             {loading && <Loader2 className="w-4 h-4 animate-spin" />}
             Sign In
           </button>
@@ -67,7 +63,7 @@ function Login({ onLogin }) {
 
 const StatusBadge = ({ status }) => {
   const styles = {
-    new: "bg-[#E04006]/10 text-[#E04006] border-[#E04006]/25",
+    new: "bg-[#FF4D00]/10 text-[#FF4D00] border-[#FF4D00]/25",
     contacted: "bg-amber-50 text-amber-700 border-amber-200",
     closed: "bg-emerald-50 text-emerald-700 border-emerald-200",
   };
@@ -132,7 +128,7 @@ function Leads() {
         </div>
       </div>
       {loading ? (
-        <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>
+        <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#FF4D00]" /></div>
       ) : filtered.length === 0 ? (
         <div className="py-20 text-center text-[#57534E] text-sm" data-testid="leads-empty">No leads yet. New form submissions will appear here.</div>
       ) : (
@@ -151,7 +147,7 @@ function Leads() {
                   <td className="px-4 py-3.5"><span className={`font-mono2 text-[10px] uppercase px-2 py-1 rounded ${l.kind === "demo" ? "bg-[#0F172A] text-white" : "bg-stone-200 text-stone-700"}`}>{l.kind}</span></td>
                   <td className="px-4 py-3.5"><StatusBadge status={l.status} /></td>
                   <td className="px-4 py-3.5 font-medium text-[#1C1917]">{l.name}</td>
-                  <td className="px-4 py-3.5 text-[#57534E]"><a href={`mailto:${l.email}`} className="hover:text-[#E04006] transition-colors duration-150">{l.email}</a></td>
+                  <td className="px-4 py-3.5 text-[#57534E]"><a href={`mailto:${l.email}`} className="hover:text-[#FF4D00] transition-colors duration-150">{l.email}</a></td>
                   <td className="px-4 py-3.5 text-[#57534E]">{l.company || "—"}</td>
                   <td className="px-4 py-3.5 text-[#57534E] text-xs max-w-[220px]">
                     {l.kind === "demo" ? [l.team_size, l.deployment, l.message].filter(Boolean).join(" · ") || "—" : [l.subject, l.message].filter(Boolean).join(" · ")}
@@ -162,7 +158,7 @@ function Leads() {
                       data-testid={`lead-status-${l.id}`}
                       value={l.status || "new"}
                       onChange={(e) => setStatus(l, e.target.value)}
-                      className="text-xs border border-black/[0.12] rounded-md px-2 py-1.5 bg-white text-[#1C1917] outline-none focus:border-[#E04006]"
+                      className="text-xs border border-black/[0.12] rounded-md px-2 py-1.5 bg-white text-[#1C1917] outline-none focus:border-[#FF4D00]"
                     >
                       <option value="new">New</option>
                       <option value="contacted">Contacted</option>
@@ -190,7 +186,7 @@ function Analytics() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>;
+  if (loading) return <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#FF4D00]" /></div>;
   if (!data) return null;
 
   return (
@@ -219,7 +215,7 @@ function Analytics() {
               <XAxis dataKey="date" tick={{ fontSize: 10, fill: "#57534E", fontFamily: "JetBrains Mono" }} tickFormatter={(d) => d.slice(5)} stroke="#E5E5E5" />
               <YAxis allowDecimals={false} tick={{ fontSize: 10, fill: "#57534E", fontFamily: "JetBrains Mono" }} stroke="#E5E5E5" width={30} />
               <Tooltip cursor={{ fill: "rgba(15,23,42,0.04)" }} contentStyle={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 8, fontSize: 12 }} />
-              <Bar dataKey="views" fill="#E04006" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="views" fill="#FF4D00" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         )}
@@ -286,13 +282,13 @@ function SeoPanel() {
     }
   };
 
-  if (loading) return <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>;
+  if (loading) return <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#FF4D00]" /></div>;
 
   return (
     <div data-testid="admin-seo">
       <div className="flex items-center justify-between gap-4 mb-6">
         <p className="text-sm text-[#57534E] max-w-lg">Edit the search title and meta description for any page. Overrides apply site-wide within a minute of saving.</p>
-        <button onClick={save} disabled={saving || Object.keys(dirty).length === 0} data-testid="seo-save" className="inline-flex items-center gap-2 bg-[#E04006] text-white text-xs font-semibold px-5 py-2.5 rounded-md hover:bg-[#C83805] transition-[background-color,opacity] duration-150 disabled:opacity-50">
+        <button onClick={save} disabled={saving || Object.keys(dirty).length === 0} data-testid="seo-save" className="inline-flex items-center gap-2 bg-[#FF4D00] text-white text-xs font-semibold px-5 py-2.5 rounded-md hover:bg-[#E64500] transition-[background-color,opacity] duration-150 disabled:opacity-50">
           {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
           Save Changes{Object.keys(dirty).length > 0 ? ` (${Object.keys(dirty).length})` : ""}
         </button>
@@ -300,21 +296,21 @@ function SeoPanel() {
       <div className="space-y-3">
         {paths.map((path) => (
           <div key={path} className="bg-white border border-black/[0.06] rounded-xl p-5" data-testid={`seo-row-${path.replace(/\//g, "-") || "-home"}`}>
-            <p className="font-mono2 text-[11px] text-[#E04006] mb-3">{path}</p>
+            <p className="font-mono2 text-[11px] text-[#FF4D00] mb-3">{path}</p>
             <div className="grid md:grid-cols-2 gap-3">
               <input
                 data-testid={`seo-title-${path.replace(/\//g, "-") || "-home"}`}
                 value={entries[path]?.title || ""}
                 onChange={(e) => update(path, "title", e.target.value)}
                 placeholder="Meta title (leave blank to keep default)"
-                className="bg-white border border-black/[0.1] rounded-md px-3 py-2.5 text-sm text-[#1C1917] placeholder:text-stone-400 outline-none focus:border-[#E04006]"
+                className="bg-white border border-black/[0.1] rounded-md px-3 py-2.5 text-sm text-[#1C1917] placeholder:text-stone-400 outline-none focus:border-[#FF4D00]"
               />
               <input
                 data-testid={`seo-desc-${path.replace(/\//g, "-") || "-home"}`}
                 value={entries[path]?.description || ""}
                 onChange={(e) => update(path, "description", e.target.value)}
                 placeholder="Meta description (leave blank to keep default)"
-                className="bg-white border border-black/[0.1] rounded-md px-3 py-2.5 text-sm text-[#1C1917] placeholder:text-stone-400 outline-none focus:border-[#E04006]"
+                className="bg-white border border-black/[0.1] rounded-md px-3 py-2.5 text-sm text-[#1C1917] placeholder:text-stone-400 outline-none focus:border-[#FF4D00]"
               />
             </div>
           </div>
@@ -330,8 +326,27 @@ function BlogManager() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(null); // null | "new" | post object
-  const [form, setForm] = useState({ title: "", slug: "", category: "Strategy", date: "", readTime: "5 min", excerpt: "", body: "" });
+  const [form, setForm] = useState({ title: "", slug: "", category: "Strategy", date: "", readTime: "5 min", excerpt: "", image: "", body: "" });
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+
+  const onUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const { data } = await axios.post(`${API}/admin/upload`, fd, { headers: authHeaders() });
+      setForm((f) => ({ ...f, image: data.url }));
+      toast.success("Image uploaded");
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Upload failed");
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  };
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -427,17 +442,24 @@ function BlogManager() {
             <textarea id="bp-excerpt" data-testid="blog-excerpt" rows={2} value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} className={inputCls} placeholder="One or two sentences summarizing the post…" />
           </div>
           <div>
-            <label htmlFor="bp-image" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Cover Image URL</label>
-            <input id="bp-image" data-testid="blog-image" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} className={inputCls} placeholder="https://images.unsplash.com/…" />
+            <label htmlFor="bp-image" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Cover Image</label>
+            <div className="flex gap-2">
+              <input id="bp-image" data-testid="blog-image" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} className={inputCls} placeholder="Paste a URL or upload →" />
+              <label data-testid="blog-upload-btn" className={`shrink-0 inline-flex items-center gap-2 border border-black/[0.12] text-[#1C1917] text-xs font-semibold px-4 rounded-md cursor-pointer transition-colors duration-150 hover:bg-black/[0.03] ${uploading ? "opacity-60 pointer-events-none" : ""}`}>
+                {uploading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Upload className="w-3.5 h-3.5" />}
+                {uploading ? "Uploading…" : "Upload"}
+                <input type="file" accept="image/*" className="hidden" data-testid="blog-upload-input" onChange={onUpload} disabled={uploading} />
+              </label>
+            </div>
             {form.image && (
-              <img src={form.image} alt="Cover preview" className="mt-3 w-full max-w-sm aspect-[16/9] object-cover rounded-md border border-black/[0.08]" data-testid="blog-image-preview" />
+              <img src={form.image.startsWith("/") ? `${process.env.REACT_APP_BACKEND_URL}${form.image}` : form.image} alt="Cover preview" className="mt-3 w-full max-w-sm aspect-[16/9] object-cover rounded-md border border-black/[0.08]" data-testid="blog-image-preview" />
             )}
           </div>
           <div>
             <label htmlFor="bp-body" className="block font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] mb-2">Body — separate paragraphs with a blank line *</label>
             <textarea id="bp-body" data-testid="blog-body" rows={14} required value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} className={`${inputCls} font-mono2 text-xs leading-relaxed`} placeholder="First paragraph…&#10;&#10;Second paragraph…" />
           </div>
-          <button type="submit" data-testid="blog-save" disabled={saving} className="inline-flex items-center gap-2 bg-[#E04006] text-white font-semibold text-sm px-6 py-3 rounded-md hover:bg-[#C83805] transition-[background-color,opacity] duration-150 disabled:opacity-60">
+          <button type="submit" data-testid="blog-save" disabled={saving} className="inline-flex items-center gap-2 bg-[#FF4D00] text-white font-semibold text-sm px-6 py-3 rounded-md hover:bg-[#E64500] transition-[background-color,opacity] duration-150 disabled:opacity-60">
             {saving && <Loader2 className="w-4 h-4 animate-spin" />}
             {editing === "new" ? "Publish Post" : "Save Changes"}
           </button>
@@ -450,12 +472,12 @@ function BlogManager() {
     <div data-testid="admin-blog">
       <div className="flex items-center justify-between gap-4 mb-6">
         <p className="text-sm text-[#57534E]">Posts publish instantly to <span className="font-mono2 text-xs">/resources/blog</span>.</p>
-        <button onClick={openNew} data-testid="blog-new" className="inline-flex items-center gap-2 bg-[#E04006] text-white text-xs font-semibold px-5 py-2.5 rounded-md hover:bg-[#C83805] transition-colors duration-150">
+        <button onClick={openNew} data-testid="blog-new" className="inline-flex items-center gap-2 bg-[#FF4D00] text-white text-xs font-semibold px-5 py-2.5 rounded-md hover:bg-[#E64500] transition-colors duration-150">
           <Plus className="w-3.5 h-3.5" /> New Post
         </button>
       </div>
       {loading ? (
-        <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>
+        <div className="py-20 grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#FF4D00]" /></div>
       ) : (
         <div className="bg-white border border-black/[0.06] rounded-xl overflow-hidden">
           {posts.map((p) => (
@@ -467,7 +489,7 @@ function BlogManager() {
               <div className="flex items-center gap-2 shrink-0">
                 <a href={`/resources/blog/${p.slug}`} target="_blank" rel="noreferrer" data-testid={`blog-view-${p.slug}`} className="font-mono2 text-[10px] uppercase tracking-wider text-[#57534E] hover:text-[#1C1917] px-2 py-1.5 transition-colors duration-150">View</a>
                 <button onClick={() => openEdit(p)} data-testid={`blog-edit-${p.slug}`} className="inline-flex items-center gap-1.5 text-xs font-medium border border-black/[0.12] text-[#57534E] px-3 py-1.5 rounded-md hover:bg-black/[0.03] transition-colors duration-150"><Pencil className="w-3 h-3" /> Edit</button>
-                <button onClick={() => remove(p)} data-testid={`blog-delete-${p.slug}`} className="inline-flex items-center gap-1.5 text-xs font-medium border border-black/[0.12] text-[#57534E] px-3 py-1.5 rounded-md hover:text-[#E04006] hover:border-[#E04006]/30 transition-colors duration-150"><Trash2 className="w-3 h-3" /></button>
+                <button onClick={() => remove(p)} data-testid={`blog-delete-${p.slug}`} className="inline-flex items-center gap-1.5 text-xs font-medium border border-black/[0.12] text-[#57534E] px-3 py-1.5 rounded-md hover:text-[#FF4D00] hover:border-[#FF4D00]/30 transition-colors duration-150"><Trash2 className="w-3 h-3" /></button>
               </div>
             </div>
           ))}
@@ -493,7 +515,7 @@ export default function Admin() {
   }, []);
 
   if (checking) {
-    return <div className="min-h-screen bg-[#FAFAF9] grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#E04006]" /></div>;
+    return <div className="min-h-screen bg-[#FAFAF9] grid place-items-center"><Loader2 className="w-6 h-6 animate-spin text-[#FF4D00]" /></div>;
   }
 
   if (!user) {
@@ -507,8 +529,7 @@ export default function Admin() {
       <header className="bg-white/80 backdrop-blur-xl border-b border-black/[0.06] sticky top-0 z-40">
         <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="w-7 h-7 border-2 border-[#0F172A] rounded-md grid place-items-center"><span className="w-2 h-2 bg-[#E04006] rotate-45" /></span>
-            <span className="font-display font-bold text-lg text-[#1C1917]">Design My <span className="text-[#57534E] font-medium">CRM</span></span>
+            <img src="/logo.png" alt="Design My CRM" className="h-8 w-auto rounded-md" />
             <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E] ml-2 hidden sm:inline">Admin Console</span>
           </div>
           <div className="flex items-center gap-4">
@@ -517,7 +538,7 @@ export default function Admin() {
             <button
               onClick={() => { localStorage.removeItem(TOKEN_KEY); setUser(null); }}
               data-testid="admin-logout"
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-[#57534E] hover:text-[#E04006] transition-colors duration-150"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-[#57534E] hover:text-[#FF4D00] transition-colors duration-150"
             >
               <LogOut className="w-3.5 h-3.5" /> Logout
             </button>

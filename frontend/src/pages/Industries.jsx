@@ -27,7 +27,7 @@ export default function Industries() {
               >
                 <div>
                   <div className="flex items-baseline gap-4 mb-3">
-                    <span className="font-mono2 text-[11px] text-[#E04006] tracking-widest">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-mono2 text-[11px] text-[#FF4D00] tracking-widest">{String(i + 1).padStart(2, "0")}</span>
                     <h2 className="font-display text-xl md:text-2xl font-bold text-[#1C1917] tracking-[-0.02em] group-hover:text-[#1C1917]">
                       {ind.name}
                     </h2>

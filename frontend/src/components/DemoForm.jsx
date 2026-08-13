@@ -6,7 +6,7 @@ import { submitDemoRequest } from "../lib/api";
 export const TEAM_SIZES = ["1–25", "26–100", "101–500", "501–2,000", "2,000+"];
 export const DEPLOYMENTS = ["Managed Cloud", "Dedicated Hosted", "Private Cloud", "On-Premises", "Not sure yet"];
 
-const inputCls = "w-full bg-[#FFFFFF] border border-black/[0.12] rounded-md px-4 py-3.5 text-sm text-[#1C1917] placeholder:text-[#57534E]/50 outline-none focus:border-[#E04006] focus:ring-2 focus:ring-[#E04006]/20 transition-[border-color] duration-150";
+const inputCls = "w-full bg-[#FFFFFF] border border-black/[0.12] rounded-md px-4 py-3.5 text-sm text-[#1C1917] placeholder:text-[#57534E]/50 outline-none focus:border-[#FF4D00] focus:ring-2 focus:ring-[#FF4D00]/20 transition-[border-color] duration-150";
 
 export const Field = ({ label, children, htmlFor }) => (
   <div>
@@ -37,7 +37,7 @@ export function DemoForm({ source = "book-demo", compact = false }) {
   if (status === "done") {
     return (
       <div className="surface-card rounded-md p-10 text-center" data-testid="demo-success">
-        <CheckCircle2 className="w-10 h-10 text-[#E04006] mx-auto mb-6" />
+        <CheckCircle2 className="w-10 h-10 text-[#FF4D00] mx-auto mb-6" />
         <h3 className="font-display text-2xl font-bold text-[#1C1917]">Request received.</h3>
         <p className="text-[#57534E] text-sm mt-3 max-w-sm mx-auto leading-relaxed">
           Thank you, {form.name.split(" ")[0]}. A member of our team will contact you within one business day to schedule your demo.
@@ -81,7 +81,7 @@ export function DemoForm({ source = "book-demo", compact = false }) {
         type="submit"
         data-testid="demo-submit"
         disabled={status === "loading"}
-        className="w-full inline-flex items-center justify-center gap-2 bg-[#E04006] text-white font-semibold text-sm px-6 py-4 rounded-md transition-[transform,background-color,opacity] duration-200 hover:bg-[#C83805] active:scale-[0.99] disabled:opacity-60"
+        className="w-full inline-flex items-center justify-center gap-2 bg-[#FF4D00] text-white font-semibold text-sm px-6 py-4 rounded-md transition-[transform,background-color,opacity] duration-200 hover:bg-[#E64500] active:scale-[0.99] disabled:opacity-60"
       >
         {status === "loading" && <Loader2 className="w-4 h-4 animate-spin" />}
         {status === "loading" ? "Submitting…" : "Request Demo"}

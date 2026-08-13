@@ -31,7 +31,7 @@ export default function BookDemo() {
               <ul className="space-y-4">
                 {EXPECT.map((e) => (
                   <li key={e} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#E04006] mt-0.5 shrink-0" />
+                    <Check className="w-4 h-4 text-[#FF4D00] mt-0.5 shrink-0" />
                     <span className="text-[#57534E] text-sm md:text-base leading-relaxed">{e}</span>
                   </li>
                 ))}

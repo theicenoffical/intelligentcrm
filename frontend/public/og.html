@@ -12,22 +12,22 @@
   .left { width: 58%; padding: 72px 0 72px 80px; display: flex; flex-direction: column; justify-content: space-between; }
   .logo { display: flex; align-items: center; gap: 14px; }
   .logo-mark { width: 44px; height: 44px; border: 2px solid #0F172A; border-radius: 8px; display: grid; place-items: center; }
-  .logo-diamond { width: 14px; height: 14px; background: #E04006; transform: rotate(45deg); }
+  .logo-diamond { width: 14px; height: 14px; background: #FF4D00; transform: rotate(45deg); }
   .logo-text { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700; font-size: 26px; color: #1C1917; letter-spacing: -0.02em; }
   .logo-text span { color: #57534E; font-weight: 500; }
-  .mono { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #E04006; margin-bottom: 26px; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #FF4D00; margin-bottom: 26px; }
   h1 { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 800; font-size: 76px; line-height: 0.98; letter-spacing: -0.035em; color: #0F172A; }
   h1 .hollow { color: transparent; -webkit-text-stroke: 2px rgba(15,23,42,0.4); }
   .sub { font-size: 19px; color: #57534E; margin-top: 26px; max-width: 480px; line-height: 1.55; }
   .footer { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A8A29E; }
-  .accent-bar { width: 72px; height: 5px; background: #E04006; margin-bottom: 28px; }
+  .accent-bar { width: 72px; height: 5px; background: #FF4D00; margin-bottom: 28px; }
   .right { width: 42%; position: relative; background: #0F172A; display: flex; align-items: center; justify-content: center; overflow: hidden; }
   .right-grid { position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 48px 48px; }
   .card { position: relative; width: 400px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 40px 100px -20px rgba(0,0,0,0.55); padding: 22px; transform: rotate(-3deg); }
   .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
   .card-title { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: #0F172A; }
-  .ai-pill { display: flex; align-items: center; gap: 5px; background: rgba(224,64,6,0.1); border: 1px solid rgba(224,64,6,0.25); border-radius: 999px; padding: 4px 10px; font-size: 9px; font-weight: 600; color: #E04006; }
-  .ai-dot { width: 6px; height: 6px; background: #E04006; border-radius: 50%; }
+  .ai-pill { display: flex; align-items: center; gap: 5px; background: rgba(224,64,6,0.1); border: 1px solid rgba(224,64,6,0.25); border-radius: 999px; padding: 4px 10px; font-size: 9px; font-weight: 600; color: #FF4D00; }
+  .ai-dot { width: 6px; height: 6px; background: #FF4D00; border-radius: 50%; }
   .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
   .kpi { background: #F5F5F4; border-radius: 8px; padding: 10px; }
   .kpi-label { font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #A8A29E; }
@@ -35,7 +35,7 @@
   .bars { display: flex; align-items: flex-end; gap: 5px; height: 64px; }
   .bar { flex: 1; border-radius: 3px 3px 0 0; background: #D6D3D1; }
   .bar.hot { background: #0F172A; }
-  .bar.last { background: #E04006; }
+  .bar.last { background: #FF4D00; }
 </style>
 </head>
 <body>
@@ -43,8 +43,7 @@
   <div class="wrap">
     <div class="left">
       <div class="logo">
-        <div class="logo-mark"><div class="logo-diamond"></div></div>
-        <div class="logo-text">Design My <span>CRM</span></div>
+        <img src="logo.png" alt="Design My CRM" style="height:64px;width:auto;border-radius:10px;" />
       </div>
       <div>
         <div class="accent-bar"></div>

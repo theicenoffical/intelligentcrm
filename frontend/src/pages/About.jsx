@@ -56,7 +56,7 @@ export default function About() {
             {VALUES.map((v, i) => (
               <Reveal key={v.num} delay={(i % 2) * 0.08}>
                 <div className="surface-card rounded-md p-10 h-full" data-testid={`value-${v.num}`}>
-                  <span className="font-mono2 text-sm text-[#E04006] tracking-widest">{v.num}</span>
+                  <span className="font-mono2 text-sm text-[#FF4D00] tracking-widest">{v.num}</span>
                   <h3 className="font-display text-2xl font-bold text-[#1C1917] mt-4 tracking-[-0.02em]">{v.title}</h3>
                   <p className="text-[#57534E] text-sm mt-4 leading-relaxed">{v.desc}</p>
                 </div>
@@ -123,7 +123,7 @@ export default function About() {
                   />
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#E04006] rotate-45" />
+                    <span className="w-1.5 h-1.5 bg-[#FF4D00] rotate-45" />
                     <span className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-white">{p.caption}</span>
                   </div>
                 </div>

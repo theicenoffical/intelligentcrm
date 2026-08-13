@@ -18,7 +18,7 @@ export const Reveal = ({ children, delay = 0, className = "", ...props }) => (
 
 export const SectionTag = ({ children, num }) => (
   <div className="flex items-center gap-3 mb-6" data-testid="section-tag">
-    {num && <span className="font-mono2 text-[11px] tracking-[0.25em] text-[#E04006]">{num}</span>}
+    {num && <span className="font-mono2 text-[11px] tracking-[0.25em] text-[#FF4D00]">{num}</span>}
     <span className="overline-tag">{children}</span>
     <span className="h-px flex-1 bg-black/10" />
   </div>
@@ -31,7 +31,7 @@ export const SectionTitle = ({ children, className = "" }) => (
 );
 
 export const PrimaryButton = ({ to, children, testid, onClick }) => {
-  const cls = "group inline-flex items-center gap-2 bg-[#E04006] text-white font-medium text-sm px-6 py-3.5 rounded-md transition-[transform,background-color] duration-200 hover:bg-[#C83805] active:scale-[0.98]";
+  const cls = "group inline-flex items-center gap-2 bg-[#FF4D00] text-white font-medium text-sm px-6 py-3.5 rounded-md transition-[transform,background-color] duration-200 hover:bg-[#E64500] active:scale-[0.98]";
   const inner = (
     <>
       {children}
@@ -60,7 +60,7 @@ export const Marquee = ({ items }) => (
           {items.map((item, i) => (
             <span key={i} className="flex items-center">
               <span className="font-display text-2xl md:text-4xl font-medium text-[#1C1917]/80 px-8 tracking-[-0.02em]">{item}</span>
-              <span className="w-2 h-2 rotate-45 bg-[#E04006]/70 shrink-0" />
+              <span className="w-2 h-2 rotate-45 bg-[#FF4D00]/70 shrink-0" />
             </span>
           ))}
         </div>
@@ -78,7 +78,7 @@ export const FAQ = ({ items, testid = "faq" }) => (
           className="text-left font-display text-base md:text-lg font-medium text-[#1C1917] hover:no-underline py-6 gap-4"
         >
           <span className="flex items-baseline gap-4">
-            <span className="font-mono2 text-[11px] text-[#E04006] tracking-widest shrink-0">{String(i + 1).padStart(2, "0")}</span>
+            <span className="font-mono2 text-[11px] text-[#FF4D00] tracking-widest shrink-0">{String(i + 1).padStart(2, "0")}</span>
             <span>{item.q}</span>
           </span>
         </AccordionTrigger>

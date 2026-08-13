@@ -22,13 +22,13 @@ export default function Partners() {
           {TRACKS.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.08}>
               <div className="surface-card rounded-md p-10 h-full hover:border-black/20 transition-colors duration-300" data-testid={`partner-${t.name.toLowerCase().replace(/\s+/g, "-")}`}>
-                <t.icon className="w-5 h-5 text-[#E04006] mb-8" />
+                <t.icon className="w-5 h-5 text-[#FF4D00] mb-8" />
                 <h2 className="font-display text-2xl font-bold text-[#1C1917] tracking-[-0.02em]">{t.name}</h2>
                 <p className="text-[#57534E] text-sm mt-4 leading-relaxed">{t.desc}</p>
                 <ul className="mt-8 pt-6 border-t border-black/[0.07] space-y-3">
                   {t.points.map((pt) => (
                     <li key={pt} className="flex items-center gap-2.5 text-xs text-[#57534E]">
-                      <span className="w-1 h-1 bg-[#E04006]/70 rotate-45 shrink-0" />
+                      <span className="w-1 h-1 bg-[#FF4D00]/70 rotate-45 shrink-0" />
                       {pt}
                     </li>
                   ))}

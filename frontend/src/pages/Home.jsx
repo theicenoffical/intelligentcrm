@@ -39,7 +39,7 @@ const Hero = () => (
         transition={{ duration: 0.6, delay: 0.1 }}
         className="flex items-center gap-3 mb-8"
       >
-        <span className="w-1.5 h-1.5 bg-[#E04006] animate-signal rounded-full" />
+        <span className="w-1.5 h-1.5 bg-[#FF4D00] animate-signal rounded-full" />
         <span className="font-mono2 text-[11px] tracking-[0.3em] uppercase text-[#57534E]" data-testid="hero-overline">
           Sales IQ · Design My CRM · {SITE.company}
         </span>
@@ -79,7 +79,7 @@ const Hero = () => (
           [Database, "Your Data", "Owned and governed by you"],
         ].map(([Icon, label, sub]) => (
           <div key={label} className="flex items-start gap-3">
-            <Icon className="w-4 h-4 text-[#E04006] mt-0.5 shrink-0" />
+            <Icon className="w-4 h-4 text-[#FF4D00] mt-0.5 shrink-0" />
             <div>
               <p className="font-mono2 text-[11px] tracking-[0.2em] uppercase text-[#1C1917]">{label}</p>
               <p className="text-xs text-[#57534E] mt-1">{sub}</p>
@@ -113,11 +113,11 @@ const Manifesto = () => (
           {PILLARS.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.04}>
               <div className="group relative border-t border-black/[0.07] py-10 md:py-12" data-testid={`pillar-${p.id}`}>
-                <span className="pointer-events-none select-none absolute -top-3 right-0 font-display font-extrabold text-[7rem] md:text-[10rem] leading-none text-stone-200/80 transition-colors duration-300 group-hover:text-[#E04006]/15" aria-hidden="true">
+                <span className="pointer-events-none select-none absolute -top-3 right-0 font-display font-extrabold text-[7rem] md:text-[10rem] leading-none text-stone-200/80 transition-colors duration-300 group-hover:text-[#FF4D00]/15" aria-hidden="true">
                   {p.num}
                 </span>
                 <div className="relative grid grid-cols-[auto_1fr] gap-6 md:gap-10">
-                  <span className="font-mono2 text-sm text-[#E04006] tracking-widest pt-1.5">{p.num}</span>
+                  <span className="font-mono2 text-sm text-[#FF4D00] tracking-widest pt-1.5">{p.num}</span>
                   <div>
                     <h3 className="font-display text-2xl md:text-3xl font-bold tracking-[-0.02em] text-[#1C1917]">
                       {p.title}
@@ -153,7 +153,7 @@ const Deployment = () => (
           <Reveal key={m.name} delay={i * 0.08}>
             <div className="surface-card rounded-md p-8 h-full group hover:border-black/20 transition-colors duration-300" data-testid={`deploy-${m.name.toLowerCase().replace(/\s+/g, "-")}`}>
               <div className="flex items-center justify-between mb-8">
-                <span className="font-mono2 text-xs text-[#E04006] tracking-widest">MODEL {m.num}</span>
+                <span className="font-mono2 text-xs text-[#FF4D00] tracking-widest">MODEL {m.num}</span>
                 <span className="w-8 h-8 border border-black/10 grid place-items-center rounded-sm">
                   <Server className="w-3.5 h-3.5 text-[#57534E]" />
                 </span>
@@ -163,7 +163,7 @@ const Deployment = () => (
               <ul className="mt-6 space-y-2">
                 {m.points.map((pt) => (
                   <li key={pt} className="flex items-center gap-2 text-xs text-[#57534E]">
-                    <span className="w-1 h-1 bg-[#E04006]/70 rotate-45 shrink-0" />
+                    <span className="w-1 h-1 bg-[#FF4D00]/70 rotate-45 shrink-0" />
                     {pt}
                   </li>
                 ))}
@@ -196,7 +196,7 @@ const ProductPreview = () => (
           <div className="rounded-3xl p-4 md:p-8" style={{ background: "radial-gradient(ellipse at 50% 0%, #FFFFFF 0%, #F5F5F4 55%, #E7E5E4 100%)" }}>
             <div className="rounded-2xl border border-black/[0.06] bg-white shadow-[0_30px_80px_-20px_rgba(15,23,42,0.25)] overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-3 border-b border-black/[0.05] bg-stone-50">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#E04006]/70" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D00]/70" />
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
                 <span className="ml-3 font-mono2 text-[10px] tracking-wider text-stone-400 bg-white border border-black/[0.05] rounded px-2.5 py-1">app.designmycrm.com/dashboards</span>
@@ -219,7 +219,7 @@ const AIPreview = () => (
           <SectionTitle>AI that assists.<br />People who decide.</SectionTitle>
         </Reveal>
         <Reveal delay={0.1}>
-          <Link to="/features" data-testid="ai-view-all" className="group inline-flex items-center gap-2 text-sm text-[#1C1917] font-medium border-b border-[#E04006] pb-1 hover:text-[#1C1917] transition-colors duration-150">
+          <Link to="/features" data-testid="ai-view-all" className="group inline-flex items-center gap-2 text-sm text-[#1C1917] font-medium border-b border-[#FF4D00] pb-1 hover:text-[#1C1917] transition-colors duration-150">
             All 20 AI capabilities
             <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
@@ -229,7 +229,7 @@ const AIPreview = () => (
         {AI_FEATURES.slice(0, 8).map((f, i) => (
           <Reveal key={f.slug} delay={(i % 4) * 0.06} className="bg-[#FAFAF9]">
             <div className="p-8 h-full hover:bg-[#FFFFFF] transition-colors duration-300" data-testid={`ai-feature-${f.slug}`}>
-              <p className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#E04006] mb-4">{f.category}</p>
+              <p className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#FF4D00] mb-4">{f.category}</p>
               <h3 className="font-display text-lg font-bold text-[#1C1917] tracking-[-0.01em]">{f.name}</h3>
               <p className="text-[#57534E] text-sm mt-3 leading-relaxed">{f.desc}</p>
             </div>
@@ -252,7 +252,7 @@ const Comparison = () => (
           <div className="p-6 font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#57534E]">Dimension</div>
           <div className="p-6 font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#57534E] border-l border-black/[0.07]">Traditional SaaS CRM</div>
           <div className="p-6 font-mono2 text-[11px] tracking-[0.25em] uppercase text-[#1C1917] border-l border-black/[0.07]">
-            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#E04006] rotate-45" />Sales IQ</span>
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#FF4D00] rotate-45" />Sales IQ</span>
           </div>
         </div>
         {COMPARISON.map((row, i) => (
@@ -335,7 +335,7 @@ const SecurityStrip = () => (
         <Reveal>
           <div className="flex items-center gap-4">
             <span className="w-12 h-12 border border-black/10 grid place-items-center rounded-md">
-              <Shield className="w-5 h-5 text-[#E04006]" />
+              <Shield className="w-5 h-5 text-[#FF4D00]" />
             </span>
             <div>
               <h3 className="font-display text-2xl font-bold text-[#1C1917] tracking-[-0.02em]">Enterprise security, by design.</h3>

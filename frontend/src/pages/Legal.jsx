@@ -5,7 +5,7 @@ import { SITE } from "../data/site";
 const LegalSection = ({ num, title, children }) => (
   <Reveal>
     <div className="border-t border-black/[0.07] py-10 grid md:grid-cols-[auto_1fr] gap-6 md:gap-12">
-      <span className="font-mono2 text-xs text-[#E04006] tracking-widest pt-1">{num}</span>
+      <span className="font-mono2 text-xs text-[#FF4D00] tracking-widest pt-1">{num}</span>
       <div>
         <h2 className="font-display text-xl md:text-2xl font-bold text-[#1C1917] tracking-[-0.02em]">{title}</h2>
         <div className="text-[#57534E] text-sm md:text-base mt-4 leading-[1.85] space-y-4 max-w-3xl">{children}</div>

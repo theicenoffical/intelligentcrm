@@ -53,7 +53,7 @@ export default function Developers() {
                   <div className="flex items-center gap-2 px-5 py-3.5 border-b border-black/[0.07]">
                     <span className="w-2.5 h-2.5 rounded-full bg-black/10" />
                     <span className="w-2.5 h-2.5 rounded-full bg-black/10" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#E04006]/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D00]/60" />
                     <span className="font-mono2 text-[10px] tracking-[0.2em] text-[#57534E] ml-2">CREATE OPPORTUNITY</span>
                   </div>
                   <pre className="p-6 overflow-x-auto">

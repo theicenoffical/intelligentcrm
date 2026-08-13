@@ -7,7 +7,7 @@ import { Field } from "../components/DemoForm";
 import { submitContactMessage } from "../lib/api";
 import { SITE } from "../data/site";
 
-const inputCls = "w-full bg-[#FFFFFF] border border-black/[0.12] rounded-md px-4 py-3.5 text-sm text-[#1C1917] placeholder:text-[#57534E]/50 outline-none focus:border-[#E04006] focus:ring-2 focus:ring-[#E04006]/20 transition-[border-color] duration-150";
+const inputCls = "w-full bg-[#FFFFFF] border border-black/[0.12] rounded-md px-4 py-3.5 text-sm text-[#1C1917] placeholder:text-[#57534E]/50 outline-none focus:border-[#FF4D00] focus:ring-2 focus:ring-[#FF4D00]/20 transition-[border-color] duration-150";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", company: "", subject: "", message: "" });
@@ -45,7 +45,7 @@ export default function Contact() {
             ].map(([Icon, label, value, href, testid]) => (
               <div key={label} className="surface-card rounded-md p-7 flex items-start gap-5">
                 <span className="w-10 h-10 border border-black/10 grid place-items-center rounded-sm shrink-0">
-                  <Icon className="w-4 h-4 text-[#E04006]" />
+                  <Icon className="w-4 h-4 text-[#FF4D00]" />
                 </span>
                 <div>
                   <p className="font-mono2 text-[10px] tracking-[0.25em] uppercase text-[#57534E]">{label}</p>
@@ -63,7 +63,7 @@ export default function Contact() {
           <div className="surface-card rounded-md p-8 md:p-10">
             {status === "done" ? (
               <div className="text-center py-10" data-testid="contact-success">
-                <CheckCircle2 className="w-10 h-10 text-[#E04006] mx-auto mb-6" />
+                <CheckCircle2 className="w-10 h-10 text-[#FF4D00] mx-auto mb-6" />
                 <h3 className="font-display text-2xl font-bold text-[#1C1917]">Message received.</h3>
                 <p className="text-[#57534E] text-sm mt-3 max-w-sm mx-auto">Thank you, {form.name.split(" ")[0]}. We'll reply within one business day.</p>
               </div>
@@ -95,7 +95,7 @@ export default function Contact() {
                   type="submit"
                   data-testid="contact-submit"
                   disabled={status === "loading"}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#E04006] text-white font-semibold text-sm px-6 py-4 rounded-md transition-[transform,background-color,opacity] duration-200 hover:bg-[#C83805] active:scale-[0.99] disabled:opacity-60"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#FF4D00] text-white font-semibold text-sm px-6 py-4 rounded-md transition-[transform,background-color,opacity] duration-200 hover:bg-[#E64500] active:scale-[0.99] disabled:opacity-60"
                 >
                   {status === "loading" && <Loader2 className="w-4 h-4 animate-spin" />}
                   {status === "loading" ? "Sending…" : "Send Message"}

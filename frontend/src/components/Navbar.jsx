@@ -12,13 +12,8 @@ const DROPDOWNS = {
 };
 
 const Logo = () => (
-  <Link to="/" data-testid="nav-logo" className="flex items-center gap-2.5 shrink-0">
-    <span className="w-7 h-7 border border-black/30 rounded-sm grid place-items-center">
-      <span className="w-2 h-2 bg-[#E04006] rotate-45 animate-signal" />
-    </span>
-    <span className="font-display font-bold text-lg tracking-[-0.02em] text-[#1C1917]">
-      Design My <span className="text-[#57534E] font-medium">CRM</span>
-    </span>
+  <Link to="/" data-testid="nav-logo" className="flex items-center shrink-0">
+    <img src="/logo.png" alt="Design My CRM" className="h-9 w-auto rounded-lg" />
   </Link>
 );
 
@@ -94,7 +89,7 @@ export const Navbar = () => {
           <Link
             to="/book-demo"
             data-testid="nav-book-demo"
-            className="bg-[#E04006] text-white text-[13px] font-semibold px-5 py-2.5 rounded-md transition-[transform,background-color] duration-200 hover:bg-[#C83805] active:scale-[0.98]"
+            className="bg-[#FF4D00] text-white text-[13px] font-semibold px-5 py-2.5 rounded-md transition-[transform,background-color] duration-200 hover:bg-[#E64500] active:scale-[0.98]"
           >
             Book a Demo
           </Link>
@@ -123,7 +118,7 @@ export const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
-              <Link to="/book-demo" data-testid="nav-mobile-book-demo" className="mt-4 bg-[#E04006] text-white text-sm font-semibold px-5 py-3 rounded-md text-center">
+              <Link to="/book-demo" data-testid="nav-mobile-book-demo" className="mt-4 bg-[#FF4D00] text-white text-sm font-semibold px-5 py-3 rounded-md text-center">
                 Book a Demo
               </Link>
             </div>
@@ -174,7 +169,7 @@ export const Footer = () => (
           © {new Date().getFullYear()} {SITE.company}. All rights reserved.
         </p>
         <p className="font-mono2 text-[11px] text-[#57534E]/60 tracking-wider">
-          INTELLIGENT CRM · SALES IQ · ENTERPRISE OWNED
+          DESIGN MY CRM · SALES IQ · ENTERPRISE OWNED
         </p>
       </div>
     </div>
